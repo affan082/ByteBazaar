@@ -1,0 +1,77 @@
+{
+  "CartErrors": {
+    "CART_NOT_FOUND": "Cart not found",
+    "ITEM_NOT_AVAILABLE": "One or more items are unavailable",
+    "INVALID_COUPON": "The coupon code is invalid",
+    "COUPON_EXPIRED": "The coupon code has expired",
+    "MIN_ORDER_NOT_MET": "Minimum order value not met",
+    "OUT_OF_STOCK": "Some products are out of stock"
+  },
+  "UserAuthErrors": {
+    "USER_NOT_FOUND": "User not found",
+    "USERNAME_ALREADY_EXISTS": "An account with this username already exists",
+    "INVALID_CREDENTIALS": "Invalid email or password",
+    "EMAIL_ALREADY_EXISTS": "An account with this email already exists",
+    "UNAUTHORIZED_ACCESS": "You are not authorized to perform this action",
+    "TOKEN_EXPIRED": "Session expired, please log in again",
+    "ACCOUNT_DISABLED": "Your account has been disabled",
+    "MISSING_CREDENTIALS": "The Required Data was not Found",
+    "FORBIDDEN_ACCESS": "The access to this resource is forbidden.",
+    "SELLER_MISSING_FIELDS": "Seller registration requires Shop Name, CNIC, and Bank Account Number"
+  },
+  "OrderErrors": {
+    "ORDER_NOT_FOUND": "Order not found",
+    "INVALID_ORDER_STATUS": "Invalid status transition for order",
+    "PAYMENT_FAILED": "Payment processing failed",
+    "DELIVERY_ADDRESS_MISSING": "Delivery address is required",
+    "NO_TRANSACTION_ID": "The transaction ID is missing",
+    "ORDER_CREATION_ERROR": "Sorry, the order could not be created."
+  },
+  "PaymentErrors": {
+    "INVALID_PAYMENT_METHOD": "The selected payment method is not valid",
+    "PAYMENT_DECLINED": "Payment was declined by the provider",
+    "INSUFFICIENT_FUNDS": "Insufficient funds",
+    "CURRENCY_NOT_SUPPORTED": "Selected currency is not supported",
+    "EMPTY_CART": "There is not product in the Cart."
+  },
+  "SellerProductErrors": {
+    "PRODUCT_NOT_FOUND": "Product not found",
+    "PRODUCT_ALREADY_EXISTS": "A product with this name already exists",
+    "UNAUTHORIZED_SELLER": "You are not authorized to modify this product",
+    "INVALID_PRODUCT_DATA": "Product data is invalid"
+  },
+  "ValidationErrors": {
+    "VALIDATION_ERROR": "Some fields failed validation",
+    "MISSING_REQUIRED_FIELD": "Required field is missing",
+    "RESOURCE_CONFLICT": "Resource already exists",
+    "INTERNAL_ERROR": "Something went wrong"
+  },
+  "SecurityErrors": {
+    "INVALID_TOKEN": "Invalid or malformed token",
+    "FORBIDDEN_ACTION": "You do not have permission",
+    "CSRF_TOKEN_MISSING": "CSRF token is missing or invalid"
+  },
+  "ServerErrors": {
+    "INTERNAL_ERROR": "Internal Server Error",
+    "INCOMPLETE_REQUEST": "Incomplete/Bad Request"
+  },
+  "ProductErrors": {
+    "ADDITION_ERROR": "There was a problem while adding new product.",
+    "UPDATE_ERROR": "There was a problem Updating the Product."
+  },
+  "StripeErrors": {
+    "SMALL_AMOUNT": "amount_too_small",
+    "SESSION_CREATION_ERROR": "There was an error creating stripe session.",
+    "MISSING_SESSION_ID": "The Stripe Session Id is Missing.",
+    "PRODUCT_CREATION_ERROR": "Could not create Stripe Product"
+  },
+  "RoleErrors": {
+    "ROLE_NOT_FOUND": "Role not found",
+    "ROLE_ALREADY_EXISTS": "A role with this name already exists"
+  },
+  "RequestFailureErrors": {
+    "NOT_FOUND": "This resource does not exist."
+  }
+
+
+}

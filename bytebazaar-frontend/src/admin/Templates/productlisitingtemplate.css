@@ -1,0 +1,19 @@
+.product-thumbnail {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.product {
+  border: 1px solid var(--clr-border);
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.product > div {
+  border-left: 1px solid var(--clr-border);
+}
+
+.c-btn:hover{
+  background-color: var(--clr-primary) !important;
+    color: var(--clr-secondary) !important;
+}

@@ -1,0 +1,24 @@
+.product-category-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-inputtext {
+  padding: 0.4em !important;
+}
+
+.p-multiselect-filter {
+  padding: 0.4em !important;
+}
+
+.p-multiselect .p-multiselect-label {
+  padding: 0.5rem 1rem;
+}
+
+ul {
+  padding: 0 !important;
+}
+
+.p-multiselect.p-multiselect-chip .p-multiselect-token {
+  padding: 0.25em 0.6em !important;
+}/*# sourceMappingURL=admin-products.css.map */

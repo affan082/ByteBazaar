@@ -1,0 +1,96 @@
+[
+  {
+    "title": "Audio and Home Theater",
+    "slug": "audio_and_home_theater",
+    "items": [
+      {
+        "title": "Digital Camera",
+        "slug": "digital_camera"
+      },
+      {
+        "title": "Camera Photo",
+        "slug": "camera_photo"
+      },
+      {
+        "title": "4K UHD Streaming Media Players",
+        "slug": "4k_uhd_streaming_media_players"
+      },
+      {
+        "title": "Apple TV",
+        "slug": "apple_tv"
+      },
+      {
+        "title": "Fire TV Streaming Media Devices",
+        "slug": "fire_tv_streaming_media_devices"
+      },
+      {
+        "title": "NVIDIA Shield",
+        "slug": "nvidia_shield"
+      }
+    ]
+  },
+  {
+    "title": "Camera Photo Video",
+    "slug": "camera_photo_video",
+    "items": [
+      {
+        "title": "CD Players & Turntables",
+        "slug": "cd_players_turntables"
+      },
+      {
+        "title": "Home Theater Systems",
+        "slug": "home_theater_systems"
+      },
+      {
+        "title": "Receivers & Amplifiers",
+        "slug": "receivers_amplifiers"
+      },
+      {
+        "title": "Speakers",
+        "slug": "speakers"
+      }
+    ]
+  },
+  {
+    "title": "Laptop & Computer",
+    "slug": "laptop_computer",
+    "items": [
+      {
+        "title": "Desktops",
+        "slug": "desktops"
+      },
+      {
+        "title": "Microsoft Surface Go",
+        "slug": "microsoft_surface_go"
+      },
+      {
+        "title": "Microsoft Surface Pro",
+        "slug": "microsoft_surface_pro"
+      },
+      {
+        "title": "Refurbished Tablets",
+        "slug": "refurbished_ \u0442\u0430\u0431\u043b\u0435\u0442\u043a\u0438"
+      },
+      {
+        "title": "All-in-One Computers",
+        "slug": "all_in_one_computers"
+      },
+      {
+        "title": "Apple iMac Mini & Mac Pro",
+        "slug": "apple_imac_mini_mac_pro"
+      },
+      {
+        "title": "Gaming Desktops",
+        "slug": "gaming_desktops"
+      },
+      {
+        "title": "Cellphones & Accessories",
+        "slug": "cellphones_accessories"
+      },
+      {
+        "title": "Network Devices",
+        "slug": "network_devices"
+      }
+    ]
+  }
+]

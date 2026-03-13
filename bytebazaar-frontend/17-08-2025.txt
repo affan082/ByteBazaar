@@ -1,0 +1,6 @@
+We shal use the tailadmin dashboard pages
+
+Needs Resposiveness
+Needs Authourization Implimentation
+Shop Page Completion
+Need Admin Page

@@ -1,0 +1,19 @@
+.queryable-loop-grid-wrapper .loop-grid-title {
+  padding: 0 0 20px 0;
+}
+.queryable-loop-grid-wrapper .queryable-loop-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.queryable-loop-grid-wrapper .queryable-loop-grid .loop-grid-item {
+  padding: 0 !important;
+}
+@media screen and (max-width: 767px) {
+  .queryable-loop-grid-wrapper .queryable-loop-grid {
+    flex-direction: column;
+  }
+  .queryable-loop-grid-wrapper .queryable-loop-grid > div {
+    width: 100% !important;
+  }
+}/*# sourceMappingURL=QueryableLoopGrid.css.map */

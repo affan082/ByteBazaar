@@ -1,0 +1,25 @@
+.product-add-to-cart-wrapper {
+  position: relative;
+}
+.product-add-to-cart-wrapper .add-to-cart-loader {
+  display: none;
+  aspect-ratio: 1;
+  width: 40px;
+  background: url("/public/assets/Loading_icon.gif") center center no-repeat;
+  background-size: cover;
+  position: relative;
+  bottom: 0;
+}
+.product-add-to-cart-wrapper .add-to-cart-loader.loading {
+  display: block;
+}
+.product-add-to-cart-wrapper .cart-popup .cart-popup-heading {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.Toastify > .Toastify__toast-container {
+  position: fixed !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}/*# sourceMappingURL=add-to-cart.css.map */

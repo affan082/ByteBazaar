@@ -1,0 +1,188 @@
+.aboutus-page{
+  // styles for the container
+  font-family: 'Work Sans', sans-serif;
+  .aboutus-title {
+    // styles for the title
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffc107;
+  }
+ }
+  .gi-about-section {
+    // styles for the section
+    h3 {
+      // styles for the h3 title
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+
+      span {
+        // styles for the span text
+        color: #ffc107;
+      }
+    }
+
+    p {
+      // styles for the paragraph
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+  .why-choose-bytebazaar {
+    // styles for the why choose bytebazaar section
+    ul {
+      // styles for the unordered list
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        // styles for the list item
+        margin-bottom: 10px;
+
+        span {
+          // styles for the span text
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+  @media (max-width: 768px) {
+    .section.why-choose-bytebazaar {
+      // styles for the why choose bytebazaar section on small screens
+      ul {
+        // styles for the unordered list on small screens
+        flex-direction: column;
+
+        li {
+          // styles for the list item on small screens
+          width: 100%;
+          margin-bottom: 20px;
+
+          span {
+            // styles for the span text on small screens
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+
+.gi-service-section {
+  // styles for the container
+  font-family: 'Work Sans', sans-serif;
+  h3 {
+    // styles for the title
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    span {
+      // styles for the title span
+      color: #ffc107;
+    }
+  }
+
+  p {
+    // styles for the paragraph
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .gi-ser-inner {
+    // styles for the card container
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+
+    @media (max-width: 768px) {
+      // styles for the card container on small screens
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .gi-service-icon {
+      // styles for the icon container
+      font-size: 24px;
+      color: #ffc107;
+      margin-bottom: 10px;
+
+      i {
+        // styles for the icon
+        font-size: 3rem;
+        display: block;
+        text-align: center;
+      }
+    }
+
+    .card-title {
+      // styles for the title
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .card-text {
+      // styles for the text
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+  }
+}
+.aboutus-client-review {
+  // styles for the container
+  font-family: 'Work Sans', sans-serif;
+  .client-review-carousel {
+    // styles for the carousel container
+    max-width: 800px;
+    margin: 0 auto;
+
+    .client-review-container {
+      // styles for the client review container
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      flex-direction: column;
+
+      .client-img {
+        // styles for the client image
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 0 auto;
+      }
+
+      .client-name {
+        // styles for the client name
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+
+    .review-quote-icon-start {
+      // styles for the review quote icon start
+      font-size: 24px;
+      color: #666;
+      margin-bottom: 10px;
+      margin-left: 10px;
+    }
+
+    .client-review {
+      // styles for the client review text
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+}

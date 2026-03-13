@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "compilerOptions": {
+    "jsx": "react-jsx",  // Use "react" for React <17
+    "moduleResolution": "Node",
+    "allowImportingTsExtensions": true
+  },
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

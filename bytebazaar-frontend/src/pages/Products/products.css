@@ -1,0 +1,136 @@
+#resetFilter{
+    text-align: end;
+  }
+  .sidebar h5 {
+    font-weight: bolder;
+    margin-bottom: 0.2rem;
+    color: #0dcaf0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .list-unstyled{
+    font: 1em sans-serif;
+    margin-bottom: 1.8rem;
+  }
+  
+  .colors{
+   width: fit-content;
+   margin-left: 0;
+   justify-items: left;
+  }
+  .sidebar .color-dot {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0.1rem;
+    border-radius: 50%;
+  }
+  
+  /* Add background colors for each color dot */
+  .sidebar .color-dot.red {
+    background-color: red; 
+  }
+  
+  .sidebar .color-dot.blue {
+    background-color: blue;
+  }
+  
+  .sidebar .color-dot.green {
+    background-color: green;
+  }
+  
+  .sidebar .color-dot.yellow {
+    background-color: yellow;
+  }
+  
+  .sidebar .color-dot.purple {
+    background-color: purple;
+  }
+  
+  .sidebar .color-dot.orange {
+    background-color: orange;
+  }
+  
+  .sidebar .color-dot.black {
+    background-color: black;
+  }
+  
+  .sidebar .color-dot.white {
+    background-color: #cff;
+  }
+  
+  /* Product card styles */
+  .product-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2%;
+  }
+  
+  .product-card .card-title {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .product-card .card-text {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 2px;
+  }
+  
+  .product-card .rating i {
+    font-size: 1rem;
+    color: yellow;
+  }
+  
+  .product-card img{
+    height: 150px;
+    width: 90%;
+    padding: 15px;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+  }
+  /* Banner styles */
+  .banner {
+    background-image: url("../../../public/assets/pexels-nao-triponez-129208\ 1.svg");
+    background-color: #222;
+    border-radius: 8px;
+  }
+  
+  .banner h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: rgb(13, 49, 255);
+  }
+  
+  .banner p {
+    text-align: right;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: aliceblue;
+    margin-right: 10%;
+  }
+  
+  .banner .btn-warning, .banner .btn-primary {
+    font-size: 1rem;
+  }
+  
+  .banner btn{
+   right: 0;
+  }
+  
+   input[type="checkbox"]{
+      accent-color: black;
+      background-color: #0dcaf0;
+   }
+  
+  
+   hr{
+    width: 20%;
+    margin-top: 0.5rem;
+    margin-left: 0;
+  
+   }

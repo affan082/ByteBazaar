@@ -1,0 +1,29 @@
+.empty-cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //min-height: 100vh;
+  background-color: #f7f7f9; /* Light gray background */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  .empty-cart-card {
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 1.5rem; /* Rounded corners */
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .cart-icon {
+    color: #6c757d; /* Bootstrap gray */
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+  }
+}

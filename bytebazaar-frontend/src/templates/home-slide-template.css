@@ -1,0 +1,35 @@
+.hero-slide {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover;
+  padding: 4em 3em;
+  height: 70vh;
+  max-height: 700px ;
+  /*filter:brightness(0.8);*/
+}
+
+.title {
+  font: 500 3em/1em var(--font-family);
+}
+
+.price {
+  font: 400 1.5em/1em var(--font-family);
+  color: var(--clr-text-light-2);
+  font-style: italic;
+}
+
+.shop-now {
+  width: fit-content !important;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-slide .title {
+    font-size: 2em !important;
+  }
+  .hero-slide .price {
+    font-size: 1.2em !important;
+  }
+}

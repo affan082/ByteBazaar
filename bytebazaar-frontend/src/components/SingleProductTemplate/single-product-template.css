@@ -1,0 +1,56 @@
+.single-product-template {
+  color: #333;
+  width: 100%;
+  padding: 20px;
+  border: none;
+}
+.single-product-template .product-images {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 25px;
+}
+.single-product-template .product-images .main-image-container {
+  width: 50%;
+  min-height: 300px;
+  margin-left: 15%;
+}
+.single-product-template .product-images .main-image-container .main-image {
+  width: 100%;
+  padding: 5%;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.single-product-template .product-images .main-image-container .main-image:hover {
+  padding: 5px;
+  transform: scale(1.05);
+}
+.single-product-template .product-images .thumbnail-images {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.single-product-template .product-images .thumbnail-images .thumbnail {
+  width: 120px;
+  height: 100px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.single-product-template .product-images .thumbnail-images .thumbnail:hover {
+  transform: scale(1.1);
+  padding: 5px;
+}
+.single-product-template .related-products-section .related-products-carousel .product-carousel-template-1 {
+  margin: 15px;
+}
+.single-product-template .related-products-section .related-products-carousel .product-carousel-template-1:hover {
+  transform: scale(0.97);
+}/*# sourceMappingURL=single-product-template.css.map */

@@ -1,0 +1,19 @@
+.acc-info {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.acc-info .info-title {
+  text-align: left;
+  color: rgb(124, 119, 119);
+  font-weight: bold;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+.acc-info .info-text {
+  text-align: left;
+  margin-top: 15px;
+  line-height: 40px;
+  color: grey;
+}/*# sourceMappingURL=profile_info.css.map */

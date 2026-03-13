@@ -1,0 +1,131 @@
+.fade {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .review-modal-wrapper .modal-content {
+    padding: 20px;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 900px !important;
+    margin: auto;
+  }
+  
+  .review-modal-header {
+    color: #faca00; 
+    border: none;
+    padding-bottom: 10px;
+    border-radius: 0px;
+  }
+  
+  .review-modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    word-spacing: 0px;
+  }
+  
+  .review-modal-left {
+    text-align: center;
+    padding: 1rem;
+  
+    .review-product-img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+  
+    .review-product-name {
+      font-weight: 600;
+      font-size: 18px;
+    }
+  
+    p {
+      font-size: 14px;
+      color: #6c757d;     
+      padding: 15px;
+      text-align: left;
+    }
+  }
+  
+  .review-modal-right {
+    padding: 1rem;
+  }
+  
+  .review-form-heading {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 18px;
+  }
+  
+  .rating-wrapper {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  
+    .rating-label {
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  
+    label {
+      font-size: 14px;
+      display: block;
+      text-align: right;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    input,
+    textarea {
+      font-size: 14px;
+      border-radius: 4px;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+  
+  .button-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .c-btn {
+    
+    font-weight: bold;
+  
+  }
+  
+  .required-fields-note {
+   display: block; 
+    padding: 0px;
+}
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .review-modal-wrapper .modal-content {
+      max-width: 100% !important;
+      margin: 0 10px;
+    }
+  
+    .review-modal-left,
+    .review-modal-right {
+      padding: 0.5rem;
+    }
+  
+    .button-group {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .review-product-img {
+      max-width: 180px;
+    }
+  }

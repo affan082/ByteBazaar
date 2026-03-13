@@ -1,0 +1,109 @@
+@import "../../../global/global.scss";
+
+
+.features{
+
+
+  .feature{
+    position: relative;
+    &:after{
+      content: "";
+      height: 80%;
+      border-left: 1px solid var(--clr-border);
+      position: absolute;
+      right: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 0 10px rgba(0,0,0,0.01);
+    }
+    &:last-child{
+      &:after{
+        display: none;
+      }
+    }
+
+    @include LaptopLarge{
+      padding:0 !important;
+      .image-box{
+        padding:1rem
+      }
+    }
+  }
+  .image-box{
+    padding: 2rem;
+    gap: 1rem;
+    //border: 1px solid var(--clr-border);
+    //border-radius: 0.5em;
+    //box-shadow: 0 0 10px rgba(0,0,0,0.01);
+
+    .image-box-image-content{
+      width: 50px;
+    }
+
+    .image-box-content-wrapper{
+      gap: 0.5rem;
+      .text-heading{
+        font: 600 0.9em/1 "Work Sans", sans-serif;
+      }
+      .text-description{
+        font: 400 0.8em/1 "Work Sans", sans-serif;
+      }
+    }
+
+    @include Tablet{
+      margin-bottom:20px;
+      gap: 2rem;
+    }
+  }
+
+  @include LaptopLarge{
+    .row {
+      gap:0.5em;
+
+      .text-heading,.text-description{
+        line-height: 1.2 !important;
+      }
+    }
+
+    .feature{
+      flex: 1 1 20% !important;
+    }
+  }
+
+  @include Tablet{
+    padding: 20px 20px 0 !important;
+    .feature{
+      flex: 1 1 40% !important;
+      &:nth-child(2n)::after{
+        display: none;
+      }
+    }
+  }
+
+  @include Mobile{
+    .feature{
+      flex: 1 1 100% !important;
+      position: relative !important;
+      //padding: 0.5em !important;
+      &:not(:last-child):after{
+        display: block !important;
+        height: 3px !important;
+        width: 80% !important;
+        left: 50% !important;
+        bottom: 0 !important;
+        top: unset !important;
+        right: unset !important;
+        border-left: 0 !important;
+        border-bottom: 1px solid var(--clr-border);
+        transform: translateX(-50%) !important;
+        box-shadow: none !important;
+      }
+
+      .image-box{
+        padding: 1em 2em !important;
+      }
+    }
+  }
+
+
+}

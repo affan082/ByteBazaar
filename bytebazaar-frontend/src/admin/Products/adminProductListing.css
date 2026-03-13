@@ -1,0 +1,69 @@
+.admin-product-listing .product-list-wrapper {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.12);
+  padding: 1rem;
+  overflow-x: auto;
+}
+.admin-product-listing .product-list-wrapper .product-list-header {
+  display: flex;
+  font-weight: 600;
+  color: #495057;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.admin-product-listing .product-list-wrapper .product-list-header .col {
+  flex: 1;
+  text-align: center;
+}
+.admin-product-listing .product-list-wrapper .product-list-header .actions {
+  flex: 1.2;
+}
+.admin-product-listing .product-list-wrapper .product-list-body {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-top: 0.5rem;
+}
+.admin-product-listing .product-list-wrapper .product-list-body .product-row {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  margin-bottom: 0.7rem;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border-bottom: #ffc107 1px solid;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+.admin-product-listing .product-list-wrapper .product-list-body .product-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.12);
+}
+.admin-product-listing .product-list-wrapper .product-list-body .product-row .t-length {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.admin-product-listing .product-list-wrapper .product-list-body .product-row .col {
+  flex: 1;
+  text-align: center;
+  color: #212529;
+  font-size: 0.95rem;
+}
+.admin-product-listing .product-list-wrapper .product-list-body .product-row .actions {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+}
+.admin-product-listing .product-list-wrapper .no-products {
+  text-align: center;
+  padding: 1rem;
+  color: #6c757d;
+  font-weight: 500;
+}/*# sourceMappingURL=adminProductListing.css.map */

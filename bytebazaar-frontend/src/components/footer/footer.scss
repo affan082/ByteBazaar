@@ -1,0 +1,140 @@
+.footer{
+  .footer-upper-section{
+    background-color: var(--clr-gray-light);
+  }
+  p{
+    color: var(--clr-text);
+    margin: 0;
+  }
+
+  .newsletter-form{
+    border-radius: 0.4em;
+    overflow: hidden;
+    input{
+      padding: 1.2em 2em !important;
+      background: var(--clr-white);
+    }
+    input[type='email']{
+      width: 70%;
+    }
+    input[type='submit']{
+      width: 30%;
+      background-color: var(--clr-secondary);
+      font-weight: 600;
+    }
+  }
+
+  .social-icon{
+    background-color: var(--clr-white);
+    padding: 0.5em;
+    width: 3.5em;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    i{
+      font-size: 1.2em;
+    }
+  }
+
+  .footer-main-section{
+    .logo{
+      display: inline-block;
+      width: 250px;
+      height: 150px;
+      object-fit: contain;
+    }
+
+    .payment-methods{
+      width: 300px;
+    }
+
+    h5{
+      //margin-bottom: 1em;
+    }
+
+    li{
+      list-style: none;
+      a{
+        text-decoration: none;
+        color: var(--clr-text);
+        display: block;
+        margin-bottom: 0.5em;
+      }
+    }
+
+    .contact-detail{
+      margin-bottom: 1em;
+      span {
+        font-weight: 600;
+        color: var(--clr-primary);
+        padding: 0;
+      }
+    }
+  }
+  .copyright{
+    font-size: 0.9em;
+
+    span.app-name{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .footer-bottom-section{
+
+    .link{
+      display: flex;
+      gap: 1em;
+      li{
+        list-style-type: none;
+        text-decoration: none;
+        a{
+          color: var(--clr-text);
+        }
+      }
+    }
+
+    .divider{
+      border-top: 1px solid var(--clr-border);
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 767px){
+    .footer-upper-section{
+      flex-direction: column;
+      gap: 1em !important;
+      &>div{
+        width: 100%;
+      }
+      .social-icons{
+        justify-content: start !important;
+      }
+    }
+
+    .footer-main-section{
+      flex-direction: column;
+      &>div{
+        width: 100% !important;
+      }
+    }
+
+    .footer-bottom-section{
+      flex-direction: column;
+      justify-content: center !important;
+      gap: 0.7em !important;
+      &>div{
+        width: 100% !important;
+        justify-content: center !important;
+        ul{
+          width: 100% !important;
+          justify-content: center;
+          min-width: 50% !important;
+          padding: 0 !important;
+        }
+      }
+    }
+
+  }
+
+}

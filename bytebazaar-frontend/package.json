@@ -1,0 +1,46 @@
+{
+  "name": "bytebazaar-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "play": "vite playground/",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "firebase": "^11.0.1",
+    "primereact": "^10.9.1",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.9",
+    "react-bootstrap-icons": "^1.11.6",
+    "react-dom": "^18.3.1",
+    "react-final-form": "^6.5.9",
+    "react-icons": "^5.3.0",
+    "react-multi-carousel": "^2.8.5",
+    "react-router-dom": "^6.27.0",
+    "react-toastify": "^11.0.5",
+    "recharts": "^3.1.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@iconify/react": "^5.0.2",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.13",
+    "globals": "^15.11.0",
+    "rechart": "^0.0.1",
+    "sass": "^1.69.5",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.10.0",
+    "vite": "^5.4.9"
+  }
+}

@@ -1,0 +1,6 @@
+.category-listing-template {
+  border: 1px solid var(--clr-border);
+}
+.category-listing-template .category_id {
+  color: var(--clr-text-light);
+}/*# sourceMappingURL=category-listing-template.css.map */

@@ -1,0 +1,75 @@
+.my-orders h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--clr-primary);
+  margin-bottom: 1.5rem;
+}
+.my-orders .card {
+  border: 1px solid var(--clr-border, #e5e5e5);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.my-orders .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+.my-orders .card .card-body {
+  padding: 1.5rem;
+}
+.my-orders .card .card-body .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--clr-primary);
+}
+.my-orders .card .list-group-item {
+  font-size: 0.95rem;
+  padding: 0.8rem 1rem;
+  background-color: #fafafa;
+  border: none;
+  border-bottom: 1px solid #f1f1f1;
+}
+.my-orders .card .list-group-item:last-child {
+  border-bottom: none;
+}
+.my-orders .card .list-group-item strong {
+  color: var(--clr-text-dark, #333);
+}
+.my-orders .list-group-item strong {
+  margin-right: 0.5rem;
+}
+.my-orders .list-group-item:has(strong:contains("Status:")) {
+  font-weight: 500;
+}
+.my-orders .status-badge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background-color: #e9ecef;
+  color: #495057;
+}
+.my-orders .status-badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+.my-orders .status-badge.completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+.my-orders .status-badge.canceled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.my-orders .empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--clr-text-light, #888);
+}
+.my-orders .empty-state p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}/*# sourceMappingURL=my-orders.css.map */

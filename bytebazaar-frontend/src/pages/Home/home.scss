@@ -1,0 +1,165 @@
+@import "../../global/global.scss";
+
+.page-home{
+
+width: 100%;
+  overflow-x: hidden;
+  .d-flex > * {
+  min-width: 0;
+}
+  .advertisement {
+    /* width: 100px; */
+    box-sizing: border-box;
+    height: 50%;
+    overflow: hidden;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      display: block;
+
+      //aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+  }
+
+  .advertisement-cont {
+    max-height: 55vh;
+    padding-left: 1em;
+  }
+
+
+
+  .features {
+    .image-box:not(:last-child):after {
+      content: "";
+      height: 80%;
+      border-left: 1px solid var(--clr-border);
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    padding: 1.5em 1em;
+    border: 1px solid var(--clr-border);
+  }
+
+  .carousel-with-categories {
+    position: relative;
+
+    .carousel-categories {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      gap: 20px;
+      border: 1px solid var(--clr-border);
+      border-radius: 5em;
+      overflow: hidden;
+      z-index: 5;
+
+      > button.carousel-category {
+        /* border: 1px solid var(--clr-border); */
+        border-color: transparent;
+        padding: 0.2em 1em;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--clr-text);
+        background-color: var(--clr-white);
+
+        &:hover {
+          cursor: pointer;
+          color: var(--clr-primary);
+        }
+      }
+    }
+  }
+
+  //.category-menu-cont,
+  //.advertisement-cont {
+  //  max-width: 285px !important;
+  //}
+
+  .home-advertisement-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    
+  }
+
+  @media screen and (max-width: 767px){
+    .page-section,
+    .page-section-inner {
+      margin-top:1.5em !important;
+    }
+
+    .advertisement-cont{
+      flex-direction: row !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      gap: 1em !important;
+      >.advertisement {
+        width: 100%;
+        padding: 1em 0 !important;
+        height: 100%;
+      }
+    }
+
+    .two-columns>div{
+      flex-wrap: wrap !important;
+      &>div{
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+    }
+
+    .home-reviews{
+      display: none;
+    }
+
+    .features{
+      flex-wrap: wrap !important;
+      gap: 1.3em !important;
+      align-items: center !important;
+      .image-box{
+        width: 100% !important;
+        &:not(:last-child):after{
+          width: 100%;
+          height: 1px;
+        }
+        .image{
+          height: 100%;
+          width: 40% !important;
+          img{
+            width: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+
+    #general-categories{
+      display: none;
+    }
+    .three-advertisement{
+      display: flex !important;
+      flex-wrap: wrap;
+      gap: 1em !important;
+      &>div,
+      & a{
+        display: block !important;
+        width: 100%;
+        height: 100%;
+        padding: 0 !important;
+      }
+    }
+  }
+
+  @include Tablet{
+    .page-section.two-columns>.d-flex{
+      gap: 1em !important;
+    }
+  }
+}

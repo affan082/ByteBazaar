@@ -1,0 +1,66 @@
+.filter{
+  --filter-color:white;
+  &.color-filter{
+    input[type="checkbox"]{
+      //display:none;
+      //background-color: var(--filter-color);
+      mix-blend-mode: multiply;
+      &:checked{
+        font-weight:700;
+      }
+    }
+  }
+
+  .p-slider-handle::before{
+    display:none !important;
+  }
+
+  &.price-filter{
+    span{
+      //background:var(--clr-primary);
+      &.p-slider-handle{
+        background: var(--clr-secondary);
+        &::before{
+          content: attr(aria-valuenow);
+          position: absolute;
+          display: inline-block;
+          top:20px;
+          font-size:1.2em;
+
+        }
+      }
+    }
+
+    span.value-min,
+    span.value-max{
+      font-size: 0.8em;
+      font-weight: 600;
+    }
+  }
+
+  .filter-title{
+    font-size: 1em !important;
+    padding: 0 0 1em;
+    margin: 0 0 1em;
+    border-bottom: 1px solid var(--clr-border);
+  }
+
+  .category-filter{
+    &.child-category{
+      margin-left: 1em;
+    }
+  }
+  .form-check{
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+
+
+  &.filter-collapsable{
+    .collapse-content{
+      //max-height: 300px;
+      //overflow: hidden;
+    }
+  }
+
+}

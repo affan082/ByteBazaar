@@ -1,0 +1,86 @@
+@import "src/global/global.scss";
+.category-archive{
+  --bs-primary-bg-subtle: var(--clr-secondary);
+  --bs-accordion-btn-bg: var(--clr-primary) !important;
+  .filter-cont-heading{
+    font-weight: 700;
+  }
+
+  .page-content{
+    @include LaptopLarge{
+      gap: 1em !important;
+    }
+    @include Tablet{
+      gap: 2.5em !important;
+    }
+  }
+
+  .filter-container{
+
+    gap: 2em;
+
+
+    .filter-title{
+      font-weight:600;
+      font-size: 1.3em;
+    }
+  }
+
+  .breadcrumbs{
+      background-color:rgba(0,0,0,0.08);
+    ul{
+      padding: 1.5em 0 !important;
+      margin: 0 !important;
+      display: flex;
+      gap: 1.5em;
+      li,a{
+        list-style: none;
+        text-decoration:none;
+        color: var(--clr-text-light-2);
+        font-size: 0.9em;
+        position: relative;
+        &:not(:first-child)::before{
+          content: "/";
+          position: absolute;
+          display: inline-block;
+          left: -1em;
+        }
+      }
+    }
+  }
+
+  .accordion-button{
+    font-weight: 600 !important;
+    &.collapsed{
+    background-color: var(--clr-primary);
+    color: white !important;
+      &::after{
+        filter: invert(1);
+      }
+    }
+    &::after{
+      filter: none;
+    }
+  }
+
+  .page-content{
+    display: flex;
+    gap: 2em;
+    .filter-container{
+      flex: 0 1 350px;
+      @include LaptopLarge{
+        flex: 0 1 300px;
+      }
+      @include Tablet{
+        flex: 1 1 100%;
+      }
+    }
+    .product-container{
+      flex: 1 1 600px;
+    }
+
+  }
+
+
+
+}

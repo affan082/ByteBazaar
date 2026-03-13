@@ -1,0 +1,94 @@
+.my-orders {
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--clr-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .card {
+    border: 1px solid var(--clr-border, #e5e5e5);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-body {
+      padding: 1.5rem;
+
+      .card-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--clr-primary);
+      }
+    }
+
+    .list-group-item {
+      font-size: 0.95rem;
+      padding: 0.8rem 1rem;
+      background-color: #fafafa;
+      border: none;
+      border-bottom: 1px solid #f1f1f1;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      strong {
+        color: var(--clr-text-dark, #333);
+      }
+    }
+  }
+
+  // Status Styling
+  .list-group-item {
+    & strong {
+      margin-right: 0.5rem;
+    }
+
+    &:has(strong:contains("Status:")) {
+      font-weight: 500;
+    }
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: #e9ecef;
+    color: #495057;
+
+    &.pending {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+    &.completed {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    &.canceled {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  }
+
+  // Empty state
+  .empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--clr-text-light, #888);
+
+    p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+  }
+}

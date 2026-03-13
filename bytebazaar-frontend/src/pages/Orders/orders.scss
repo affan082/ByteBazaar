@@ -1,0 +1,194 @@
+// Main container
+.orders-container {
+  margin-top: 20px;
+  padding: 40px 20px;
+  word-spacing: 0px;
+  .orders-header {
+    font-family: "Poppins", sans-serif;              
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 24px;
+    font-size: 16px;
+    text-align: center;
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: capitalize;
+      letter-spacing: 0.16px;
+      line-height: 24px;
+      color: #4b5966;
+
+      span{
+        font-family: "Manrope", sans-serif;
+        color: #faca00;
+        letter-spacing: 0.32px;
+        font-weight: 600;
+      }
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #777;
+      letter-spacing: 0.32px;
+      line-height: 23px;
+      font-weight: 300;
+      margin-top: 15px;
+    }
+  }
+}
+
+// Card Container styles
+.order-card-container {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  line-height: 24px;
+  font-size: 16px;
+  min-width: 100px;
+  padding: 10px;
+  min-height: auto;
+  min-width: auto;
+
+}
+// Card styles
+.order-card {
+  border: 1px solid #eee !important;
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
+  outline: none;
+  overflow: auto;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 30px;
+
+  .card-title {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: auto 15px;
+    margin-top: 20px;
+    padding: 15px;
+    line-height: 24px;
+    font-size: 16px;
+    color: #777;
+    min-width: auto;
+    max-width: 100%;
+    h5{
+        font-family: "Manrope", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        word-spacing: 0px;     
+        margin-left: 10px;
+        margin-bottom: 5px ;
+    }
+    .shop-now-btn {
+        text-decoration: none;
+        background-color: #fedc19;
+        border: none;
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: background-color 0.3s ease-in-out;
+        letter-spacing: 0.32px;
+        word-spacing: 0%;
+        line-height: 21px;
+        
+        cursor: pointer;
+        color: #fff;;
+        &:hover {
+          background-color: #4b5966;
+        }
+       
+      }
+    
+  }
+  .order-card-body {
+    padding: 20px;
+    border-top: 1px solid #eee;
+  }
+
+}
+
+// Table styles
+.order-table { 
+  font-family: "Poppins", sans-serif;
+  caption-side: bottom;
+  line-height: 24px;
+  vertical-align: top;
+  max-width: 100%;
+  th {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    line-height: 22.5px;
+    vertical-align: bottom;
+    word-spacing: 0px ;
+    color: #4b5966 !important;
+    text-decoration: none solid rgb(75, 89, 102);
+    bottom: 0px;
+    border-bottom: 2px solid #dee2e6;
+  }
+
+  td {
+    padding: .5rem;
+    text-align: center;
+    vertical-align: top;
+    font-size: 16px;
+    line-height: 24px;
+    border-bottom: 1px solid #dee2e6;
+    
+    span{
+        display: flex;
+       font-size: 16px;
+       line-height: 24px;
+       font-weight: 400;
+       color: #777; 
+       padding: 14px 0;
+    }
+  }
+
+  .pending-status {
+    span{
+    display: flex;
+    color: #ffc107; // Yellow color for pending
+    font-weight: 500px;
+    padding: 14px 0;
+
+  }
+  }
+  .completed-status {
+    span{
+    display: flex;
+    color: #28a745; // Green color for completed
+    font-weight: 500px;
+    padding: 14px 0;
+  }
+}
+}
+
+//View Button
+
+.view-btn {
+  
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  letter-spacing: 0.32px;
+  text-align: center;
+  background-color: #fedc19;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out !important;
+  &:hover {
+    background-color: #4b5966 !important;
+  }
+}

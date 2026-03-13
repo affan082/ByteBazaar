@@ -1,0 +1,60 @@
+{
+  "app": {
+    "app_name": "ByteBazaar",
+    "app_version": "1.00",
+    "year": "2025",
+    "app_logo": "/assets/Dark Logo.png",
+    "app_logo_light": "/assets/Logo Light.png",
+    "currency_symbol": "Rs. ",
+    "header_promotion_message": "Free Shipping for all Order of Rs. 999",
+    "upload_path": "/public/uploads/",
+    "product_archive_path":"/product/all",
+    "product_single_path": "/product/",
+    "add_to_cart": "/add-to-cart/",
+    "urls": {
+      "cart": "/cart",
+      "wishlist": "/wishlist",
+      "admin_path": "/admin",
+      "add_product": "/product/add",
+      "product": "/product/",
+      "root": "/",
+      "shop": "/shop",
+      "profile": "/dashboard",
+      "signin": "/signin",
+      "signup": "/signup",
+      "seller": {
+        "edit_product": "/product/:productId"
+      },
+      "list_categories": "category/all",
+      "add_category": "category/add"
+    },
+    "placeholder_image_url": "/assets/placeholder.webp"
+  },
+  "contact": {
+    "email": "info@bytebazaar.com",
+    "phone": "+92-325-752-4473",
+    "address": "Gujranwala, Pakistan"
+  },
+  "server": {
+    "uri": "http://127.0.0.1:5669/",
+    "api": {
+      "user_data": "user/data",
+      "user_update": "user/update",
+      "cart": "cart",
+      "wishlist": "wishlist",
+      "payment": "payment",
+      "payment_success": "payment-success",
+      "payment_cancel": "payment-cancel",
+      "get_roles": "roles",
+      "get_orders_seller": "orders/seller",
+      "update_order_status": "/orders/:id/status"
+    }
+  },
+  "user": {
+    "stored_user_key": "userData",
+    "user_auth_token_title": "user_auth_token"
+  },
+  "keys": {
+    "auth_token_key": "auth_token"
+  }
+}

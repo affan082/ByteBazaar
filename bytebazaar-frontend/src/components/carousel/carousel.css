@@ -1,0 +1,72 @@
+.carousel-wrapper .carousel {
+  --size: 12px;
+  --indicator-gap: 3px;
+  --slide-gap: 20px;
+  --indicator-x-pos: 50%;
+  --indicator-y-pos: calc(100% - 120px);
+  position: relative;
+}
+.carousel-wrapper .carousel .carousel-slide-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--slide-gap);
+  justify-content: start;
+}
+.carousel-wrapper .carousel .carousel-slide-wrapper > * {
+  width: calc(var(--slide-width) - var(--slide-gap));
+}
+.carousel-wrapper .carousel .carousel-indicators {
+  display: flex;
+  flex-direction: row;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: var(--indicator-gap);
+  top: var(--indicator-y-pos);
+  left: var(--indicator-x-pos);
+  margin: 0px !important;
+}
+.carousel-wrapper .carousel .carousel-indicators.round-indicators button {
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+}
+.carousel-wrapper .carousel .carousel-indicators.primary-indicators button {
+  background-color: var(--clr-primary) !important;
+}
+.carousel-wrapper .carousel .carousel-indicators.secondary-indicators button {
+  background-color: var(--clr-secondary) !important;
+}
+@media screen and (max-width: 767px) {
+  .carousel-wrapper .carousel .carousel-slide-wrapper {
+    flex-direction: column;
+  }
+  .carousel-wrapper .carousel .carousel-slide-wrapper > div {
+    width: 100%;
+  }
+}
+.carousel-wrapper .carousel-controls {
+  z-index: 5;
+}
+.carousel-wrapper .carousel-controls .taxonomy-control {
+  border: 1px solid var(--clr-border);
+  border-radius: 50px;
+  outline: none;
+  background: white;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 120px;
+  padding: 3px 10px;
+}
+.carousel-wrapper .carousel-controls .taxonomy-controls {
+  position: absolute;
+  left: 50%;
+}
+.carousel-wrapper .carousel-controls .taxonomy-controls .taxonomy-control {
+  color: var(--clr-text-light-2);
+}
+.carousel-wrapper .carousel-controls .taxonomy-controls .taxonomy-control:hover {
+  cursor: pointer;
+}
+.carousel-wrapper .carousel-controls .taxonomy-controls .taxonomy-control.active {
+  color: var(--clr-primary);
+}/*# sourceMappingURL=carousel.css.map */

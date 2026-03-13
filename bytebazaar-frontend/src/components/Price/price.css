@@ -1,0 +1,7 @@
+.price-component .product-price {
+  font: 600 1.15rem/1.5rem "Work Sans", sans-serif;
+  z-index: 1 !important;
+}
+.price-component .product-price.text-danger {
+  font-size: 0.7em;
+}/*# sourceMappingURL=price.css.map */

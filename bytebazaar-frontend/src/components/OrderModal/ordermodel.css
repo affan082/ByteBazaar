@@ -1,0 +1,40 @@
+.modal-content {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  width: 890px;
+  min-width: auto;
+  max-width: auto;
+}
+.modal-content .modal-header {
+  border-bottom: 1px solid #eee !important;
+  color: #777;
+  font-size: 15px;
+  padding: 16px;
+}
+.modal-content .modal-header .btn-close {
+  background-color: transparent !important;
+  font-size: 15px;
+}
+.modal-content .modal-body {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  min-height: auto;
+  min-width: auto;
+  max-width: 1600px;
+}
+.modal-content .modal-body .card {
+  border: 1px solid #eee !important;
+  border-radius: 10px;
+  outline: none;
+  overflow: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 80%;
+  margin-bottom: 30px;
+  background-color: #f8f8f8;
+  color: #777;
+  font-size: 15px;
+  padding: 30px;
+  text-align: center;
+}/*# sourceMappingURL=ordermodel.css.map */

@@ -1,0 +1,19 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 2000;
+
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--clr-text, #555);
+  }
+}

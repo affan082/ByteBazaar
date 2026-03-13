@@ -1,0 +1,32 @@
+.product-add-to-cart-wrapper{
+    position: relative;
+
+  .add-to-cart-loader{
+    //display:inline-block;
+    display: none;
+    &.loading{
+      display: block;
+    }
+    aspect-ratio: 1;
+
+    width: 40px;
+    background: url("/public/assets/Loading_icon.gif") center center no-repeat;
+    background-size: cover;
+    position: relative;
+    bottom:0;
+  }
+
+  .cart-popup{
+
+    .cart-popup-heading{
+      font-size:20px;
+      font-weight:bold;
+    }
+  }
+}
+
+.Toastify>.Toastify__toast-container{
+  position: fixed !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}

@@ -1,0 +1,22 @@
+.queryable-loop-grid-wrapper {
+  //padding: 0 !important;
+  .loop-grid-title{
+    padding:0 0 20px 0;
+  }
+  .queryable-loop-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .loop-grid-item{
+      padding:0 !important;
+    }
+
+    @media screen and (max-width: 767px){
+      flex-direction: column;
+      &>div{
+        width: 100% !important;
+      }
+    }
+  }
+}

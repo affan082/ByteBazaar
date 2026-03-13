@@ -1,0 +1,22 @@
+.home-reviews .review-quote-icon {
+  font-size: 2.5em;
+  color: var(--clr-text-light);
+}
+.home-reviews .carousel-indicators {
+  height: -moz-fit-content;
+  height: fit-content;
+  top: calc(100% - 40px);
+  left: 0px;
+}
+.home-reviews .carousel-indicators button {
+  background-color: transparent;
+  --indicator-size: 12px;
+  border: 3px solid var(--clr-secondary);
+  width: var(--indicator-size);
+  height: var(--indicator-size);
+  display: block;
+  border-radius: 50%;
+}
+.home-reviews .carousel-indicators button[aria-current=true] {
+  background-color: var(--clr-secondary);
+}/*# sourceMappingURL=homw-reviews.css.map */

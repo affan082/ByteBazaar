@@ -1,0 +1,24 @@
+{
+  "variations": {
+    "availableSizes": [
+      { "name": "XS", "value": "XS" },
+      { "name": "S", "value": "S" },
+      { "name": "M", "value": "M" },
+      { "name": "L", "value": "L" },
+      { "name": "XL", "value": "XL" },
+      { "name": "XXL", "value": "XXL" }
+    ],
+    "availableColors": [
+      { "name": "Red", "value": "#FF0000" },
+      { "name": "Green", "value": "#008000" },
+      { "name": "Blue", "value": "#0000FF" },
+      { "name": "Black", "value": "#000000" },
+      { "name": "White", "value": "#FFFFFF" },
+      { "name": "Yellow", "value": "#FFFF00" },
+      { "name": "Orange", "value": "#FFA500" },
+      { "name": "Pink", "value": "#FFC0CB" },
+      { "name": "Purple", "value": "#800080" },
+      { "name": "Gray", "value": "#808080" }
+    ]
+  }
+}

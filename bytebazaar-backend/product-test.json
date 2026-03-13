@@ -1,0 +1,112 @@
+[
+  {
+    "productId": "PROD001",
+    "sku": "SKU001",
+    "name": "Sample Product 1",
+    "description": "This is a description of the sample product 1, highlighting its features and qualities.",
+    "productImage": "test.png",
+    "gallery": [
+      "https://via.placeholder.com/600x400?text=Gallery+Image+1",
+      "https://via.placeholder.com/600x400?text=Gallery+Image+2",
+      "https://via.placeholder.com/600x400?text=Gallery+Image+3"
+    ],
+    "price": 99.99,
+    "salePrice": 79.99,
+    "categoryId": "645a2b7c48a9d4f9c3d5a1e2",
+    "rating": 4.5,
+    "stock": 50,
+    "variations": {
+      "color": ["Red", "Blue", "Green"],
+      "size": ["S", "M", "L", "XL"]
+    },
+    "brand": "Sample Brand A"
+  },
+  {
+    "productId": "PROD002",
+    "sku": "SKU002",
+    "name": "Sample Product 2",
+    "description": "This is a description of the sample product 2, highlighting its features and qualities.",
+    "productImage": "test.png",
+    "gallery": [
+      "https://via.placeholder.com/600x400?text=Gallery+Image+1",
+      "https://via.placeholder.com/600x400?text=Gallery+Image+2",
+      "https://via.placeholder.com/600x400?text=Gallery+Image+3"
+    ],
+    "price": 149.99,
+    "salePrice": 129.99,
+    "categoryId": "645a2b7c48a9d4f9c3d5a1e2",
+    "rating": 4.0,
+    "stock": 30,
+    "variations": {
+      "color": ["Yellow", "Black"],
+      "size": ["M", "L"]
+    },
+    "brand": "Sample Brand B"
+  },
+  {
+    "productId": "PROD003",
+    "sku": "SKU003",
+    "name": "Sample Product 3",
+    "description": "This is a description of the sample product 3, highlighting its features and qualities.",
+    "productImage": "test.png",
+    "gallery": [
+      "https://via.placeholder.com/600x400?text=Gallery+Image+1",
+      "https://via.placeholder.com/600x400?text=Gallery+Image+2",
+      "https://via.placeholder.com/600x400?text=Gallery+Image+3"
+    ],
+    "price": 89.99,
+    "salePrice": 69.99,
+    "categoryId": "645a2b7c48a9d4f9c3d5a1e2",
+    "rating": 4.2,
+    "stock": 20,
+    "variations": {
+      "color": ["White", "Gray"],
+      "size": ["S", "M", "L"]
+    },
+    "brand": "Sample Brand C"
+  },
+  {
+    "productId": "PROD004",
+    "sku": "SKU004",
+    "name": "Sample Product 4",
+    "description": "This is a description of the sample product 4, highlighting its features and qualities.",
+    "productImage": "test.png",
+    "gallery": [
+      "https://via.placeholder.com/600x400?text=Gallery+Image+1",
+      "https://via.placeholder.com/600x400?text=Gallery+Image+2",
+      "https://via.placeholder.com/600x400?text=Gallery+Image+3"
+    ],
+    "price": 119.99,
+    "salePrice": 99.99,
+    "categoryId": "645a2b7c48a9d4f9c3d5a1e2",
+    "rating": 4.8,
+    "stock": 40,
+    "variations": {
+      "color": ["Blue", "Green"],
+      "size": ["L", "XL"]
+    },
+    "brand": "Sample Brand D"
+  },
+  {
+    "productId": "PROD005",
+    "sku": "SKU005",
+    "name": "Sample Product 5",
+    "description": "This is a description of the sample product 5, highlighting its features and qualities.",
+    "productImage": "test.png",
+    "gallery": [
+      "https://via.placeholder.com/600x400?text=Gallery+Image+1",
+      "https://via.placeholder.com/600x400?text=Gallery+Image+2",
+      "https://via.placeholder.com/600x400?text=Gallery+Image+3"
+    ],
+    "price": 59.99,
+    "salePrice": 49.99,
+    "categoryId": "645a2b7c48a9d4f9c3d5a1e2",
+    "rating": 3.9,
+    "stock": 60,
+    "variations": {
+      "color": ["Black", "White", "Blue"],
+      "size": ["S", "M"]
+    },
+    "brand": "Sample Brand E"
+  }
+]
