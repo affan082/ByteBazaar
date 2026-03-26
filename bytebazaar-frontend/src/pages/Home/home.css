@@ -22,10 +22,6 @@
   max-height: 55vh;
   padding-left: 1em;
 }
-.page-home .features {
-  padding: 1.5em 1em;
-  border: 1px solid var(--clr-border);
-}
 .page-home .features .image-box:not(:last-child):after {
   content: "";
   height: 80%;
@@ -34,6 +30,10 @@
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+}
+.page-home .features {
+  padding: 1.5em 1em;
+  border: 1px solid var(--clr-border);
 }
 .page-home .carousel-with-categories {
   position: relative;

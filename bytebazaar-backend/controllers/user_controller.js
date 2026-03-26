@@ -1,5 +1,3 @@
-// controllers/user_controller.js
-
 const { User, BuyerProfile, SellerProfile } = require("../models/UserSchema");
 const Product = require("../models/ProductSchema");
 const PasswordRecoverySchema = require("../models/PasswordRecoverySchema");
@@ -56,7 +54,6 @@ exports.createUser = async (req, res) => {
       );
     }
 
-    // Check unique
     if (await User.findOne({ email })) {
       return res
           .status(409)
@@ -80,7 +77,6 @@ exports.createUser = async (req, res) => {
           );
     }
 
-    // Hash password
     const hash = await bcrypt.hash(password, encryptRounds);
 
 
@@ -107,7 +103,6 @@ exports.createUser = async (req, res) => {
           .send(new APIError(400, "Admin cannot be created"));
     }
 
-    // Create user
     const user = new User({
       fullname,
       username,
@@ -221,7 +216,6 @@ exports.updateUser = async (req, res) => {
       updates.passwordHash = await bcrypt.hash(password, salt);
     }
 
-    // Update User
     const updatedUser = await User.findByIdAndUpdate(
         userId,
         { $set: updates },
@@ -237,7 +231,6 @@ exports.updateUser = async (req, res) => {
       );
     }
 
-    // Update Seller Profile (if seller)
     if (updatedUser.roles && updatedUser.roles.length) {
       const roleNames = await Role.find({ _id: { $in: updatedUser.roles } }).select("name");
       const roleNamesList = roleNames.map(r => r.name);
@@ -361,14 +354,13 @@ exports.userLogout = async (req, res) => {
 exports.getUserData = async (req, res) => {
   try {
     // console.log("user id ", req.user?._id)
-    const userId = req.user?._id; // from verifyToken
+    const userId = req.user?._id;
     if (!userId) {
       return res
           .status(400)
           .send(new APIError(400, "No user ID found in token"));
     }
 
-    // fetch user with roles
     const user = await User.findById(userId)
         .populate("roles")
         .select("-passwordHash");
@@ -387,7 +379,6 @@ exports.getUserData = async (req, res) => {
           user.profileImageUrl;
     }
 
-    // check if seller and fetch seller profile
     let sellerProfile = null;
     if (user.roles && user.roles.length) {
       const roleNames = user.roles.map((r) =>
@@ -397,8 +388,6 @@ exports.getUserData = async (req, res) => {
         sellerProfile = await SellerProfile.findOne({ user: userId });
       }
     }
-
-    // check if buyer and fetch buyer profile
     let buyerProfile = null;
     if (user.roles && user.roles.length) {
       const roleNames = user.roles.map((r) =>
@@ -456,14 +445,12 @@ exports.deleteUser = async (req, res) => {
         .send(new APIError(404, "User not found"));
     }
 
-    // Prevent deleting admin
     if (user.roles.some(r => r.name === "admin")) {
       return res
         .status(400)
         .send(new APIError(400, "Admin cannot be deleted"));
     }
 
-    // If seller -> delete products
     if (user.roles.some(r => r.name === "seller")) {
       try {
         await Product.deleteMany({ seller: userId });
@@ -474,7 +461,6 @@ exports.deleteUser = async (req, res) => {
       }
     }
 
-    // ✅ Finally delete user
     await User.findByIdAndDelete(userId);
 
     return res
@@ -489,54 +475,6 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
-// exports.updateCart = async (req, res) => {
-//   const { cart } = req.body;
-//   const userId = req.user._id;
-
-//   if (!cart) {
-//     return res
-//         .status(400)
-//         .send(
-//             new APIError(400, "Cart not provided", ErrorMessages.CartErrors.CART_NOT_FOUND)
-//         );
-//   }
-
-//   try {
-//     await User.updateOne({ _id: userId }, { cart });
-//     return res
-//         .status(200)
-//         .send(new APIResponse(200, "Cart Updated Successfully"));
-//   } catch (err) {
-//     return res
-//         .status(500)
-//         .send(new APIError(500, "Failed to update cart"));
-//   }
-// };
-
-// exports.getCart = async (req, res) => {
-//   try {
-//     const userId = req.user._id;
-//     const user = await User.findById(userId)
-//         .populate("cart.product")
-//         .exec();
-
-//     if (!user || user.cart.length === 0) {
-//       return res
-//           .status(404)
-//           .send(
-//               new APIError(404, "Cart not found", ErrorMessages.CartErrors.CART_NOT_FOUND)
-//           );
-//     }
-
-//     return res
-//         .status(200)
-//         .send(new APIResponse(200, "Cart fetched successfully", user.cart));
-//   } catch (err) {
-//     return res
-//         .status(500)
-//         .send(new APIError(500, "Failed to get cart"));
-//   }
-// };
 
 exports.forgotPassword = async (req, res) => {
   const { email } = req.body;
@@ -550,12 +488,11 @@ exports.forgotPassword = async (req, res) => {
   if (!user) {
     return res.status(404).send(new APIError(404, "User not found"));
   }
-  let token = await bcrypt.hash(email + Date.now(), 10);
-  const resetCode = token.substring(token.length - 6).toUpperCase();
 
-  const jwtToken = jwt.sign({ resetCode }, process.env.JWT_SECRET_KEY, { expiresIn: "15m" });
+  const resetCode = Math.floor(100000 + Math.random() * 900000).toString(); 
 
-  // Store JWT in a secure cookie
+  const jwtToken = jwt.sign({ resetCode, email }, process.env.JWT_SECRET_KEY, { expiresIn: "15m" });
+
   res.cookie(process.env.RESET_CODE_COOKIE_KEY, jwtToken, {
     httpOnly: true,
     secure: true,
@@ -564,21 +501,19 @@ exports.forgotPassword = async (req, res) => {
     maxAge: 1000 * 60 * 15,
   });
 
-  sgMail.setApiKey(process.env.MAIL_API_KEY);
-  const msg = {
+  const mailOptions = {
+    from: ` ${process.env.APPLICATION_NAME} <${process.env.SMTP_USERNAME}>`,
     to: email,
-    from: process.env.MAILSENDER_MAIL,
-    subject: "Reset Password",
-    html: `<p>Your reset code is <strong>${resetCode}</strong></p>`,
-  };
-
-  try {
-    await sgMail.send(msg);
-    return res.status(200).send(new APIResponse(200, "Reset code sent to your email"));
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send(new APIError(500, "Failed to send reset code"));
+    subject: "Password Reset Code",
+    text: `Your password reset code is: ${resetCode}. 
+    It will expire in 15 minutes.`
   }
+  try{
+    await MailTransporter.sendMail(mailOptions);
+    return res.status(200).send( new APIResponse(200, "Reset code sent to your email"));
+  }catch(error){
+    return res.status(500).send( new APIError(500, "Failed to send reset code."));
+  }  
 };
 
 
@@ -595,7 +530,7 @@ exports.verifyResetCode = async (req, res) => {
     }
     const decoded = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
 
-    if (resetCode.toUpperCase() !== decoded.resetCode) {
+    if (resetCode !== decoded.resetCode) {
       return res.status(400).send(new APIError(400, "Reset code is invalid"));
     }
 
@@ -614,9 +549,16 @@ exports.resetPassword = async (req, res) => {
   }
 
   try{
-    const user = await User.updateOne({ email }, { passwordHash: await bcrypt.hash(password, 10) },{
-      $new: true
-    }).populate("roles");
+     const user = await User.findOne({ email }).populate("roles");
+    if (!user) {return res.status(404).send(new APIError(404, "User not found"));}
+    user.passwordHash = await bcrypt.hash(password, encryptRounds);
+    await user.save();
+    res.clearCookie(process.env.RESET_CODE_COOKIE_KEY, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      path: "/",
+    });
     issueAuthToken(res, { _id: user._id, roles: user.roles });
     return res.status(200).send(new APIResponse(200, "Password reset successfully"));
   }

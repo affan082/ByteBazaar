@@ -3,8 +3,11 @@ const APIError = require("../utils/APIError");
 const ErrorMessages = require("../config/ErrorMessages");
 const APIResponse = require("../utils/APIResponse");
 const {Order, OrderStatus} = require("../models/OrderSchema");
+const {User} = require("../models/UserSchema");
 const Product = require("../models/ProductSchema");
 const jwt = require("jsonwebtoken");
+const {orderConfirmationMail} = require("../utils/mailTemplate");
+const {MailTransporter} = require("./mail_controller");
 
 /**
  * Create Stripe Checkout Session + Save Pending Order
@@ -12,8 +15,8 @@ const jwt = require("jsonwebtoken");
 exports.handlePaymentRequest = async function (req, res) {
     const MY_DOMAIN = `${process.env.FRONTEND_URL}`;
     let products = req.body.products;
-    const user = req.user?.user || req.user; // optional
-    const guestInfo = req.body.guestInfo || {}; // e.g., { fullname, email, phone, shippingAddress }
+    const user = req.user?.user || req.user;
+    const guestInfo = req.body.guestInfo || {}; 
 
     if (!products || !products.length) {
         return res
@@ -28,7 +31,6 @@ exports.handlePaymentRequest = async function (req, res) {
     }
 
     try {
-        // Stripe Checkout Session
         let session;
         try {
             session = await stripe.checkout.sessions.create({
@@ -151,7 +153,32 @@ exports.handlePaymentSuccess = async function (req, res) {
 
         await Order.updateOne({ sessionId: session_id }, { $set: orderUpdate });
 
-        const updatedOrder = await Order.findOne({ sessionId: session_id });
+        const updatedOrder = await Order.findOne({ sessionId: session_id }).populate("cart.product");
+        try {
+            let buyerEmail = null;
+            let buyerName = "Customer";
+
+            if (updatedOrder?.buyer) {
+                const buyer = await User.findById(updatedOrder.buyer).select("fullname email");
+                buyerEmail = buyer?.email;
+                buyerName = buyer?.fullname ?? "Customer";
+            } else if (session.customer_email) {
+                buyerEmail = session.customer_email;
+                buyerName = "Customer";
+            }
+            if (buyerEmail) {
+                const products = updatedOrder.cart.map(item => item.product);
+                const mail = orderConfirmationMail(buyerName, updatedOrder, products);
+                await MailTransporter.sendMail({
+                    from: `${process.env.APPLICATION_NAME} <${process.env.SMTP_USERNAME}>`,
+                    to: buyerEmail,
+                    subject: mail.subject,
+                    text: mail.text,
+                });
+            }
+        } catch (mailErr) {
+            console.error("Order confirmation mail failed:", mailErr.message);
+        }
 
         return res.status(200).send(
             new APIResponse(200, "The Payment is Completed Successfully.", {
@@ -190,7 +217,6 @@ exports.handlePaymentCancel = async function (req, res) {
                 )
             );
     }
-
     try {
         await Order.updateOne(
             { sessionId: session_id },

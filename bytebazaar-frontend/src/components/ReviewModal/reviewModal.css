@@ -11,15 +11,14 @@
 }
 
 .review-modal-header {
-  background-color: #333;
-  color: #fff;
+  color: #faca00;
   border: none;
-  padding-bottom: 0;
+  padding-bottom: 10px;
   border-radius: 0px;
 }
 
 .review-modal-title {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
   word-spacing: 0px;
@@ -94,16 +93,8 @@
   margin-top: 1rem;
 }
 
-.action-btn {
-  padding: 0.5rem 1.5rem;
+.c-btn {
   font-weight: bold;
-  border-radius: 0 !important;
-  background-color: #000;
-  color: #fff;
-}
-.action-btn:hover {
-  background-color: #faca00 !important;
-  color: #fff !important;
 }
 
 .required-fields-note {

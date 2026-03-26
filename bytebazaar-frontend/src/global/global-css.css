@@ -168,9 +168,6 @@ body {
   font-size: 2.2rem;
 }
 
-.page {
-  /* Laptop Large */
-}
 .page .page-section, .page .page-inner-section {
   margin-top: 4em !important;
 }
@@ -189,6 +186,9 @@ body {
   margin-left: 0;
   margin-right: 0;
   padding: 0 !important;
+}
+.page {
+  /* Laptop Large */
 }
 
 @media screen and (max-width: 1440px) {

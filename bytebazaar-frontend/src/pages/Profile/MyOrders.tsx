@@ -1,15 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import {
-  Alert,
-  Button,
-  Card,
-  Col,
-  Container,
-  Row,
-  Spinner,
-  Table,
-} from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 // import { Order } from "../../types";
 import { Order } from "../../interfaces/OrderInterface.tsx";
 import { ConfigContext } from "../../reducers/GlobalConfig.tsx";
@@ -114,7 +105,7 @@ function MyOrders() {
                     ))}
                   </Col>
                   <Col md={2} lg={2} className="col amount">
-                    Rs.{order.paidAmount}
+                    Rs.{order.orderAmount / 100}
                   </Col>
                   <Col md={2} lg={2} className="col status">
                     {order.status}

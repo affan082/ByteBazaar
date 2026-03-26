@@ -3,15 +3,17 @@
 }
 .product-add-to-cart-wrapper .add-to-cart-loader {
   display: none;
+}
+.product-add-to-cart-wrapper .add-to-cart-loader.loading {
+  display: block;
+}
+.product-add-to-cart-wrapper .add-to-cart-loader {
   aspect-ratio: 1;
   width: 40px;
   background: url("/public/assets/Loading_icon.gif") center center no-repeat;
   background-size: cover;
   position: relative;
   bottom: 0;
-}
-.product-add-to-cart-wrapper .add-to-cart-loader.loading {
-  display: block;
 }
 .product-add-to-cart-wrapper .cart-popup .cart-popup-heading {
   font-size: 20px;

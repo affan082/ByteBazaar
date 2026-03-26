@@ -1,6 +1,13 @@
 .category-listing-template {
-  border: 1px solid var(--clr-border);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: #ffc107 1px solid;
+  padding: 0.8rem 1rem;
+  overflow-x: auto;
+  transition: all 0.2s ease;
 }
-.category-listing-template .category_id {
-  color: var(--clr-text-light);
+.category-listing-template:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.12);
 }/*# sourceMappingURL=category-listing-template.css.map */

@@ -3,7 +3,6 @@
   gap: var(--gap);
   width: var(--content-width);
   margin: 0 auto;
-  /* Responsive */
 }
 .page.admin-page .admin-sidebar {
   width: 320px;
@@ -45,6 +44,9 @@
   border-radius: 0.5em;
   padding: 2em;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.page.admin-page {
+  /* Responsive */
 }
 @media screen and (max-width: 1024px) {
   .page.admin-page {

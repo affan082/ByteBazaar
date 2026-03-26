@@ -1,19 +1,176 @@
-.acc-info {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.profile-info-page .page-title {
+  color: var(--clr-primary);
+  font-weight: 600;
+  font-size: 1.8rem;
 }
-.acc-info .info-title {
-  text-align: left;
-  color: rgb(124, 119, 119);
-  font-weight: bold;
-  padding-left: 15px;
-  padding-top: 10px;
+.profile-info-page .profile-header-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 3px solid var(--clr-secondary);
 }
-.acc-info .info-text {
-  text-align: left;
-  margin-top: 15px;
-  line-height: 40px;
-  color: grey;
+.profile-info-page .profile-header-card .profile-avatar-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+.profile-info-page .profile-header-card .profile-avatar-wrapper .profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 4px solid var(--clr-secondary);
+}
+.profile-info-page .profile-header-card .profile-avatar-wrapper .profile-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--clr-primary);
+  color: var(--clr-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  border: 4px solid var(--clr-secondary);
+}
+.profile-info-page .profile-header-card h4 {
+  color: var(--clr-primary);
+  font-weight: 600;
+}
+.profile-info-page .profile-header-card .user-roles {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.profile-info-page .profile-header-card .user-roles .role-badge {
+  background-color: var(--clr-secondary);
+  color: var(--clr-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.profile-info-page .profile-header-card .profile-details .row {
+  row-gap: 1rem;
+}
+.profile-info-page .profile-header-card .profile-details .detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--clr-gray-light);
+  border-radius: 8px;
+  height: 100%;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.profile-info-page .profile-header-card .profile-details .detail-item i {
+  font-size: 1.5rem;
+  color: var(--clr-secondary);
+  margin-top: 0.25rem;
+}
+.profile-info-page .profile-header-card .profile-details .detail-item div {
+  flex: 1;
+}
+.profile-info-page .profile-header-card .profile-details .detail-item div label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--clr-text-light);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+.profile-info-page .profile-header-card .profile-details .detail-item div p {
+  margin: 0;
+  color: var(--clr-primary);
+  font-weight: 500;
+  word-break: break-word;
+}
+.profile-info-page .profile-header-card .profile-details .detail-item div .text-monospace {
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+.profile-info-page .seller-info-card,
+.profile-info-page .quick-actions-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.08);
+}
+.profile-info-page .seller-info-card .card-header-custom,
+.profile-info-page .quick-actions-card .card-header-custom {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--clr-border);
+}
+.profile-info-page .seller-info-card .card-header-custom i,
+.profile-info-page .quick-actions-card .card-header-custom i {
+  font-size: 1.5rem;
+  color: var(--clr-secondary);
+}
+.profile-info-page .seller-info-card .card-header-custom h5,
+.profile-info-page .quick-actions-card .card-header-custom h5 {
+  margin: 0;
+  color: var(--clr-primary);
+  font-weight: 600;
+}
+.profile-info-page .seller-info-card .detail-item,
+.profile-info-page .quick-actions-card .detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--clr-gray-light);
+  border-radius: 8px;
+}
+.profile-info-page .seller-info-card .detail-item i,
+.profile-info-page .quick-actions-card .detail-item i {
+  font-size: 1.5rem;
+  color: var(--clr-secondary);
+  margin-top: 0.25rem;
+}
+.profile-info-page .seller-info-card .detail-item div,
+.profile-info-page .quick-actions-card .detail-item div {
+  flex: 1;
+}
+.profile-info-page .seller-info-card .detail-item div label,
+.profile-info-page .quick-actions-card .detail-item div label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--clr-text-light);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+.profile-info-page .seller-info-card .detail-item div p,
+.profile-info-page .quick-actions-card .detail-item div p {
+  margin: 0;
+  color: var(--clr-primary);
+  font-weight: 500;
+}
+.profile-info-page .seller-info-card h5,
+.profile-info-page .quick-actions-card h5 {
+  color: var(--clr-primary);
+  font-weight: 600;
+}
+.profile-info-page .seller-info-card .action-buttons,
+.profile-info-page .quick-actions-card .action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.profile-info-page .seller-info-card .action-buttons .btn,
+.profile-info-page .quick-actions-card .action-buttons .btn {
+  font-weight: 600;
+}
+
+.profile-info-empty i {
+  opacity: 0.5;
+}
+.profile-info-empty h2 {
+  color: var(--clr-primary);
 }/*# sourceMappingURL=profile_info.css.map */

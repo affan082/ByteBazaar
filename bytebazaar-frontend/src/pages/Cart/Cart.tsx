@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./cart.scss";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { ConfigContext } from "../../reducers/GlobalConfig.tsx";
-import { GetCurrentCart } from "../../reducers/CartUtils.ts";
+// import { GetCurrentCart } from "../../reducers/CartUtils.ts";
 import { CartInterface } from "../../interfaces/CartInterface.ts";
 import EmptyCartComponent from "../../components/EmptyCart/EmptyCartComponent.tsx";
 import { HandlePayment } from "../../reducers/PaymentUtils.tsx";
@@ -30,7 +30,6 @@ function Cart() {
     loadCart();
   }, []);
 
-  // Increase item quantity
   const increaseItemQuantity = async (productId: string) => {
     setUpdatingItem(productId);
     try {
@@ -47,7 +46,6 @@ function Cart() {
     }
   };
 
-  // Decrease item quantity
   const decreaseItemQuantity = async (productId: string) => {
     setUpdatingItem(productId);
     try {
@@ -70,7 +68,6 @@ function Cart() {
     }
   };
 
-  // Delete cart item
   const deleteCartItem = async (item: CartInterface) => {
     if (!item.product?._id) return;
 
@@ -83,25 +80,17 @@ function Cart() {
   };
 
   const subTotal = () => {
-    // Calculate total using the 'total' field from each cart item
     const total = cartItems.reduce((sum, item) => {
-      // Get the item total from backend
-      const itemTotal = parseFloat(item.total);
-
-      // If itemTotal is valid number, add it, otherwise add 0
-      if (!isNaN(itemTotal)) {
-        return sum + itemTotal;
-      }
-
-      // Fallback: try to calculate from product price if 'total' field doesn't exist
-      const price = parseFloat(item.product?.salePrice || item.product?.price);
-      const quantity = parseInt(item.quantity);
+      const price = parseFloat(
+        String(item.product?.salePrice || item.product?.price),
+      );
+      const quantity = parseInt(String(item.quantity));
 
       if (!isNaN(price) && !isNaN(quantity)) {
         return sum + price * quantity;
       }
 
-      return sum; // Skip this item if all data is invalid
+      return sum;
     }, 0);
 
     return total;
@@ -144,9 +133,8 @@ function Cart() {
                   const { product, quantity, total } = item;
 
                   let displayTotal =
-                    (product?.salePrice || product?.price) * quantity;
+                    Number(product?.salePrice || product?.price) * quantity;
 
-                  // If total doesn't exist or is invalid, calculate it
                   if (!total || isNaN(parseFloat(total))) {
                     const price = parseFloat(
                       product?.salePrice || product?.price,
@@ -155,7 +143,6 @@ function Cart() {
                     displayTotal = validPrice * quantity;
                   }
 
-                  // Calculate unit price for display
                   const unitPrice = product?.salePrice || product?.price;
                   const displayUnitPrice = isNaN(unitPrice) ? 0 : unitPrice;
 

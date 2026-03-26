@@ -2,15 +2,17 @@
   display: flex;
   gap: var(--gap);
   padding: var(--default-cont-padding);
-  /* Responsive */
 }
 .page.profile-page .profile-sidebar {
   width: 250px;
   background-color: var(--clr-gray-light);
   border-radius: 0.5em;
   padding: 1.5em 1em;
-  height: -moz-fit-content;
-  height: fit-content;
+  position: sticky;
+  top: 50px;
+  align-self: flex-start;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
 }
 .page.profile-page .profile-sidebar ul {
   list-style: none;
@@ -20,7 +22,6 @@
 .page.profile-page .profile-sidebar ul li {
   margin-bottom: 1em;
   /* Submenu header (clickable parent) */
-  /* Submenu container */
 }
 .page.profile-page .profile-sidebar ul li .submenu-header {
   display: flex;
@@ -53,6 +54,9 @@
 .page.profile-page .profile-sidebar ul li a.active {
   background-color: var(--clr-primary);
   color: var(--clr-secondary);
+}
+.page.profile-page .profile-sidebar ul li {
+  /* Submenu container */
 }
 .page.profile-page .profile-sidebar ul li ul {
   margin-top: 0.5em;
@@ -109,6 +113,9 @@
 .page.profile-page .profile-content .profile-card .info p {
   margin: 0.25em 0;
   color: var(--clr-text-light-2);
+}
+.page.profile-page {
+  /* Responsive */
 }
 @media screen and (max-width: 1024px) {
   .page.profile-page {
