@@ -133,7 +133,7 @@ function OrdersSeller() {
                   {order.cart?.reduce((acc, item) => acc + item.quantity, 0)}
                 </span>
                 <span className="col total-ammount">
-                  Rs. {order.paidAmount / 100}
+                  Rs. {order.paidAmount}
                 </span>
                 <span className="col status">{order.status}</span>
                 <span className="col date">

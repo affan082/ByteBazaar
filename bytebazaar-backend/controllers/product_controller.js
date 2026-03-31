@@ -30,14 +30,12 @@ exports.queryProducts = async (req, res) => {
         seller
     } = req.body;
 
-    // Price filter
     if (price?.min != null || price?.max != null) {
       query.price = {};
       if (price.min) query.price.$gte = price.min;
       if (price.max) query.price.$lte = price.max;
     }
 
-    // Rating filter
     if (rating?.min != null || rating?.max != null) {
       query.rating = {};
       if (rating.min) query.rating.$gte = rating.min;
@@ -48,39 +46,31 @@ exports.queryProducts = async (req, res) => {
       query.$text = { $search: keyword.trim() };
     }
 
-    // Categories
     if (categories?.length > 0) {
-      // query.categories = categories.split(",");
       query.categories = categories;
     }
 
-    // Brands
     if (brands?.length) {
       query.brand = { $in: brands };
     }
 
-    // Stock
     if (inStock != null) {
       query.stock = inStock ? { $gte: 0 } : { $lte: 0 };
     }
 
-    // Size
     if (size?.length > 0) {
       query.size = { $in: size };
     }
 
-    // Color
     if (color?.length > 0) {
       query.color = { $in: color };
     }
 
-    // IDs / Slugs
     if (_id) query._id = _id;
     if (slug) query.slug = slug;
 
     if(seller) query.seller = seller;
 
-    // Defaults
     limit = limit || 0;
     skip = skip || 0;
     sort = sort || -1;
@@ -128,8 +118,7 @@ exports.queryProducts = async (req, res) => {
 exports.addProduct = async (req, res) => {
   try {
     const product = req.body;
-
-    const user = req.user?.user || req.user; // From verifyToken
+    const user = req.user?.user || req.user;
     // console.log(user, "user")
     if (!user) {
       return res.status(401).send(new APIError(401, "Unauthorized"));
@@ -155,7 +144,6 @@ exports.addProduct = async (req, res) => {
           .send(new APIError(403, "Only sellers can add products"));
     }
 
-    // Bind images
     product.featureImage = req.files.find(
         (file) => file.fieldname === process.env.PRODUCT_FEATURE_IMAGE_FIELD
     )?.filename;
@@ -164,7 +152,6 @@ exports.addProduct = async (req, res) => {
         .filter((file) => file.fieldname === process.env.PRODUCT_GALLERY_IMAGE_FIELD)
         .map((file) => file.filename);
 
-    // Categories
     product.categories =
         product.categories && product.categories !== ""
             ? product.categories.split(",")
@@ -173,7 +160,6 @@ exports.addProduct = async (req, res) => {
     product.seller = dbUser._id;
     product.shopName = seller.shopName || "Unknown Shop";
 
-    // Save product
     let newProduct;
     try{
       newProduct = await Product.create(product);

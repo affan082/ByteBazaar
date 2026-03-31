@@ -13,7 +13,7 @@ exports.uploadStorage = multer.diskStorage({
 
 exports.handleUploads = (req, res) => {
   //   console.log(req.file); // access the uploaded file
-  console.log(req.file); // access the other form data
+  console.log(req.file); 
   if (!req.file) {
     res.status(500).send({ message: "The File could not be uploaded" });
   } else {

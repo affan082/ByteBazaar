@@ -3,6 +3,7 @@ import { Stack, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { GetProducts } from "../../queries/GetProducts.tsx";
 import { ConfigContext } from "../../reducers/GlobalConfig";
+import { UserContext } from "../../reducers/UserContext";
 import ProductInterface from "../../interfaces/ProductInterface";
 // import ReviewModal from "../ReviewModal/ReviewModal.tsx";
 import Spinner from "../spinner/Spinner.tsx";
@@ -10,6 +11,7 @@ import NotFound from "../../pages/NotFound/NotFound.tsx";
 // import axios from "axios";
 import "./productdetails.scss";
 import AddToCart from "../add-to-cart/AddToCart.tsx";
+import WishlistButton from "../WishlistButton/WishlistButton.tsx";
 
 interface ProductDetailsProps {
   activeTab: string;
@@ -21,6 +23,12 @@ const ProductDetails = ({ setActiveTab }: ProductDetailsProps) => {
   const config = useContext(ConfigContext);
   const [productData, setProductData] = useState<ProductInterface>();
   const [quantity, setQuantity] = useState(1);
+  const { user } = useContext(UserContext);
+  const isInWishlist = user?.wishlist?.some(
+    (item: any) =>
+      item.product === productData?._id ||
+      item.product._id === productData?._id,
+  );
 
   useEffect(() => {
     GetProducts({ slug: slug })
@@ -81,7 +89,7 @@ const ProductDetails = ({ setActiveTab }: ProductDetailsProps) => {
 
           <Stack
             direction="horizontal"
-            className="product-actions align-items-end"
+            className="product-actions align-items-end gap-2"
           >
             <Stack direction="vertical" className="quantity-label-container">
               <label className="quantity-label">Quantity</label>
@@ -95,7 +103,19 @@ const ProductDetails = ({ setActiveTab }: ProductDetailsProps) => {
                 max={`${productData.stock ?? undefined}`}
               />
             </Stack>
-            <AddToCart product={productData} quantity={quantity}></AddToCart>
+            <AddToCart
+              product={productData}
+              quantity={quantity}
+              className="add-to-cart-button"
+            ></AddToCart>
+            <WishlistButton
+              product={productData}
+              size="sm"
+              variant="outline"
+              showLabel={false}
+              isInWishlist={isInWishlist}
+              className="product-add-to-wishlist-submit"
+            />
           </Stack>
 
           <div className="product-additional-info">

@@ -85,3 +85,43 @@
   }
   
 }
+
+@media (max-width: 1199px) {
+  .page.cart-page {
+    width: 100%;
+
+    .cart-list-col {
+      padding: 1em;
+    }
+
+    .cart-summary-col {
+      padding: 1em;
+    }
+
+    .cart-list-item {
+      padding-bottom: 1em;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      align-items: center;
+
+      .product-image {
+        width: 45px;
+        height: 45px;
+        margin-right: 8px;
+        flex-shrink: 0;
+      }
+
+      .product-name {
+        font-size: 0.85rem;
+      }
+
+      .cart-list-item-price,
+      .cart-list-item-quantity,
+      .cart-list-item-total {
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+  }
+}

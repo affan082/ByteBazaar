@@ -57,12 +57,13 @@
           font-size: 0.95rem;
           
         }      
+        
 
-        .actions {
-          flex: 1.2;
-          display: flex;
-          justify-content: center;
-        }
+        // .actions {
+        //   flex: 1.2;
+        //   display: flex;
+        //   justify-content: center;
+        // }
       }
     }
 
@@ -73,17 +74,17 @@
       font-weight: 500;
     }
   }
-.order-list-header,
-.order-row {
-  display: flex;
-  align-items: center;
+// .order-list-header,
+// .order-row {
+//   display: flex;
+//   align-items: center;
 
-  .col {
-    text-align: center;
-    padding: 0 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
+//   .col {
+//     text-align: center;
+//     padding: 0 5px;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//   }
+// }
 }

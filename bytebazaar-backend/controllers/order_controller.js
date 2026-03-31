@@ -3,7 +3,7 @@ const APIError = require("../utils/APIError");
 const APIResponse = require("../utils/APIResponse");
 const ErrorMessages = require("../config/ErrorMessages.json");
 const {User} = require("../models/UserSchema");
-const Product = require("../models/ProductSchema");
+// const Product = require("../models/ProductSchema");
 const {Order, OrderStatus} = require("../models/OrderSchema");
 const { orderConfirmationMail, orderCompletedMail } = require("../utils/mailTemplate");
 const { MailTransporter } = require("./mail_controller");
@@ -61,7 +61,6 @@ exports.getOrders = async (req, res) => {
         let orders;
 
         if (roleNames.includes("buyer")) {
-            // Buyer: only their orders
             orders = await Order.find({ buyer: dbUser._id })
                 .populate("cart.product")
                 .populate("buyer", "fullname email");
@@ -69,9 +68,7 @@ exports.getOrders = async (req, res) => {
             orders = await Order.find({ seller: dbUser._id })
                 .populate("cart.product")
                 .populate("buyer", "fullname email");
-
         } else if (roleNames.includes("administrator")) {
-            // Admin: all orders
             orders = await Order.find()
                 .populate("cart.product")
                 .populate("buyer", "fullname email");

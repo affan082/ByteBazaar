@@ -130,10 +130,12 @@
 
     .product-actions {
       display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin: 10px 0;
-
+      align-items: flex-end;
       .quantity-label-container {
-        margin-right: 30px;
+        margin-right: 0px;
         flex: 0 1 auto;
 
         .quantity-label {
@@ -155,24 +157,40 @@
       }
 
       .add-to-cart-button {
-        background-color: #faca00;
-        border: none;
-        color: #333;
-        padding: 10px 30px;
-        border-radius: 5px;
-        font-size: 16px;
-        font-weight: 500;
+        flex: 1 1 auto !important; // stretch to fill available space on mobile
+    min-width: 120px !important;
+        background-color: var(--clr-secondary) !important;
+    color: var(--clr-primary) !important;
+        border: none !important;
+        padding: 0.8em 1em !important;
+       
+        border-radius: 30px !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
         letter-spacing: 1px;
-        margin-top: 20px;
-        margin-left: 10px;
+        // margin-top: 20px;
+        // margin-left: 10px;
         cursor: pointer;
 
         &:hover {
-          background-color: #4b5966;
-          color: #fff;
+        background-color: var(--clr-primary) !important;
+    color: var(--clr-secondary) !important;
           transition: all 0.3s ease-in-out;
         }
       }
+      .product-add-to-wishlist-submit{
+    border-radius: 5em !important;
+    padding: 0.8em 1em !important;
+    background-color: var(--clr-secondary) !important;
+    color: var(--clr-primary) !important;
+    border: none !important;
+  }
+  .product-add-to-wishlist-submit:hover{
+    background-color: var(--clr-primary) !important;
+    color: var(--clr-secondary) !important;
+    outline: none !important;
+    border: none !important;
+  }
     }
   }
    // === Stock & Wishlist Section ===

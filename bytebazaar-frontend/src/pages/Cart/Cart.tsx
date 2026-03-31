@@ -152,6 +152,7 @@ function Cart() {
                       key={`cart-item-${product?._id}`}
                     >
                       <Col
+                        xs={12}
                         xl={4}
                         className="cart-list-item-name p-0 d-flex flex-row align-items-center"
                       >
@@ -165,11 +166,11 @@ function Cart() {
                         />
                         <h6 className="product-name">{product?.name}</h6>
                       </Col>
-                      <Col xl={2} className="cart-list-item-price">
+                      <Col xs={3} xl={2} className="cart-list-item-price">
                         {config.app.currency_symbol}{" "}
                         {displayUnitPrice.toFixed(0)}
                       </Col>
-                      <Col xl={2} className="cart-list-item-quantity">
+                      <Col xs={2} xl={2} className="cart-list-item-quantity">
                         <button
                           className="icon"
                           onClick={() => decreaseItemQuantity(product?._id)}
@@ -184,10 +185,11 @@ function Cart() {
                           +
                         </button>
                       </Col>
-                      <Col xl={2} className="cart-list-item-total">
+                      <Col xs={4} xl={2} className="cart-list-item-total">
                         {config.app.currency_symbol} {displayTotal.toFixed(0)}
                       </Col>
                       <Col
+                        xs={1}
                         xl={{ span: 1, offset: 1 }}
                         className="cart-list-item-deleted"
                       >

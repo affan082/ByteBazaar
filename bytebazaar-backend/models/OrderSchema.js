@@ -20,22 +20,20 @@ const OrderSchema = new mongoose.Schema(
         sessionId: {
             type: String,
             required: true,
-            unique: true, // ensures no duplicate session
+            unique: true,
         },
         customerEmail: {
             type: String,
-            required: false, // might be useful for guest checkout
+            required: false, 
         },
-
-        // Who placed the order (nullable for guest checkout)
+      
         buyer: {
             type: mongoose.Schema.Types.ObjectId,
             ref: process.env.MODEL_NAME_USER,
             required: false,
             default: null,
         },
-
-        // Sellers involved in this order
+      
         seller: [
             {
                 type: mongoose.Schema.Types.ObjectId,
@@ -44,7 +42,6 @@ const OrderSchema = new mongoose.Schema(
             },
         ],
 
-        // Cart items in the order
         cart: [
             {
                 product: {
@@ -60,7 +57,6 @@ const OrderSchema = new mongoose.Schema(
             },
         ],
 
-        // Order pricing
         orderAmount: {
             type: Number,
             required: true,
@@ -80,16 +76,14 @@ const OrderSchema = new mongoose.Schema(
             uppercase: true,
         },
 
-        // Payment info
         paymentMethod: {
             type: String,
             required: false,
         },
 
-        // Order status
         status: {
             type: String,
-            enum: OrderStatus, // safer than passing object directly
+            enum: OrderStatus, 
             default: OrderStatus.PENDING,
         },
     },

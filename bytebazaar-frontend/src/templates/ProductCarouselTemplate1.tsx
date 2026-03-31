@@ -56,7 +56,7 @@
 
 // export default ProductCarouselTemplate_1;
 // ProductCarouselTemplate_1.tsx
-import React, { useState } from "react";
+
 import ProductInterface from "../interfaces/ProductInterface";
 import "./product-carousel-template-1.scss";
 import { Stack } from "react-bootstrap";

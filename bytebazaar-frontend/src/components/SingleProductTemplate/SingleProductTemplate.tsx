@@ -43,7 +43,7 @@ function SingleProductTemplate() {
     <>
       <Container fluid className="single-product-template page product-page">
         <Row className={"page-section content-box"}>
-          <Col md={6} sm={12}>
+          <Col md={6} sm={12} className="px-2 px-md-3">
             <Stack direction="horizontal" className="product-images gap-2">
               <Stack direction="horizontal" className="thumbnail-images gap-2">
                 {productData.gallery?.map((image, index) => (

@@ -25,7 +25,7 @@ ${itemLines}
 ORDER TOTAL  : PKR ${order.orderAmount}
 ----------------------------------------
 
-We will notify you once your order is shipped.
+We will notify you once your order will be completed.
 
 Regards,
 ${process.env.APPLICATION_NAME}

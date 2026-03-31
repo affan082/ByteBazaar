@@ -145,8 +145,8 @@ exports.handlePaymentSuccess = async function (req, res) {
 
         const orderUpdate = {
             transactionId: session.payment_intent,
-            paidAmount: session.amount_total,
-            orderAmount: session.amount_subtotal,
+            paidAmount: session.amount_total/100,
+            orderAmount: session.amount_subtotal/100,
             currency: session.currency,
             status: OrderStatus.WAITING_DELIVERY,
         };

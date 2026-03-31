@@ -90,7 +90,7 @@ function MyOrders() {
             {orders.map((order) => (
               <div key={order._id}>
                 <Row className="order-row">
-                  <Col className="col products">
+                  <Col md={6} lg={6} className="col products">
                     {order.cart.map((item, index) => (
                       <div key={index} className="d-flex align-items-left mb-2">
                         <img
@@ -105,7 +105,7 @@ function MyOrders() {
                     ))}
                   </Col>
                   <Col md={2} lg={2} className="col amount">
-                    Rs.{order.orderAmount / 100}
+                    Rs.{order.orderAmount}
                   </Col>
                   <Col md={2} lg={2} className="col status">
                     {order.status}
