@@ -34,13 +34,12 @@ const wishlistController = require("../controllers/wishlist_controller");
 const { verify } = require("jsonwebtoken");
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URL,  // Your frontend URL
+  origin: process.env.FRONTEND_URL,  
   credentials: true,                
 };
 
 
-router.use(cors(corsOptions));  // CORS Middleware to allow cross-origin requests
-
+router.use(cors(corsOptions));  
 // Handle preflight (OPTIONS) request for all routes
 router.options("*", cors(corsOptions));  // Explicitly use corsOptions for OPTIONS requests
 
