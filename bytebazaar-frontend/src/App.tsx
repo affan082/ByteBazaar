@@ -1,10 +1,7 @@
-// import React from "react";
 import { useContext } from "react";
 import { ConfigContext } from "./reducers/GlobalConfig.tsx";
-// import { RouterProvider } from "react-router-dom";
 import AuthProvider from "./reducers/AuthProvider.tsx";
 import { ProductConfigContext } from "./reducers/ProductConfig.tsx";
-// import {UserContext} from "./reducers/UserContext.tsx";
 import RouterSelector from "./reducers/RouterSelector.tsx";
 
 function App() {
