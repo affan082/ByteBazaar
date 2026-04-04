@@ -84,9 +84,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       })
       .catch((_e) => {
         console.log("hello world fails");
-        // TODO Show Signin Message if Automatic Signin Fails
         console.error(
-          "The Automatic Signin was not success-full. Try Manually.",
+          "The Automatic Signin was not successfull. Try Manually.",
         );
       });
   }, []);
@@ -143,20 +142,8 @@ export const UserSignIn = ({
       }
 
       responseMethod({ status: "error", message: data.message });
-
-      // if(data.statusCode === 409){
-      //   responseMethod({status:"error",message:data.details});
-      // }
     });
 };
-
-// export interface UserSignUpProps{
-//   data: {[key:string]:any};
-//   loaderMethod?:Function|null;
-//   responseMethod?:Function|null;
-//   redirect?:string;
-//   setUser?:Function|undefined;
-// }
 
 export interface ServerResponse {
   status: "success" | "error";
@@ -255,11 +242,6 @@ export function GetUserDataFromCookie(): Partial<UserInterface> {
   }
   return {};
 }
-
-// export function ForgotPasswordResetEmail(email:string):ServerResponse{
-//
-//   return {};
-// }
 
 export function UpdateUserContextFromToken(
   setUser: Function,

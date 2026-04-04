@@ -60,7 +60,7 @@
 import ProductInterface from "../interfaces/ProductInterface";
 import "./product-carousel-template-1.scss";
 import { Stack } from "react-bootstrap";
-import Rating from "../components/Rating/Rating.tsx";
+// import Rating from "../components/Rating/Rating.tsx";
 import Price from "../components/Price/Price.tsx";
 import AddToCart from "../components/add-to-cart/AddToCart.tsx";
 import WishlistButton from "../components/WishlistButton/WishlistButton.tsx";
@@ -71,9 +71,13 @@ function ProductCarouselTemplate_1(product: ProductInterface) {
   let { salePrice, price, url, rating, categories, featureImage, _id, name } =
     product;
   const { user, setUser } = useContext(UserContext);
-  const isInWishlist = user?.wishlist?.some(
-    (item) => item.product === product._id || item.product._id === product._id,
-  );
+  const isInWishlist = user?.wishlist?.some((item) => {
+    const itemProductId =
+      typeof item.product === "string"
+        ? item.product
+        : item.product?._id;
+    return itemProductId === product._id;
+  });
 
   return (
     <Stack className="product-carousel-template-1">

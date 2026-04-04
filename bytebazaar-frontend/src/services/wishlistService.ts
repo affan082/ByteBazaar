@@ -27,7 +27,7 @@ const wishlistService = {
       }      
       return [];      
     } catch (error: any) {
-      console.error('❌ Get wishlist error:', error);
+      console.error('Get wishlist error:', error);
       return []; 
     }
   },
@@ -45,7 +45,7 @@ const wishlistService = {
       }      
       return { wishlist: [], isInWishlist: false };      
     } catch (error: any) {
-      console.error('❌ Toggle wishlist error:', error);      
+      console.error('Toggle wishlist error:', error);      
       if (error.response?.status === 401) {
         throw new Error('Please login to manage wishlist');
       }      
@@ -67,11 +67,11 @@ const wishlistService = {
 
   async clearWishlist(): Promise<any> {
     try {
-      console.log('🗑️ Clearing wishlist');
+      console.log('Clearing wishlist');
       const response = await apiClient.delete('wishlist/clear');      
       return response.data.wishlist || [];      
     } catch (error: any) {
-      console.error('❌ Clear wishlist error:', error);
+      console.error('Clear wishlist error:', error);
       throw new Error(error.response?.data?.message || 'Failed to clear wishlist');
     }
   }

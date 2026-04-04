@@ -122,18 +122,6 @@ export default function RouterSelector() {
       path: "/forgot-password",
       element: <PageWrapper _children={<ForgotPassword />} />,
     },
-    // {
-    //     path: "/dashboard",
-    //     element:<ProtectedRoute allowedRoles={["seller"]}></ProtectedRoute>,
-    //     children: [
-    //
-    //     ],
-    // },
-    // Uncomment when the component is available
-    // {
-    //   path: "/test",
-    //   element: <Test />,
-    // },
     {
       path: "/dashboard",
       element: <PageWrapper _children={<ProfileLayout />} />,

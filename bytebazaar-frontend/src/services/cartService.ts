@@ -28,7 +28,7 @@ const cartService = {
       }  
       return [];      
     } catch (error: any) {
-      console.error('❌ Get cart error:', error);
+      console.error('Get cart error:', error);
       return [];
     }
   },

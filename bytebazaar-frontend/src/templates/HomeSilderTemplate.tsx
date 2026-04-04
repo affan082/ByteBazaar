@@ -1,6 +1,6 @@
-import React from "react";
-import { Button, Container, Stack } from "react-bootstrap";
-import { ProductProps } from "../interfaces/PropInterfaces";
+// import React from "react";
+import { Button, Stack } from "react-bootstrap";
+// import { ProductProps } from "../interfaces/PropInterfaces";
 import ProductInterface from "../interfaces/ProductInterface";
 import "./home-slide-template.css";
 
