@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import "./cart.scss";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { ConfigContext } from "../../reducers/GlobalConfig.tsx";
-// import { GetCurrentCart } from "../../reducers/CartUtils.ts";
 import { CartInterface } from "../../interfaces/CartInterface.ts";
 import EmptyCartComponent from "../../components/EmptyCart/EmptyCartComponent.tsx";
 import { HandlePayment } from "../../reducers/PaymentUtils.tsx";
