@@ -1,8 +1,6 @@
 import { Button } from "react-bootstrap";
 import ProductInterface from "../../interfaces/ProductInterface";
 import React, { useState, useEffect } from "react";
-// import { useWishlist } from "../../contexts/WishlistContext";
-import { ConfigContext } from "../../reducers/GlobalConfig";
 import ToastTemplate from "../ToastTemplate";
 import wishlistService from "../../services/wishlistService";
 import { Bounce, toast, ToastPosition } from "react-toastify";

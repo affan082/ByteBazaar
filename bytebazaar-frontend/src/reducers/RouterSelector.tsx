@@ -14,7 +14,6 @@ import Signin from "../pages/Signin/Signin.tsx";
 import CategoryArchive from "../pages/Category Archive/CategoryArchive.tsx";
 import Wishlist from "../pages/Wishlist/Wishlist.tsx";
 import Cart from "../pages/Cart/Cart.tsx";
-import Checkout from "../pages/Checkout/Checkout.tsx";
 import PaymentResult from "../pages/PaymentResult/PaymentResult.tsx";
 import SingleProductTemplate from "../components/SingleProductTemplate/SingleProductTemplate.tsx";
 import Forbidden from "../pages/Forbidden/Forbidden.tsx";
@@ -22,7 +21,6 @@ import ProtectedRoute from "./ProtectedRoute.tsx";
 import ProfileLayout from "../pages/Profile/Dashboard.tsx";
 import ProfileInfo from "../pages/Profile/ProfileInfo.tsx";
 import MyOrders from "../pages/Profile/MyOrders.tsx";
-import OrderHistory from "../pages/Profile/OrderHistory.tsx";
 import Transactions from "../pages/Profile/Transactions.tsx";
 import ProfileSettings from "../pages/Profile/ProfileSettings.tsx";
 import Logout from "../pages/Profile/Logout.tsx";
@@ -41,7 +39,6 @@ import Preloader from "../components/Preloader/Preloader.tsx";
 import AddUser from "../admin/Users/AddUser.tsx";
 import AdminProductListing from "../admin/Products/AdminProductListing.tsx";
 import AdminOrderListing from "../admin/AdminOrderListing.tsx";
-// import UserProfile from "../pages/UserProfile/UserProfile.tsx";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword.tsx";
 import Analytics from "../admin/Analytics/Analytics.tsx";
 
@@ -78,12 +75,10 @@ export default function RouterSelector() {
     },
     {
       path: "/signup",
-      // Uncomment when the component is available
       element: <PageWrapper _children={<Signup />} />,
     },
     {
       path: "/signin",
-      // Uncomment when the component is available
       element: <PageWrapper _children={<Signin />}></PageWrapper>,
     },
     {
@@ -97,10 +92,6 @@ export default function RouterSelector() {
     {
       path: "/cart",
       element: <PageWrapper _children={<Cart />} />,
-    },
-    {
-      path: "/checkout",
-      element: <PageWrapper _children={<Checkout />} />,
     },
     {
       path: "/payment-completed",
@@ -134,10 +125,6 @@ export default function RouterSelector() {
         {
           path: "my-orders",
           element: <MyOrders />,
-        },
-        {
-          path: "orders/history",
-          element: <OrderHistory />,
         },
         {
           path: "wishlist",

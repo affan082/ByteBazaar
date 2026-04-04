@@ -23,7 +23,9 @@
 
   .cart-icon {
     color: #6c757d; /* Bootstrap gray */
-    font-size: 5rem;
+    // font-size: 5rem;
     margin-bottom: 1.5rem;
+    width: 200px;   // adjust this value to your liking
+  height: 200px; 
   }
 }

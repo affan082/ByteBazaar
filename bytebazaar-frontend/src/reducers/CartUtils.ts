@@ -152,34 +152,3 @@ export async function EmptyCart(): Promise<void> {
   saveLocalCart([]);
 }
 
-// Sync localStorage cart to server when user logs in
-// export async function syncCartToServer(): Promise<void> {
-//     console.log("synce to server is working")
-//   if (isAuthenticated()) {
-//     const localCart = getLocalCart();
-//     if (localCart.length > 0) {
-//       try {
-//         const dbCart = localCart.map(item => ({
-//           product: item.product?._id,
-//           quantity: item.quantity
-//         }));
-
-//         await axios.put(
-//           config.server.uri + "cart/update",
-//           { cart: dbCart },
-//           {
-//             withCredentials: true,
-//             headers: {
-//               'Authorization': `Bearer ${localStorage.getItem('token')}`
-//             }
-//           }
-//         );
-        
-//         // Clear localStorage cart after successful sync
-//         saveLocalCart([]);
-//       } catch (error) {
-//         console.error("Failed to sync cart to server:", error);
-//       }
-//     }
-//   }
-// }

@@ -73,6 +73,8 @@
    text-align: center;
   }
   .c-btn{
+    background-color:  var(--clr-secondary) !important;
+    color: var(--clr-primary) !important;
     border-radius: 2em !important;
       padding: 1em 3em !important;
       font: 500 0.8rem/1.3rem "Work Sans", sans-serif !important;

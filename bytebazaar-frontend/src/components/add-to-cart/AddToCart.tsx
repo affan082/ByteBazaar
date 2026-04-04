@@ -40,15 +40,12 @@ function AddToCart({
   async function addToCart() {
     setLoader(true);
     try {
-      // Call backend service - let the service handle auth errors
       await cartService.addToCart(product._id, quantity);
-
       toast.success(
         <ToastTemplate message={"Successfully Added to Cart"} />,
         toastOptions,
       );
     } catch (error: any) {
-      // Show the error message from the service
       toast.error(
         <ToastTemplate
           message={error.message || "Sorry, Cart could not be updated!"}

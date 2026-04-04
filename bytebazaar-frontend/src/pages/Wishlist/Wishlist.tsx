@@ -4,19 +4,14 @@ import { ConfigContext } from "../../reducers/GlobalConfig";
 import "./wishlist.scss";
 import { WishlistInterface } from "../../interfaces/WishlistInterface";
 import wishlistService from "../../services/wishlistService";
-// import WishlistButton from "../../components/WishlistButton/WishlistButton";
 import ProductInterface from "../../interfaces/ProductInterface";
 import AddToCart from "../../components/add-to-cart/AddToCart";
 import { WishlistItem } from "../../interfaces/WishlistInterface";
 import { useState, useContext, useEffect } from "react";
-// import { GetCurrentWishlist } from "../../reducers/WishlistUtils";
-// import { UserContext } from "../../reducers/UserContext";
-// import { UserInterface } from "../../reducers/AuthProvider";
 
 function Wishlist() {
   const [loading, setLoading] = useState(true);
   const [wishlistItems, setWishlistItems] = useState<WishlistInterface[]>([]);
-  // const [user, setUser] = useState<Partial<UserInterface>>({});
   const config = useContext(ConfigContext);
   const navigate = useNavigate();
 
