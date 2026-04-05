@@ -10,7 +10,6 @@ export default interface FiltersInterface {
     categories?: String[];
     brands?: [String];
     inStock?: Boolean;
-    color?: String[];
     limit?: number;
     priceMin: number;
     priceMax: number;

@@ -14,11 +14,9 @@ export interface ProductProps {
   productPrice: number;
   productSalePrice: number;
   productCategoryID: number;
-  productColor: string;
   rating: number;
   productStock: number;
   productVariations: string;
-  colorSize: string;
 }
 
 // // User Interface

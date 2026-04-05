@@ -8,7 +8,7 @@ import { CategoryInterface } from "../../interfaces/CategoryInterface.tsx";
 import "./category-archive.scss";
 import CategoryFilter from "../../filters/CategoryFilter.tsx";
 import { ProductQueryInterface } from "../../interfaces/ProductQueryInterface.tsx";
-import ColorFilter from "../../filters/ColorFilter.tsx";
+
 import PriceFilter from "../../filters/PriceFilter.tsx";
 import {
   CategoryArchiveContext,
@@ -145,11 +145,6 @@ function CategoryArchive() {
                       queryUpdater={setProductQuery}
                     />
 
-                    <ColorFilter
-                      queryObject={productQuery}
-                      queryUpdater={setProductQuery}
-                      title={"Colors"}
-                    />
                     {price &&
                       price.min !== undefined &&
                       price.max !== undefined && (

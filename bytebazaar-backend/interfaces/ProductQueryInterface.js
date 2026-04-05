@@ -11,5 +11,4 @@ exports.ProductQuery = {
   categories: [String],
   brands: [String],
   inStock: Boolean,
-  color: [String],
 };

@@ -170,18 +170,6 @@ const ProductPage: React.FC = () => {
               </li>
             </ul>
             <hr />
-            <h5>Color</h5>
-            <ul className="colors">
-              <span className="color-dot red"></span>
-              <span className="color-dot blue"></span>
-              <span className="color-dot green"></span>
-              <span className="color-dot yellow"></span>
-              <span className="color-dot purple"></span>
-              <span className="color-dot orange"></span>
-              <span className="color-dot black"></span>
-              <span className="color-dot white"></span>
-            </ul>
-            <hr />
           </div>
         </div>
 

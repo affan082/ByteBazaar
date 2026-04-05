@@ -11,7 +11,6 @@ export interface ProductQueryInterface {
   categories?: String[];
   brands?: [String];
   inStock?: Boolean;
-  color?: String[];
   limit?: number;
   skip?: number;
 }

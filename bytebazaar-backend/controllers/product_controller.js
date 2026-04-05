@@ -22,7 +22,6 @@ exports.queryProducts = async (req, res) => {
       categories,
       brands,
       inStock,
-      color,
       limit,
       skip,
       sort,
@@ -55,10 +54,6 @@ exports.queryProducts = async (req, res) => {
 
     if (inStock != null) {
       query.stock = inStock ? { $gte: 0 } : { $lte: 0 };
-    }
-
-    if (color?.length > 0) {
-      query.color = { $in: color };
     }
 
     if (_id) query._id = _id;
@@ -251,7 +246,6 @@ exports.updateProduct = async (req, res) => {
     // Split strings into arrays
     product.categories =
         product.categories !== "" ? product.categories.split(",") : null;
-    product.color = product.color.split(",");
 
     //TODO Should Payment Gateway Update
     delete product.paymentGateways;

@@ -13,9 +13,7 @@ export default interface ProductInterface {
   categories?: [String];
   rating?: Number;
   stock?: Number;
-  variations?: {
-    color?: [String];
-  };
+  variations?: {};
   brand?: String;
   _id: string;
   [key: string]: any;

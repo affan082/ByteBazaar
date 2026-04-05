@@ -39,7 +39,7 @@ function AddProduct() {
   const [selectedCategories, setSelectedCategories] = useState<
     CategoryInterface[]
   >([]);
-  const [selectedColors, setSelectedColors] = useState<object[]>([]);
+
   const productConfig = useContext(ProductConfigContext);
 
   useEffect(() => {
@@ -54,7 +54,6 @@ function AddProduct() {
             ),
           });
           setSelectedCategories(data[0].categories || []);
-          setSelectedColors(data[0].color.filter((i) => i !== "") || []);
 
           // console.log(data[0]);
           setLoading(false);
@@ -79,14 +78,6 @@ function AddProduct() {
     });
     // console.log(selectedCategories);
   }, [selectedCategories, loading]);
-
-  // Change the selected colors to an array if string
-  useEffect(() => {
-    console.log(selectedColors);
-    if (selectedColors && selectedColors.length > 0) {
-      setFormData({ ...formData, color: selectedColors });
-    }
-  }, [selectedColors]);
 
   function updateFormValues(e: any) {
     if (e.target.type === "file") {
@@ -368,28 +359,7 @@ function AddProduct() {
               ></FormControl>
             </FormGroup>
           </Row>
-          <Row>
-            <FormGroup as={Col}>
-              <FormLabel as={Col} className={"d-flex flex-column gap-0"}>
-                <FormLabel>Color(Comma Separated)</FormLabel>
 
-                <MultiSelect
-                  options={productConfig.variations.availableColors}
-                  onChange={(e: MultiSelectChangeEvent) => {
-                    setSelectedColors(e.value);
-                    // console.log(e);
-                  }}
-                  name={"color"}
-                  selectAllLabel={"Select All"}
-                  // display={"chip"}
-                  optionLabel={"name"}
-                  placeholder={"Select"}
-                  value={selectedColors}
-                  className="w-full md:w-20rem"
-                />
-              </FormLabel>
-            </FormGroup>
-          </Row>
           <Row
             style={{
               display: `${
