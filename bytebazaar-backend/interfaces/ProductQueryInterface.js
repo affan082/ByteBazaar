@@ -11,11 +11,5 @@ exports.ProductQuery = {
   categories: [String],
   brands: [String],
   inStock: Boolean,
-  size: [
-    {
-      type: String,
-      enum: ["S", "M", "L", "XL"],
-    },
-  ],
   color: [String],
 };

@@ -1,10 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Container, Card, Button, Row } from "react-bootstrap";
 import "./empty-cart.scss";
 import { ConfigContext } from "../../reducers/GlobalConfig.tsx";
 
 const EmptyCartComponent = () => {
-  // Dynamically adds the Bootstrap CSS to the head to ensure it's available.
   const config = useContext(ConfigContext);
 
   return (
@@ -14,7 +13,6 @@ const EmptyCartComponent = () => {
           <Row className="justify-content-center">
             <Card className="empty-cart-card border-0">
               <Card.Body>
-                {/* SVG icon for an empty shopping cart */}
                 <svg
                   className="cart-icon mx-auto"
                   fill="none"

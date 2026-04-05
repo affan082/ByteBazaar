@@ -18,7 +18,6 @@ import {
 } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import { UserContext } from "../../reducers/UserContext.tsx";
-// import CartIcon from "../Widgets/cart/CartIcon.tsx";
 import menu from "../../menus/header_menu.json";
 
 function Header() {
@@ -30,8 +29,8 @@ function Header() {
     keyword: "",
   });
   const [showSearch, setShowSearch] = useState(false);
-  const cartCount = user?.cart?.length || 0;
-  const wishlistCount = user?.wishlist?.length || 0;
+  // const cartCount = user?.cart?.length || 0;
+  // const wishlistCount = user?.wishlist?.length || 0;
 
   return (
     <Container fluid className="header">
@@ -146,9 +145,6 @@ function Header() {
               <span className="d-none d-lg-flex">Cart</span>
               {/* <span className="count cart-count ">{cartCount}</span> */}
             </a>
-
-            {/* <CartIcon /> */}
-
             <span className="header-icon">
               {!user ? (
                 <a href={urls.signin}>

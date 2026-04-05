@@ -1,24 +1,12 @@
 import { CategoryInterface } from "../../interfaces/CategoryInterface.tsx";
-import { Button, Col, Container, Row, Stack } from "react-bootstrap";
+import { Col, Container, Row, Stack } from "react-bootstrap";
 import "./category-listing-template.scss";
-import { useContext, useEffect } from "react";
-import { GetCategories } from "../../queries/GetCategories.tsx";
+import { useContext } from "react";
 import axios from "axios";
 import { ConfigContext } from "../../reducers/GlobalConfig.tsx";
 
-function CategoryListingTemplate({
-  _id,
-  name,
-  parent,
-  description,
-}: CategoryInterface) {
+function CategoryListingTemplate({ _id, name, parent }: CategoryInterface) {
   const config = useContext(ConfigContext);
-  // const [parentCategory, setParentCategory] = React.useState<CategoryInterface>();
-  // useEffect(()=>{
-  //     GetCategories({_id:_id}).then((data)=>{
-  //         setParentCategory(data[0]);
-  //     })
-  // })
 
   async function removeCategory(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();

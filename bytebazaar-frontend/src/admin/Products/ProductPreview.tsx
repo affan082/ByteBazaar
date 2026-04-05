@@ -69,12 +69,6 @@ function ProductPreview({ show, onHide, product }: ProductPreviewModalProps) {
             <div className="mb-2">
               <strong>Stock:</strong> {product.stock?.toString() || "N/A"}
             </div>
-
-            {product.size && product.size.length > 0 && (
-              <div className="mb-2">
-                <strong>Sizes:</strong> {product.size.join(", ")}
-              </div>
-            )}
           </Col>
         </Row>
       </Modal.Body>

@@ -45,7 +45,7 @@ const ReviewModal = ({
 
       alert("Review submitted successfully!");
       setComment("");
-      setRating(5);
+      setRating(0);
       handleClose();
       if (onReviewSubmitted) onReviewSubmitted();
     } catch (error: any) {
@@ -72,11 +72,6 @@ const ReviewModal = ({
       <Modal.Body>
         <Row className="align-items-start">
           <Col xs={12} md={4} className="review-modal-left">
-            {/* <img
-              src={`${config.server.uri}${product?.featureImage}`}
-              alt={product?.name}
-              className="review-product-img"
-            /> */}
             <p className="review-product-name">{product?.name}</p>
             <p>{product?.shortDescription}</p>
           </Col>

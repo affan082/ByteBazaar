@@ -8,7 +8,6 @@ import { CategoryInterface } from "../../interfaces/CategoryInterface.tsx";
 import "./category-archive.scss";
 import CategoryFilter from "../../filters/CategoryFilter.tsx";
 import { ProductQueryInterface } from "../../interfaces/ProductQueryInterface.tsx";
-import SizeFilter from "../../filters/SizeFilter.tsx";
 import ColorFilter from "../../filters/ColorFilter.tsx";
 import PriceFilter from "../../filters/PriceFilter.tsx";
 import {
@@ -145,11 +144,7 @@ function CategoryArchive() {
                       queryObject={productQuery}
                       queryUpdater={setProductQuery}
                     />
-                    <SizeFilter
-                      title={"Size"}
-                      queryObject={productQuery}
-                      queryUpdater={setProductQuery}
-                    />
+
                     <ColorFilter
                       queryObject={productQuery}
                       queryUpdater={setProductQuery}

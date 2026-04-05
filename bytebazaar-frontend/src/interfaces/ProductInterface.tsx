@@ -15,7 +15,6 @@ export default interface ProductInterface {
   stock?: Number;
   variations?: {
     color?: [String];
-    size?: [String];
   };
   brand?: String;
   _id: string;
@@ -24,6 +23,6 @@ export default interface ProductInterface {
     {
       gateway: String;
       purchase_id: String;
-    }
+    },
   ];
 }

@@ -110,8 +110,6 @@ const ProductTabs = ({
               ) : (
                 <div className="reviews-list">
                   {reviews.map((review) => {
-                    // const currentUserId =
-                    //   localStorage.getItem("userId") || req.user?._id;
                     const isOwner = review.user._id === currentUserId;
 
                     return (

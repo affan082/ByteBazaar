@@ -72,18 +72,6 @@ const ProductDetails = ({ setActiveTab }: ProductDetailsProps) => {
               <p className="product-short-description">
                 {productData?.shortDescription}
               </p>
-              {/* <label>Size</label> */}
-              {/* <select className="size-input"> */}
-              {/* <option>S</option> */}
-              {/* <option>M</option> */}
-              {/* <option>L</option> */}
-              {/* {productData?.variations?.size?.length ? (
-                      <option value={productData?.variations?.size[0]}> {productData?.variations?.size} </option> */}
-              {/* ) :*/}
-              {/* (
-                      <option disabled>No sizes available</option>
-                    )} */}
-              {/* </select> */}
             </Stack>
           </Stack>
 

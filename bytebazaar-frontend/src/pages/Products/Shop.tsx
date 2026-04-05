@@ -15,11 +15,6 @@ const ProductPage: React.FC = () => {
     smartWatch: false,
     samsung: false,
     apple: false,
-    sizeM: false,
-    sizeS: false,
-    sizeL: false,
-    sizeXL: false,
-    sizeXXL: false,
   });
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,11 +38,6 @@ const ProductPage: React.FC = () => {
       smartWatch: false,
       samsung: false,
       apple: false,
-      sizeM: false,
-      sizeS: false,
-      sizeL: false,
-      sizeXL: false,
-      sizeXXL: false,
     });
   };
 
@@ -192,54 +182,6 @@ const ProductPage: React.FC = () => {
               <span className="color-dot white"></span>
             </ul>
             <hr />
-            <h5>Size</h5>
-            <ul className="list-unstyled">
-              <li>
-                <input
-                  type="checkbox"
-                  name="sizeM"
-                  checked={filters.sizeM}
-                  onChange={handleCheckboxChange}
-                />{" "}
-                M
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="sizeS"
-                  checked={filters.sizeS}
-                  onChange={handleCheckboxChange}
-                />{" "}
-                S
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="sizeL"
-                  checked={filters.sizeL}
-                  onChange={handleCheckboxChange}
-                />{" "}
-                L
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="sizeXL"
-                  checked={filters.sizeXL}
-                  onChange={handleCheckboxChange}
-                />{" "}
-                XL
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  name="sizeXXL"
-                  checked={filters.sizeXXL}
-                  onChange={handleCheckboxChange}
-                />{" "}
-                XXL
-              </li>
-            </ul>
           </div>
         </div>
 

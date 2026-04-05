@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from "react";
+import { useContext, useEffect, useState } from "react";
 import "primereact/resources/themes/md-light-indigo/theme.css";
 import {
   Alert,
@@ -15,14 +15,13 @@ import {
 } from "react-bootstrap";
 import { ConfigContext } from "../../reducers/GlobalConfig";
 import axios from "axios";
-import {GetCategories} from "../../queries/GetCategories.tsx";
-import {CategoryInterface} from "../../interfaces/CategoryInterface.tsx";
-import {useParams} from "react-router-dom";
-import {GetProducts} from "../../queries/GetProducts.tsx";
-import {MultiSelect, MultiSelectChangeEvent} from "primereact/multiselect";
+import { GetCategories } from "../../queries/GetCategories.tsx";
+import { CategoryInterface } from "../../interfaces/CategoryInterface.tsx";
+import { useParams } from "react-router-dom";
+import { GetProducts } from "../../queries/GetProducts.tsx";
+import { MultiSelect, MultiSelectChangeEvent } from "primereact/multiselect";
 import "./admin-products.scss";
-import {ProductConfigContext} from "../../reducers/ProductConfig.tsx";
-
+import { ProductConfigContext } from "../../reducers/ProductConfig.tsx";
 
 function AddProduct() {
   // The key value pairs of form inputs
@@ -35,63 +34,66 @@ function AddProduct() {
     variant: "",
     message: "",
   });
-  const {productId} = useParams();
+  const { productId } = useParams();
   const [loading, setLoading] = useState(false);
-  const [selectedCategories, setSelectedCategories] = useState<CategoryInterface[]>([]);
-  const [selectedSizes, setSelectedSizes] = useState<object[]>();
+  const [selectedCategories, setSelectedCategories] = useState<
+    CategoryInterface[]
+  >([]);
   const [selectedColors, setSelectedColors] = useState<object[]>([]);
   const productConfig = useContext(ProductConfigContext);
 
   useEffect(() => {
-    if(productId) {
+    if (productId) {
       setLoading(true);
-      GetProducts({_id: productId}).then(data => {
-        setFormData({...data[0], categories: data[0].categories?.map((category: { _id: any; }) => category._id)});
-        setSelectedCategories(data[0].categories || []);
-        setSelectedColors(data[0].color.filter(i=>i!=="")||[]);
-        setSelectedSizes(data[0].size||[]);
-        // console.log(data[0]);
-        setLoading(false);
-      }).catch(error => {
-        setResult({variant: "error", message: error.message});
-        setResultShow(true);
-        console.log(error);
-      });
-    }
-        console.log(formData);
-  }, [productId]);
+      GetProducts({ _id: productId })
+        .then((data) => {
+          setFormData({
+            ...data[0],
+            categories: data[0].categories?.map(
+              (category: { _id: any }) => category._id,
+            ),
+          });
+          setSelectedCategories(data[0].categories || []);
+          setSelectedColors(data[0].color.filter((i) => i !== "") || []);
 
+          // console.log(data[0]);
+          setLoading(false);
+        })
+        .catch((error) => {
+          setResult({ variant: "error", message: error.message });
+          setResultShow(true);
+          console.log(error);
+        });
+    }
+    console.log(formData);
+  }, [productId]);
 
   // Change the selected categories to an array if string
   useEffect(() => {
-    setFormData({...formData, "categories": selectedCategories.length>0?selectedCategories.map(i=>i._id):""});
+    setFormData({
+      ...formData,
+      categories:
+        selectedCategories.length > 0
+          ? selectedCategories.map((i) => i._id)
+          : "",
+    });
     // console.log(selectedCategories);
-  }, [selectedCategories,loading]);
-
-  // Change the selected sizes to an array if string
-  useEffect(() => {
-    // console.log(selectedSizes);
-    if(selectedSizes && selectedSizes.length>0){
-      setFormData({...formData, "size": selectedSizes||""});
-    }
-  }, [selectedSizes]);
+  }, [selectedCategories, loading]);
 
   // Change the selected colors to an array if string
   useEffect(() => {
     console.log(selectedColors);
-    if(selectedColors && selectedColors.length>0){
-      setFormData({...formData, "color": selectedColors});
+    if (selectedColors && selectedColors.length > 0) {
+      setFormData({ ...formData, color: selectedColors });
     }
   }, [selectedColors]);
-
 
   function updateFormValues(e: any) {
     if (e.target.type === "file") {
       setFormData({ ...formData, [e.target.name]: e.target.files });
-    }
-    else {
-      const _formData = {...formData};
-      if(e.target.name === "name") {
+    } else {
+      const _formData = { ...formData };
+      if (e.target.name === "name") {
         let _slug = document.querySelector("input[name='slug']");
         _slug.value = slugify(e.target.value);
         _formData["slug"] = slugify(e.target.value);
@@ -102,22 +104,22 @@ function AddProduct() {
   }
 
   useEffect(() => {
-    GetCategories({}).then((data)=>{
-      if(data){
+    GetCategories({}).then((data) => {
+      if (data) {
         setCategories(data);
       }
     });
-  },[]);
+  }, []);
 
-  function slugify(text: string){
+  function slugify(text: string) {
     return text
-        .toString()                     // Cast to string
-        .toLowerCase()                  // Convert the string to lowercase letters
-        .normalize('NFD')       // The normalize() method returns the Unicode Normalization Form of a given string.
-        .trim()                         // Remove whitespace from both sides of a string
-        .replace(/\s+/g, '-')           // Replace spaces with -
-        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-        .replace(/\-\-+/g, '-');
+      .toString() // Cast to string
+      .toLowerCase() // Convert the string to lowercase letters
+      .normalize("NFD") // The normalize() method returns the Unicode Normalization Form of a given string.
+      .trim() // Remove whitespace from both sides of a string
+      .replace(/\s+/g, "-") // Replace spaces with -
+      .replace(/[^\w\-]+/g, "") // Remove all non-word chars
+      .replace(/\-\-+/g, "-");
   }
 
   const handleSubmit = (event: any) => {
@@ -144,38 +146,41 @@ function AddProduct() {
 
     // console.log(frmData.get("featureImage"));
     axios
-        .post(config.server.uri + (productId?"update-product":"add-product"), frmData,{
+      .post(
+        config.server.uri + (productId ? "update-product" : "add-product"),
+        frmData,
+        {
           headers: {
             "Content-Type": "multipart/form-data",
           },
           withCredentials: true,
-        })
-        .then((res) => {
-          setResult({
-            variant: "success",
-            message: res.data.message,
-          });
-        })
-        .catch((e) => {
-          setResult({
-            variant: "danger",
-            message: `The product could not be added successfully. Reason ${e.response.data.errorCode}`,
-          });
+        },
+      )
+      .then((res) => {
+        setResult({
+          variant: "success",
+          message: res.data.message,
         });
+      })
+      .catch((e) => {
+        setResult({
+          variant: "danger",
+          message: `The product could not be added successfully. Reason ${e.response.data.errorCode}`,
+        });
+      });
     setResultShow(true);
     console.log(formData);
     setValidated(true);
   };
   return (
     <Container className="page admin-page product-page add-product-page">
-      {
-        loading?
-            <Spinner animation="border" role="status" className={"loader"}>
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-            :
-            <></>
-      }
+      {loading ? (
+        <Spinner animation="border" role="status" className={"loader"}>
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      ) : (
+        <></>
+      )}
       <Stack>
         <Form
           className={""}
@@ -213,7 +218,7 @@ function AddProduct() {
                 id="input_product_name"
                 required
                 name="name"
-                onChange={(e)=>{
+                onChange={(e) => {
                   updateFormValues(e);
                 }}
                 defaultValue={formData["name"]}
@@ -222,12 +227,12 @@ function AddProduct() {
             <FormGroup as={Col} className="">
               <FormLabel>Slug</FormLabel>
               <FormControl
-                  id="input_product_slug"
-                  required
-                  name="slug"
-                  onChange={updateFormValues}
-                  defaultValue={formData["slug"]}
-                  readOnly={true}
+                id="input_product_slug"
+                required
+                name="slug"
+                onChange={updateFormValues}
+                defaultValue={formData["slug"]}
+                readOnly={true}
               ></FormControl>
             </FormGroup>
             <FormGroup as={Col} className="w-50">
@@ -324,19 +329,20 @@ function AddProduct() {
               {/*  <option value={""}>Select Category</option>*/}
               {/*  {categories}*/}
               {/*</Form.Select>*/}
-              <MultiSelect options={categories}
-                           onChange={(e:MultiSelectChangeEvent)=>{
-                             setSelectedCategories(e.value);
-                             // console.log(e);
-                           }}
-                           filter
-                           name={"categories"}
-                           // display={"chip"}
-                           optionLabel={"name"}
-                           selectAllLabel={"Select All"}
-                           placeholder={"Select"}
-                           value={selectedCategories}
-                           className="w-full md:w-20rem"
+              <MultiSelect
+                options={categories}
+                onChange={(e: MultiSelectChangeEvent) => {
+                  setSelectedCategories(e.value);
+                  // console.log(e);
+                }}
+                filter
+                name={"categories"}
+                // display={"chip"}
+                optionLabel={"name"}
+                selectAllLabel={"Select All"}
+                placeholder={"Select"}
+                value={selectedCategories}
+                className="w-full md:w-20rem"
               />
               {/*{selectedCategories.map(category => (category.name))}*/}
             </FormGroup>
@@ -349,7 +355,7 @@ function AddProduct() {
                 id="input_product_stock"
                 name="stock"
                 onChange={updateFormValues}
-                defaultValue={formData.stock||0}
+                defaultValue={formData.stock || 0}
               ></FormControl>
             </FormGroup>
             <FormGroup as={Col}>
@@ -363,54 +369,23 @@ function AddProduct() {
             </FormGroup>
           </Row>
           <Row>
-            <FormGroup as={Col} className={"d-flex flex-column gap-0"}>
-              <FormLabel>Size(Comma Separated)</FormLabel>
-              {/*<FormControl*/}
-              {/*  id="input_product_size"*/}
-              {/*  name="size"*/}
-              {/*  onChange={updateFormValues}*/}
-              {/*  defaultValue={formData.size?.toString()}*/}
-              {/*></FormControl>*/}
-              <MultiSelect options={productConfig.variations.availableSizes}
-                           onChange={(e:MultiSelectChangeEvent)=>{
-                             setSelectedSizes(e.value);
-                             // console.log(e);
-                           }}
-                           name={"size"}
-                           selectAllLabel={"Select All"}
-                  // display={"chip"}
-                           optionLabel={"name"}
-                           placeholder={"Select"}
-                           value={selectedSizes}
-                           className="w-full md:w-20rem"
-              />
-            </FormGroup>
             <FormGroup as={Col}>
               <FormLabel as={Col} className={"d-flex flex-column gap-0"}>
                 <FormLabel>Color(Comma Separated)</FormLabel>
-                {/*<FormControl*/}
-                {/*  id="input_product_color"*/}
-                {/*  name="color"*/}
-                {/*  onChange={(e) => {*/}
-                {/*    setFormData({*/}
-                {/*      ...formData,*/}
-                {/*      [e.target.name]: e.target.value,*/}
-                {/*    });*/}
-                {/*  }}*/}
-                {/*  defaultValue={formData.color?.toString()}*/}
-                {/*></FormControl>*/}
-                <MultiSelect options={productConfig.variations.availableColors}
-                             onChange={(e:MultiSelectChangeEvent)=>{
-                               setSelectedColors(e.value);
-                               // console.log(e);
-                             }}
-                             name={"color"}
-                             selectAllLabel={"Select All"}
-                    // display={"chip"}
-                             optionLabel={"name"}
-                             placeholder={"Select"}
-                             value={selectedColors}
-                             className="w-full md:w-20rem"
+
+                <MultiSelect
+                  options={productConfig.variations.availableColors}
+                  onChange={(e: MultiSelectChangeEvent) => {
+                    setSelectedColors(e.value);
+                    // console.log(e);
+                  }}
+                  name={"color"}
+                  selectAllLabel={"Select All"}
+                  // display={"chip"}
+                  optionLabel={"name"}
+                  placeholder={"Select"}
+                  value={selectedColors}
+                  className="w-full md:w-20rem"
                 />
               </FormLabel>
             </FormGroup>
