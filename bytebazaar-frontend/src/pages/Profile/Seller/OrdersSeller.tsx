@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { UserContext } from "../../../reducers/UserContext";
 import axios from "axios";
 import {
   Container,
@@ -39,6 +41,7 @@ const OrderStatus = {
 };
 
 function OrdersSeller() {
+  const { user } = useContext(UserContext);
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -46,6 +49,22 @@ function OrdersSeller() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [updating, setUpdating] = useState<boolean>(false);
   const [status, setStatus] = useState<string>("");
+
+  const sellerStatus = user?.sellerProfile?.status;
+
+  if (sellerStatus !== "verified") {
+    return (
+      <Container className="orders-seller py-5">
+        <Alert variant="warning">
+          <Alert.Heading>⏳ Account Not Verified</Alert.Heading>
+          <p className="mb-0">
+            You need to be verified by an administrator before accessing orders.
+            Your account is currently <strong>{sellerStatus}</strong>.
+          </p>
+        </Alert>
+      </Container>
+    );
+  }
 
   // Fetch orders
   useEffect(() => {

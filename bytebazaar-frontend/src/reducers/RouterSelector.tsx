@@ -21,7 +21,6 @@ import ProtectedRoute from "./ProtectedRoute.tsx";
 import ProfileLayout from "../pages/Profile/Dashboard.tsx";
 import ProfileInfo from "../pages/Profile/ProfileInfo.tsx";
 import MyOrders from "../pages/Profile/MyOrders.tsx";
-import Transactions from "../pages/Profile/Transactions.tsx";
 import ProfileSettings from "../pages/Profile/ProfileSettings.tsx";
 import Logout from "../pages/Profile/Logout.tsx";
 import Customers from "../pages/Profile/Seller/Customers.tsx";
@@ -32,7 +31,6 @@ import AddCategory from "../admin/Category/AddCategory.tsx";
 import Categories from "../admin/Category/Categories.tsx";
 import AdminDashboard from "../admin/Dashboard/AdminDashboard.tsx";
 import { UserContext } from "./UserContext.tsx";
-// import Shop from "../pages/Products/Shop.tsx";
 import SellerDashboard from "../pages/Profile/SellerDashboard.tsx";
 import AdminUsersPage from "../admin/Users/Users.tsx";
 import Preloader from "../components/Preloader/Preloader.tsx";
@@ -41,6 +39,7 @@ import AdminProductListing from "../admin/Products/AdminProductListing.tsx";
 import AdminOrderListing from "../admin/AdminOrderListing.tsx";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword.tsx";
 import Analytics from "../admin/Analytics/Analytics.tsx";
+import PendingSellers from "../pages/Profile/Seller/PendingSellers.tsx";
 
 export default function RouterSelector() {
   const router = createBrowserRouter([
@@ -131,10 +130,6 @@ export default function RouterSelector() {
           element: <Wishlist />,
         },
         {
-          path: "transactions",
-          element: <Transactions />,
-        },
-        {
           path: "settings",
           element: <ProfileSettings />,
         },
@@ -203,6 +198,10 @@ export default function RouterSelector() {
           element: <Analytics />,
         },
         {
+          path: "sellers",
+          element: <PendingSellers />,
+        },
+        {
           path: "category/all",
           element: <Categories />,
         },
@@ -218,6 +217,7 @@ export default function RouterSelector() {
           path: "users/all",
           element: <AdminUsersPage />,
         },
+
         {
           path: "users/add",
           element: <AddUser />,

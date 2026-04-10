@@ -1,0 +1,8 @@
+.c-btn {
+    color: var(--clr-primary) !important;
+    background-color: var(--clr-secondary) !important;
+  }
+  .c-btn:hover {
+    background-color: var(--clr-primary) !important;
+    color: var(--clr-secondary) !important;
+  }

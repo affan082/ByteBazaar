@@ -133,6 +133,14 @@ exports.addProduct = async (req, res) => {
           .status(403)
           .send(new APIError(403, "Only sellers can add products"));
     }
+    if (seller.status !== "verified") {
+  return res.status(403).send(
+    new APIError(403, seller.status === "rejected" 
+      ? "Your seller account has been rejected."
+      : "Your seller account is pending admin approval."
+    )
+  );
+}
 
     product.featureImage = req.files.find(
         (file) => file.fieldname === process.env.PRODUCT_FEATURE_IMAGE_FIELD

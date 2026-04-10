@@ -52,10 +52,10 @@ function ProductPreview({ show, onHide, product }: ProductPreviewModalProps) {
             <p className="text-muted">{product.shortDescription}</p>
 
             <h5 className="text-success mb-3">
-              ${(product.salePrice || product.price)?.toString()}
+              Rs.{(product.salePrice || product.price)?.toString()}
               {product.salePrice && (
                 <small className="text-decoration-line-through text-muted ms-2">
-                  ${product.price?.toString()}
+                  Rs.{product.price?.toString()}
                 </small>
               )}
             </h5>

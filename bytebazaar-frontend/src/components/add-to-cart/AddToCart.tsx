@@ -12,6 +12,7 @@ interface AddToCartProps {
   label?: string;
   className?: string;
   quantity?: number;
+  disabled?: boolean;
   onCartUpdate?: () => void;
 }
 
@@ -20,6 +21,7 @@ function AddToCart({
   className,
   product,
   quantity = 1,
+  disabled = false,
 }: AddToCartProps) {
   const config = useContext(ConfigContext);
   const [loader, setLoader] = useState(false);
@@ -42,7 +44,7 @@ function AddToCart({
     try {
       await cartService.addToCart(product._id, quantity);
       toast.success(
-        <ToastTemplate message={"Successfully Added to Cart"} />,
+        <ToastTemplate message={"Successfully Added to Cart"} type="cart" />,
         toastOptions,
       );
     } catch (error: any) {
@@ -68,6 +70,7 @@ function AddToCart({
           id={"add-to-cart-btn-" + product?._id}
           variant={"secondary"}
           size={"sm"}
+          disabled={disabled}
         >
           {label || "Add To Cart"}
         </Button>

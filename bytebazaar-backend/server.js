@@ -1,9 +1,11 @@
+// const dns = require('dns');
+// dns.setServers(['1.1.1.1', '8.8.8.8']);
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-require("dotenv").config();
 const router = require("./routes/router");
 const cookieParser = require("cookie-parser");
 const createAdmin = require("./utils/init_admin");
@@ -13,9 +15,9 @@ const connectString = process.env.MDB_URL;
 const MongoStore = require("connect-mongo");
 
 
-
 // Connect to MongoDB
 mongoose.connect(connectString);
+
 
 mongoose.connection.once("connected", () => {
   console.log("Mongoose connected successfully");

@@ -567,8 +567,56 @@ exports.resetPassword = async (req, res) => {
   }
 
 }
+exports.getSellers = async (req, res) => {
+  try {
+    const sellerRole = await Role.findOne({ name: "seller" });    
+    // console.log("Seller role found:", sellerRole); 
 
+    if (!sellerRole) {
+      return res.status(404).send(new APIError(404, "Seller role not found"));
+    }
+    const users = await User.find({ roles: sellerRole._id }).lean();
+    const sellersWithProfile = await Promise.all(
+      users.map(async (user) => {
+        const profile = await SellerProfile.findOne({ user: user._id });
+        return { ...user, sellerProfile: profile };
+      })
+    );
+    return res.status(200).send(new APIResponse(200, "Sellers fetched", sellersWithProfile));
+  } catch (err) {
+    return res.status(500).send(new APIError(500, "Failed to fetch sellers", err.message));
+  }
+};
 
+exports.updateSellerStatus = async (req, res) => {
+  try {
+    const { sellerId, status } = req.body;
+
+    if (!sellerId || !status) {
+      return res.status(400).send(new APIError(400, "Seller ID and status are required"));
+    }
+
+    const allowedStatuses = ["pending", "verified", "rejected"];
+    if (!allowedStatuses.includes(status)) {
+      return res.status(400).send(new APIError(400, "Invalid status"));
+    }
+
+    const sellerProfile = await SellerProfile.findOneAndUpdate(
+      { user: sellerId },
+      { $set: { status } },
+      { new: true }
+    );
+
+    if (!sellerProfile) {
+      return res.status(404).send(new APIError(404, "Seller profile not found"));
+    }
+
+    return res.status(200).send(new APIResponse(200, `Seller status updated to ${status}`, sellerProfile));
+  } catch (err) {
+    console.error("Update Seller Status Error:", err);
+    return res.status(500).send(new APIError(500, "Failed to update seller status", err.message));
+  }
+};
 const userStorage = diskStorage({
   destination: (req, file, cb) => cb(null, process.env.USER_CONTENT_DIR),
   filename: (req, file, cb) =>

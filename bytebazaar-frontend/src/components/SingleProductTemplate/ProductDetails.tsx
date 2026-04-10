@@ -88,13 +88,15 @@ const ProductDetails = ({ setActiveTab }: ProductDetailsProps) => {
                 min="1"
                 value={quantity}
                 onChange={(e) => setQuantity(Number(e.target.value))}
-                max={`${productData.stock ?? undefined}`}
+                max={productData.stock as number}
+                disabled={!productData.stock}
               />
             </Stack>
             <AddToCart
               product={productData}
               quantity={quantity}
               className="add-to-cart-button"
+              disabled={!productData.stock}
             ></AddToCart>
             <WishlistButton
               product={productData}

@@ -47,7 +47,7 @@ function AdminUsersPage() {
     axios
       .get(config.server.uri + "admin/user/all", { withCredentials: true })
       .then((res) => {
-        setUsers(res.data.data || []);
+        setUsers((res.data.data || []).reverse());
       })
       .catch((err) => {
         console.error("Error fetching users:", err);

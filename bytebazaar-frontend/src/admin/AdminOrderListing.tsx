@@ -42,7 +42,7 @@ function AdminOrderListing() {
         const res = await axios.get(config.server.uri + "orders", {
           withCredentials: true,
         });
-        setOrders(res.data.data);
+        setOrders(res.data.data.reverse());
         setLoading(false);
       } catch (err: any) {
         setError(err.message || "Failed to fetch orders");

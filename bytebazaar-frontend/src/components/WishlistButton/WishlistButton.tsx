@@ -63,6 +63,7 @@ function WishlistButton({
           message={
             result.isInWishlist ? "Added to Wishlist" : "Removed from Wishlist"
           }
+          type="wishlist"
         />,
         toastOptions,
       );

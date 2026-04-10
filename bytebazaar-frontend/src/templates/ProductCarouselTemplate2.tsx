@@ -1,12 +1,12 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import ProductInterface from "../interfaces/ProductInterface";
-import { ConfigContext } from "../reducers/GlobalConfig";
+// import { ConfigContext } from "../reducers/GlobalConfig";
 import "./product-carousel-template-2.scss";
 import { Stack } from "react-bootstrap";
 import Rating from "../components/Rating/Rating.tsx";
 
-function ProductCarouselTemplate_1(product: ProductInterface) {
-  const config = useContext(ConfigContext);
+function ProductCarouselTemplate_2(product: ProductInterface) {
+  // const config = useContext(ConfigContext);
   let { salePrice, price, url, rating, categoryId, featureImage, name } =
     product;
   return (
@@ -15,9 +15,6 @@ function ProductCarouselTemplate_1(product: ProductInterface) {
       className="product-carousel-template-2 p-3 align-items-start"
     >
       <Stack className={"product-detail gap-1"}>
-        <a href={"#"} className="product-category">
-          <small>{categoryId || "TEST"}</small>
-        </a>
         <a href={url || "#"} className="product-name">
           {name}
         </a>
@@ -58,4 +55,4 @@ function ProductCarouselTemplate_1(product: ProductInterface) {
   );
 }
 
-export default ProductCarouselTemplate_1;
+export default ProductCarouselTemplate_2;

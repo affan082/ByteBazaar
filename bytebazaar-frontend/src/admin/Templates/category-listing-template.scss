@@ -16,4 +16,13 @@
           transform: translateY(-2px);
           box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.12);
         }
+        .c-btn {
+    color: var(--clr-primary) !important;
+    background-color: var(--clr-secondary) !important;
+  }
+  .c-btn:hover {
+    background-color: var(--clr-primary) !important;
+    color: var(--clr-secondary) !important;
+  }
 }
+

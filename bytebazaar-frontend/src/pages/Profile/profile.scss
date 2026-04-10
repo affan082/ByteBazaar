@@ -129,6 +129,12 @@
       }
     }
   }
+  .nav-link.disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  pointer-events: none;
+  color: var(--clr-primary) !important;
+}
 
   /* Responsive */
   @media screen and (max-width: 1024px) {

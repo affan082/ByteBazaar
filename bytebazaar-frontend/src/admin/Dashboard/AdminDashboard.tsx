@@ -1,6 +1,7 @@
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "../../reducers/UserContext";
+import PendingSellers from "../../pages/Profile/Seller/PendingSellers";
 import { Button } from "react-bootstrap";
 import "./admin-dashboard.css";
 
@@ -46,6 +47,11 @@ function AdminDashboard() {
             <li>
               <NavLink to="/analytics" className="nav-link">
                 <i className="bi bi-graph-up me-2"></i> Analytics
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/sellers" className="nav-link">
+                <i className="bi bi-shop me-2"></i> Manage Sellers
               </NavLink>
             </li>
             <li className={"submenu " + (userOpen ? "open" : "")}>

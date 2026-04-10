@@ -8,7 +8,7 @@ const {
    createUser,
   userSignIn,
   userLogout, recoverPasswordWithEmail, getUserData, updateCart, getCart, updateUser, userUpload, listUsers, deleteUser,
-  forgotPassword, verifyResetCode, resetPassword
+  forgotPassword, verifyResetCode, resetPassword, updateSellerStatus, getSellers
 } = require("../controllers/user_controller");
 const {
   queryProducts,
@@ -81,6 +81,8 @@ router.put('/user/update',verifyToken, userUpload.fields([{ name: process.env.US
 router.get("/admin/user/all", verifyToken, authorizeRoles(["administrator"]), listUsers);
 router.delete("/admin/user/delete/:id",verifyToken, authorizeRoles(["administrator"]), deleteUser);
 router.post("/admin/user/add", verifyToken, authorizeRoles(["administrator"]), createUser);
+router.get("/admin/seller/status", verifyToken, authorizeRoles(["administrator"]), getSellers);
+router.put("/admin/seller/status", verifyToken, authorizeRoles(["administrator"]), updateSellerStatus);
 router.get("/analytics", verifyToken, authorizeRoles(["administrator"]), generateAdminAnalytics);
 
 

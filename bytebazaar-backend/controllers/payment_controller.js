@@ -154,6 +154,12 @@ exports.handlePaymentSuccess = async function (req, res) {
         await Order.updateOne({ sessionId: session_id }, { $set: orderUpdate });
 
         const updatedOrder = await Order.findOne({ sessionId: session_id }).populate("cart.product");
+        for (const item of updatedOrder.cart) {
+    await Product.findByIdAndUpdate(
+        item.product._id || item.product,
+        { $inc: { stock: -item.quantity } }
+    );
+}
         try {
             let buyerEmail = null;
             let buyerName = "Customer";
@@ -222,6 +228,14 @@ exports.handlePaymentCancel = async function (req, res) {
             { sessionId: session_id },
             { $set: { status: "canceled" } }
         );
+        if (canceledOrder) {
+    for (const item of canceledOrder.cart) {
+        await Product.findByIdAndUpdate(
+            item.product._id || item.product,
+            { $inc: { stock: +item.quantity } }
+        );
+    }
+}
 
         return res
             .status(200)

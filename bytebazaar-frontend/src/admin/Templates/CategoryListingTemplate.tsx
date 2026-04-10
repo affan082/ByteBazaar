@@ -1,5 +1,5 @@
 import { CategoryInterface } from "../../interfaces/CategoryInterface.tsx";
-import { Col, Container, Row, Stack } from "react-bootstrap";
+import { Button, Col, Container, Row, Stack } from "react-bootstrap";
 import "./category-listing-template.scss";
 import { useContext } from "react";
 import axios from "axios";
@@ -37,7 +37,9 @@ function CategoryListingTemplate({ _id, name, parent }: CategoryInterface) {
         <Col className="d-flex justify-content-end">
           <Stack direction={"horizontal"}>
             <a href={""} className={"text-danger"} onClick={removeCategory}>
-              Remove
+              <Button variant="c-btn" className="c-btn">
+                Remove
+              </Button>
             </a>
           </Stack>
         </Col>

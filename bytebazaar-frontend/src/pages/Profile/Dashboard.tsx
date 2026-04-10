@@ -3,6 +3,7 @@ import "./profile.scss";
 import { useContext, useState } from "react";
 import { UserContext } from "../../reducers/UserContext.tsx";
 import { Button } from "react-bootstrap";
+import SellerStatusBanner from "../../components/SellerStatusBanner/SellerStatusBanner.tsx";
 
 function ProfileLayout() {
   const { user } = useContext(UserContext);
@@ -11,6 +12,9 @@ function ProfileLayout() {
   const isSeller = user?.roles?.some((role: any) => role.name === "seller");
   const isBuyer = user?.roles?.some((role: any) => role.name === "buyer");
   const isAdmin = user?.roles?.some((role: any) => role.name === "admin");
+
+  const sellerStatus = (user as any)?.sellerProfile?.status || "pending";
+  const isVerifiedSeller = sellerStatus === "verified";
 
   // Track expanded submenus
   const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
@@ -71,33 +75,41 @@ function ProfileLayout() {
           {isSeller && (
             <li>
               <li>
-                <NavLink to={"/dashboard/analytics"} className="nav-link">
-                  Analytics
+                <NavLink
+                  to={"/dashboard/analytics"}
+                  className={`nav-link ${!isVerifiedSeller ? "disabled" : ""}`}
+                  onClick={(e) => !isVerifiedSeller && e.preventDefault()}
+                >
+                  Analytics {!isVerifiedSeller && "🔒"}
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/dashboard/orders"} className="nav-link">
-                  Orders
+                <NavLink
+                  to={"/dashboard/orders"}
+                  className={`nav-link ${!isVerifiedSeller ? "disabled" : ""}`}
+                  onClick={(e) => !isVerifiedSeller && e.preventDefault()}
+                >
+                  Orders {!isVerifiedSeller && "🔒"}
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink to={"/dashboard/customers"} className="nav-link">
-                  Customers
-                </NavLink>
-              </li> */}
+
               <div
-                className="submenu-header d-flex align-items-center justify-content-between nav-link"
-                onClick={() => toggleMenu("product")}
-                style={{ cursor: "pointer" }}
+                className="submenu-header d-flex align-items-center justify-content-between nav-link ${!isVerifiedSeller ? 'disabled' : ''}"
+                onClick={() => isVerifiedSeller && toggleMenu("product")}
+                style={{ cursor: isVerifiedSeller ? "pointer" : "not-allowed" }}
               >
-                <span>Products</span>
-                <i
-                  className={`bi ${
-                    openMenus["seller"] ? "bi-chevron-down" : "bi-chevron-right"
-                  }`}
-                ></i>
+                <span>Products {!isVerifiedSeller && "🔒"}</span>
+                {isVerifiedSeller && (
+                  <i
+                    className={`bi ${
+                      openMenus["seller"]
+                        ? "bi-chevron-down"
+                        : "bi-chevron-right"
+                    }`}
+                  ></i>
+                )}
               </div>
-              {openMenus["product"] && (
+              {openMenus["product"] && isVerifiedSeller && (
                 <ul className="nav flex-column ms-3 mt-2">
                   <li>
                     <NavLink to={"product/all"} className="nav-link">
@@ -118,10 +130,6 @@ function ProfileLayout() {
             </li>
           )}
 
-          {/* Transactions & Settings */}
-          {/*<li>*/}
-          {/*    <NavLink to="transactions" className="nav-link">Transactions</NavLink>*/}
-          {/*</li>*/}
           <li>
             <NavLink to="settings" className="nav-link">
               Profile Settings
@@ -136,6 +144,7 @@ function ProfileLayout() {
       </aside>
 
       <main className="profile-content flex-grow-1 p-4 shadow-sm bg-white rounded">
+        {isSeller && <SellerStatusBanner status={sellerStatus} />}
         <Outlet />
       </main>
     </div>

@@ -370,7 +370,7 @@ function AddProduct() {
             <FormGroup as={Col}>
               <FormControl
                 type="submit"
-                className="btn btn-primary p-3 mt-4"
+                className="c-btn btn-primary p-3 mt-4"
               ></FormControl>
             </FormGroup>
           </Row>
