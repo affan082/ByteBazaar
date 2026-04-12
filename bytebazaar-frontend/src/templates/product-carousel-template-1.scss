@@ -1,5 +1,6 @@
 .product-carousel-template-1,
 .product-carousel-template-2{
+  // height: 100%;
   gap: 0.65rem;
   transition: var(--transition-duration);
   overflow: hidden;
@@ -21,7 +22,7 @@
     display: block; /* Ensure block context for the text */
     max-width: 300px; /* Adjust width as needed */
     line-height: 1.2em; /* Adjust line height */
-    max-height: 2.4em; /* line-height * 2 (for two lines) */
+    height: 2.4em; /* line-height * 2 (for two lines) */
     overflow: hidden; /* Hide overflowing content */
     text-overflow: ellipsis; /* Add ellipsis */
     white-space: normal; /* Allow wrapping */

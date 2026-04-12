@@ -23,7 +23,6 @@ import ProfileInfo from "../pages/Profile/ProfileInfo.tsx";
 import MyOrders from "../pages/Profile/MyOrders.tsx";
 import ProfileSettings from "../pages/Profile/ProfileSettings.tsx";
 import Logout from "../pages/Profile/Logout.tsx";
-import Customers from "../pages/Profile/Seller/Customers.tsx";
 import AddProduct from "../admin/Products/AddProduct.tsx";
 import Products from "../admin/Products/Products.tsx";
 import OrdersSeller from "../pages/Profile/Seller/OrdersSeller.tsx";
@@ -39,7 +38,7 @@ import AdminProductListing from "../admin/Products/AdminProductListing.tsx";
 import AdminOrderListing from "../admin/AdminOrderListing.tsx";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword.tsx";
 import Analytics from "../admin/Analytics/Analytics.tsx";
-import PendingSellers from "../pages/Profile/Seller/PendingSellers.tsx";
+import PendingSellers from "../admin/Sellers/PendingSellers.tsx";
 
 export default function RouterSelector() {
   const router = createBrowserRouter([
@@ -136,10 +135,6 @@ export default function RouterSelector() {
         {
           path: "logout",
           element: <Logout />,
-        },
-        {
-          path: "customers",
-          element: <Customers />,
         },
         {
           path: "product",

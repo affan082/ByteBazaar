@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Table, Button, Container, Row, Col, Spinner } from "react-bootstrap";
+import { Button, Container, Row, Col, Spinner } from "react-bootstrap";
 import axios from "axios";
 import ProductInterface from "../../interfaces/ProductInterface.tsx";
 import { ConfigContext } from "../../reducers/GlobalConfig.tsx";

@@ -5,8 +5,6 @@ import { useContext } from "react";
 import HomeSilderTemplate from "../../templates/HomeSilderTemplate";
 import QueryableCustomCarousel from "../../components/carousel/QueryableCustomCarousel";
 import ProductCarouselTemplate_1 from "../../templates/ProductCarouselTemplate1.tsx";
-// import ProductCarouselTemplate_2 from "../../templates/ProductCarouselTemplate2.tsx";
-// import Header from "../../components/header/Header";
 import { ConfigContext } from "../../reducers/GlobalConfig";
 import Section_3 from "./Sections/Section_3.tsx";
 import QueryableLoopGrid from "../../components/Queryable Loop Grid/QueryableLoopGrid.tsx";
@@ -184,7 +182,7 @@ function Home() {
                         query={{ limit: 12, skip: 10 }}
                         TemplateComponent={ProductCarouselTemplate_1}
                         className={"styled-carousel p-0"}
-                        itemsClassName={"px-1"}
+                        itemsClassName={"px-1 mb-2"}
                         infinite={true}
                         responsive={carouselResponsiveTemplate}
                       />
@@ -196,7 +194,7 @@ function Home() {
                         query={{ limit: 12, skip: 15 }}
                         TemplateComponent={ProductCarouselTemplate_1}
                         className={"styled-carousel p-0"}
-                        itemsClassName={"px-1"}
+                        itemsClassName={"px-1 mb-2"}
                         infinite={true}
                         responsive={carouselResponsiveTemplate}
                       />

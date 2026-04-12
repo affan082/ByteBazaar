@@ -43,7 +43,7 @@ const ReviewModal = ({
         },
       );
 
-      alert("Review submitted successfully!");
+      // alert("Review submitted successfully!");
       setComment("");
       setRating(0);
       handleClose();

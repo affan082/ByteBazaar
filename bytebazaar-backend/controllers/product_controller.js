@@ -45,7 +45,7 @@ exports.queryProducts = async (req, res) => {
     }
 
     if (categories?.length > 0) {
-      query.categories = categories;
+      query.categories = { $in: categories }; 
     }
 
     if (brands?.length) {

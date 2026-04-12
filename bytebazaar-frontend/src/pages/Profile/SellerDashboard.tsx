@@ -12,12 +12,11 @@ import {
 import axios from "axios";
 import { ConfigContext } from "../../reducers/GlobalConfig.tsx";
 import "./../../admin/Analytics/analytics.scss";
-import { Cart } from "react-bootstrap-icons";
 
 function SellerDashboard() {
   const config = useContext(ConfigContext);
   const [loading, setLoading] = useState(true);
-  // Mock data (replace with API calls)
+
   const [stats, setStats] = useState({
     totalSales: 0,
     finishedOrders: 0,
@@ -25,13 +24,6 @@ function SellerDashboard() {
     earnings: 0,
     dailyEarnings: [],
   });
-
-  // const [dailySales, setDailySales] = useState([
-  //     { date: "Week 1", sales: 400, earnings: 250 },
-  //     { date: "Week 2", sales: 600, earnings: 400 },
-  //     { date: "Week 3", sales: 200, earnings: 150 },
-  //     { date: "Week 4", sales: 800, earnings: 600 },
-  // ]);
 
   useEffect(() => {
     axios
@@ -44,15 +36,6 @@ function SellerDashboard() {
         console.error(err);
       });
   }, []);
-  // if (loading)
-  //   return (
-  //     <div
-  //       className="d-flex justify-content-center align-items-center"
-  //       style={{ minHeight: "200px" }}
-  //     >
-  //       <Spinner animation="border" variant="warning" />
-  //     </div>
-  //   );
 
   return (
     <Container className="">

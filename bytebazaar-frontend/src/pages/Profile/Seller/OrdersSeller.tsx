@@ -66,7 +66,6 @@ function OrdersSeller() {
     );
   }
 
-  // Fetch orders
   useEffect(() => {
     setLoading(true);
     axios
@@ -74,7 +73,7 @@ function OrdersSeller() {
         withCredentials: true,
       })
       .then((res) => {
-        setOrders(res.data.data || []);
+        setOrders((res.data.data || []).reverse());
         setLoading(false);
       })
       .catch(() => {
@@ -83,14 +82,12 @@ function OrdersSeller() {
       });
   }, []);
 
-  // Open modal with order details
   const handleViewOrder = (order: Order) => {
     setSelectedOrder(order);
     setStatus(order.status);
     setShowModal(true);
   };
 
-  // Update order status
   const handleUpdateStatus = async () => {
     if (!selectedOrder) return;
 
@@ -102,7 +99,6 @@ function OrdersSeller() {
         { withCredentials: true },
       );
 
-      // Update state locally
       setOrders((prev) =>
         prev.map((o) => (o._id === selectedOrder._id ? { ...o, status } : o)),
       );
@@ -225,7 +221,11 @@ function OrdersSeller() {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
+          <Button
+            variant="c-btn"
+            className="c-btn"
+            onClick={() => setShowModal(false)}
+          >
             Close
           </Button>
           <Button

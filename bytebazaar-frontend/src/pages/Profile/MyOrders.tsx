@@ -23,7 +23,7 @@ function MyOrders() {
             withCredentials: true,
           },
         );
-        setOrders(res.data.data || []);
+        setOrders((res.data.data || []).reverse());
         // console.log(res.data.data);
       } catch (err) {
         console.error("Error fetching orders:", err);

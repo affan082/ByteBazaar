@@ -2,22 +2,23 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import {
   Container,
-  Table,
   Spinner,
-  Alert,
   Button,
+  Row,
+  Col,
   Badge,
   Modal,
 } from "react-bootstrap";
-import config from "../../../config/global-info.json";
+import config from "../../config/global-info.json";
+import "./PendingSellers.scss";
 
-interface User {
-  _id: string;
-  fullname: string;
-  email: string;
-  username: string;
-  createdAt: string;
-}
+// interface User {
+//   _id: string;
+//   fullname: string;
+//   email: string;
+//   username: string;
+//   createdAt: string;
+// }
 
 interface SellerProfile {
   shopName: string;
@@ -76,7 +77,6 @@ function PendingSellers() {
 
       fetchSellers();
       setShowModal(false);
-      alert(`Seller ${newStatus} successfully!`);
     } catch (err) {
       alert("Failed to update seller status");
     }
@@ -99,61 +99,64 @@ function PendingSellers() {
   };
 
   return (
-    <Container className="py-4">
-      <h1 className="mb-4">Seller Management</h1>
+    <Container className="py-4 sellers-listing">
+      <Row className="mb-3">
+        <Col>
+          <h1 className="text-center text-warning">Sellers List</h1>
+        </Col>
+      </Row>
 
       {loading && (
-        <div className="text-center py-5">
-          <Spinner animation="border" variant="primary" />
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ minHeight: "200px" }}
+        >
+          <Spinner animation="border" variant="warning" />
         </div>
       )}
 
-      {error && <Alert variant="danger">{error}</Alert>}
-
-      {!loading && !error && sellers.length === 0 && (
-        <Alert variant="info">No sellers found</Alert>
+      {!loading && sellers.length === 0 && (
+        <p className="text-center no-sellers">No sellers found</p>
       )}
 
       {!loading && sellers.length > 0 && (
-        <Table striped bordered hover responsive>
-          <thead>
-            <tr>
-              <th>Shop Name</th>
-              <th>Owner</th>
-              <th>Email</th>
-              <th>CNIC</th>
-              <th>Status</th>
-              <th>Registered</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
+        <div className="seller-list-wrapper">
+          <div className="seller-list-header">
+            <span className="col shop">Shop Name</span>
+            <span className="col owner">Owner</span>
+            <span className="col status">Status</span>
+            <span className="col registered">Registered</span>
+            <span className="col action">Action</span>
+          </div>
+          <div className="seller-list-body">
             {sellers.map((seller) => (
-              <tr key={seller._id}>
-                <td>{seller.sellerProfile?.shopName || "N/A"}</td>
-                <td>{seller.fullname}</td>
-                <td>{seller.email}</td>
-                <td>{seller.sellerProfile?.cnic || "N/A"}</td>
-                <td>
+              <div className="seller-row" key={seller._id}>
+                <span className="col shop">
+                  {seller.sellerProfile?.shopName || "N/A"}
+                </span>
+                <span className="col owner">{seller.fullname}</span>
+                <span className="col status">
                   {getStatusBadge(seller.sellerProfile?.status || "pending")}
-                </td>
-                <td>{new Date(seller.createdAt).toLocaleDateString()}</td>
-                <td>
+                </span>
+                <span className="col registered">
+                  {new Date(seller.createdAt).toLocaleDateString()}
+                </span>
+                <span className="col action">
                   <Button
                     size="sm"
-                    variant="info"
+                    variant="c-btn"
+                    className="c-btn"
                     onClick={() => viewDetails(seller)}
                   >
                     View Details
                   </Button>
-                </td>
-              </tr>
+                </span>
+              </div>
             ))}
-          </tbody>
-        </Table>
+          </div>
+        </div>
       )}
 
-      {/* Modal */}
       <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Seller Details</Modal.Title>
@@ -199,7 +202,11 @@ function PendingSellers() {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
+          <Button
+            variant="c-btn"
+            className="c-btn"
+            onClick={() => setShowModal(false)}
+          >
             Close
           </Button>
           {selectedSeller?.sellerProfile?.status === "pending" && (

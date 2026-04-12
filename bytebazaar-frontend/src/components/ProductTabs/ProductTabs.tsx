@@ -128,8 +128,8 @@ const ProductTabs = ({
                               }
                               alt={review.user.fullname}
                               style={{
-                                width: "100px",
-                                height: "100px",
+                                width: "60px",
+                                height: "60px",
                                 borderRadius: "50%",
                                 objectFit: "cover",
                               }}

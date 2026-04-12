@@ -23,7 +23,6 @@ function ProfileLayout() {
     setOpenMenus((prev) => ({ ...prev, [menu]: !prev[menu] }));
   };
 
-  // If user is not logged in → show Sign In message
   if (!user || !Object.keys(user).length) {
     return (
       <div className="page profile-page container d-flex flex-column justify-content-center align-items-center py-5">

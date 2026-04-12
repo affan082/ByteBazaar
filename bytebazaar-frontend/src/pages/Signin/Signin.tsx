@@ -14,6 +14,7 @@ import {
 import { ServerResponse, UserSignIn } from "../../reducers/AuthProvider.tsx";
 import { useContext, useState } from "react";
 import { UserContext } from "../../reducers/UserContext.tsx";
+import { Eye, EyeOff } from "lucide-react";
 
 function Signin() {
   const [formValues, setFormValues] = useState<{ [key: string]: any }>({});
@@ -31,21 +32,10 @@ function Signin() {
   function validateForm() {
     const newErrors: { [key: string]: string } = {};
 
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // const usernameRegex = /^[a-zA-Z0-9_]{5,}$/;
-    // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-
     // Username
     if (!formValues.username) {
       newErrors.username = "Please provide a username!";
     }
-
-    // // Password
-    // if (!formValues.password) {
-    //   newErrors.password = "Password is required!";
-    // } else if (!passwordRegex.test(formValues.password)) {
-    //   newErrors.password = "Password must be at least 8 characters and include at least 1 uppercase letter, 1 lowercase letter, and 1 number";
-    // }
 
     return newErrors;
   }

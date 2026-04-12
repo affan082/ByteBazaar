@@ -80,7 +80,9 @@ function Wishlist() {
                       >
                         {item.product.name}
                       </Card.Title>
-                      <Card.Text>Rs.{item.product.salePrice}</Card.Text>
+                      <Card.Text className="pp">
+                        Rs.{item.product.salePrice}
+                      </Card.Text>
                       <div className="card-buttons">
                         <AddToCart
                           product={item.product}

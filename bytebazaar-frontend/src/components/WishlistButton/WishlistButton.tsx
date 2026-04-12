@@ -20,7 +20,7 @@ interface WishlistButtonProps {
 function WishlistButton({
   product,
   size = "sm",
-  variant = "outline",
+  // variant = "outline",
   showLabel = true,
   className,
   isInWishlist: initialIsInWishlist = false,
@@ -71,6 +71,7 @@ function WishlistButton({
       toast.error(
         <ToastTemplate
           message={error.message || "Sorry, Wishlist could not be updated!"}
+          type="wishlist"
         />,
         toastOptions,
       );

@@ -8,8 +8,6 @@ import { CategoryInterface } from "../../interfaces/CategoryInterface.tsx";
 import "./category-archive.scss";
 import CategoryFilter from "../../filters/CategoryFilter.tsx";
 import { ProductQueryInterface } from "../../interfaces/ProductQueryInterface.tsx";
-
-import PriceFilter from "../../filters/PriceFilter.tsx";
 import {
   CategoryArchiveContext,
   CategoryArchiveContextProps,
@@ -29,13 +27,15 @@ function CategoryArchive() {
   const [products, setProducts] = useState<ProductInterface[]>([]);
   const [price, setPrice] = useState<{ min: Number; max: Number }>();
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [itemsPerPage] = useState<number>(15);
+  const [itemsPerPage] = useState<number>(16);
   const [totalCount, setTotalCount] = useState<number>(0);
   // console.log(products);
   // Get Category Data from Database
   useEffect(() => {
+    if (!slug) return;
     GetCategories({ slug: slug, sort: 1 })
       .then((res) => {
+        if (!res?.length) return;
         setCategory(res[0]);
         setProductQuery({
           ...productQuery,
@@ -96,7 +96,7 @@ function CategoryArchive() {
   return (
     <CategoryArchiveContext.Provider value={archiveContext}>
       <Container className={"page archive category-archive"} fluid={true}>
-        <Row className={"breadcrumbs content-box"}>
+        {/* <Row className={"breadcrumbs content-box"}>
           <ul>
             <li className={"breadcrumb-item"}>
               <a href={"/"}>Home</a>
@@ -123,7 +123,7 @@ function CategoryArchive() {
               <></>
             )}
           </ul>
-        </Row>
+        </Row> */}
         <Row className={"content-box page-section page-content"}>
           <Col className={"filter-container"}>
             <Accordion
@@ -131,33 +131,20 @@ function CategoryArchive() {
               className={"filter-accordion"}
             >
               <Accordion.Item eventKey="0">
-                <Accordion.Header>Filters</Accordion.Header>
+                <Accordion.Header>Filter</Accordion.Header>
                 <Accordion.Body>
                   <Form className={"filter-container p-2 vstack"}>
                     {/*<h6 className={"text-uppercase filter-cont-heading"}>Filter By</h6>*/}
-                    <SearchFilter
+                    {/* <SearchFilter
                       queryObject={productQuery}
                       queryUpdater={setProductQuery}
-                    />
+                    /> */}
                     <CategoryFilter
                       title={"Categories"}
                       queryObject={productQuery}
                       queryUpdater={setProductQuery}
                     />
 
-                    {price &&
-                      price.min !== undefined &&
-                      price.max !== undefined && (
-                        <PriceFilter
-                          queryObject={productQuery}
-                          queryUpdater={setProductQuery}
-                          title="Price Range"
-                          range={{
-                            min: price.min,
-                            max: price.max,
-                          }}
-                        />
-                      )}
                     <div className={"spacer mb-2"}></div>
                   </Form>
                 </Accordion.Body>
@@ -166,14 +153,14 @@ function CategoryArchive() {
           </Col>
           <Col className={"product-container"}>
             <QueryableLoopGrid
-              // query={{...productQuery,limits:5}}
+              // query={{ ...productQuery, limits: 5 }}
               data={products.slice(
                 itemsPerPage * (currentPage - 1),
                 Math.min(products.length, itemsPerPage * currentPage),
               )}
               TemplateComponent={ProductCarouselTemplate1}
               columns={{
-                desktop: 5,
+                desktop: 4,
                 laptop_large: 4,
                 laptop: 3,
                 tablet: 3,

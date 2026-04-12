@@ -1,7 +1,7 @@
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "../../reducers/UserContext";
-import PendingSellers from "../../pages/Profile/Seller/PendingSellers";
+import PendingSellers from "../Sellers/PendingSellers";
 import { Button } from "react-bootstrap";
 import "./admin-dashboard.css";
 

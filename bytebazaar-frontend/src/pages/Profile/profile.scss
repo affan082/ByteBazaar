@@ -35,8 +35,9 @@
           transition: background-color var(--transition-duration);
 
           &:hover {
-            background-color: var(--clr-secondary);
-            color: var(--clr-primary);
+            background-color: var(--clr-primary);
+            color: var(--clr-secondary);
+           
           }
         }
 
@@ -50,13 +51,13 @@
           transition: background-color var(--transition-duration);
 
           &:hover {
-            background-color: var(--clr-secondary);
-            color: var(--clr-primary);
+            color: var(--clr-secondary);
+            background-color: var(--clr-primary);
           }
 
           &.active {
-            background-color: var(--clr-primary);
-            color: var(--clr-secondary);
+            color: var(--clr-primary);
+            background-color: var(--clr-secondary);
           }
         }
 
