@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../reducers/UserContext";
 import PendingSellers from "../Sellers/PendingSellers";
 import { Button } from "react-bootstrap";
-import "./admin-dashboard.css";
+import "./admin-dashboard.scss";
 
 function AdminDashboard() {
   const { user } = useContext(UserContext);
