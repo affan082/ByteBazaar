@@ -7,7 +7,7 @@ const PERMISSIONS = require('../config/Roles_Permissions.json').permissions;
 const {
    createUser,
   userSignIn,
-  userLogout, recoverPasswordWithEmail, getUserData, updateCart, getCart, updateUser, userUpload, listUsers, deleteUser,
+  userLogout, getUserData, updateUser, userUpload, listUsers, deleteUser,
   forgotPassword, verifyResetCode, resetPassword, updateSellerStatus, getSellers
 } = require("../controllers/user_controller");
 const {
@@ -21,12 +21,11 @@ const {
   handleUploads,
 } = require("../controllers/uploads_controller");
 const {addCategory, getCategory, updateCategory, deleteCategory} = require("../controllers/category_controller");
-// const {addToCart} = require("../controllers/cart-controller");
 const cartController = require("../controllers/cart-controller");
-const {handlePaymentRequest, paymentCompleted, listenStripePaymentHook, handlePaymentSuccess, handlePaymentCancel} = require("../controllers/payment_controller");
+const {handlePaymentRequest, handlePaymentSuccess, handlePaymentCancel} = require("../controllers/payment_controller");
 const {createRole, getRoles, getRoleById, updateRole, deleteRole} = require("../controllers/roles_controller");
 const {authorize, authorizeRoles,verifyToken, verifyTokenAllowAll} = require("../utils/AuthUtils");
-const {getOrders, getCustomersForSeller, updateOrderStatus, generateAnalytics} = require("../controllers/order_controller");
+const {getOrders, updateOrderStatus, generateAnalytics} = require("../controllers/order_controller");
 const { addReview, getReviews, deleteReview } = require("../controllers/review_controller");
 const { generateAdminAnalytics } = require("../controllers/admin_analytics_controller");
 const upload = multer({ storage: uploadStorage });
@@ -89,7 +88,6 @@ router.get("/analytics", verifyToken, authorizeRoles(["administrator"]), generat
 router.post("/add-product",verifyToken,authorizeRoles(["seller"]), upload.any(), addProduct);
 router.post("/update-product",verifyToken,authorizeRoles(["seller"]), upload.any(), updateProduct);
 router.post("/products", queryProducts);
-// router.post("/products/seller")
 router.get("/product/",verifyToken, getSingleProduct);
 
 // payment routes
@@ -112,7 +110,6 @@ router.delete("/role/:id",verifyToken, authorize([PERMISSIONS.MANAGE_ROLES]), de
 //orders
 router.get("/orders", verifyToken, getOrders);
 router.get("/orders/seller", verifyToken, authorize([PERMISSIONS.GET_ORDER]), getOrders);
-router.get("/seller/customers", verifyToken, authorizeRoles(["seller"]), getCustomersForSeller);
 router.put("/orders/:id/status", verifyToken, updateOrderStatus);
 
 //analytics

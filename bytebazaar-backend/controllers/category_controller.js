@@ -53,18 +53,9 @@ exports.getCategory = async (req, res) => {
             .populate("parent")
             .limit(parsedLimit)
             .skip(parsedSkip);
-
-        // console.log(query, categories);
-        // if(!categories.length) {
-        //     return res
-        //         .status(404)
-        //         .send(new APIError(404, "Category not found", ErrorMessages.RequestFailureErrors.NOT_FOUND));
-        // }
-        // else {
             return res
                 .status(200)
                 .send(new APIResponse(200, "Categories fetched successfully", categories));
-        // }
     } catch (err) {
         console.error("Error fetching categories:", err);
         return res

@@ -122,7 +122,6 @@ function AddCategory() {
               onClose={() => setResultShow(false)}
               dismissible
             >
-              {/* <Alert.Heading>Oh snap! You got an error!</Alert.Heading> */}
               <p>{result.message}</p>
             </Alert>
           </Row>

@@ -114,7 +114,6 @@ exports.addProduct = async (req, res) => {
       return res.status(401).send(new APIError(401, "Unauthorized"));
     }
 
-    // Fetch user to get shop info
     let dbUser;
     let seller;
     try {
@@ -251,11 +250,9 @@ exports.updateProduct = async (req, res) => {
         .filter((file) => file.fieldname === process.env.PRODUCT_GALLERY_IMAGE_FIELD)
         .map((file) => file.filename);
 
-    // Split strings into arrays
     product.categories =
         product.categories !== "" ? product.categories.split(",") : null;
 
-    //TODO Should Payment Gateway Update
     delete product.paymentGateways;
 
     const updatedProduct = await Product.findByIdAndUpdate(
@@ -263,7 +260,6 @@ exports.updateProduct = async (req, res) => {
         product
     );
     // console.log(product, "product");
-
 
     res
         .status(200)

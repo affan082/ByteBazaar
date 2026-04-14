@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Row, Col, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import axios from "axios";
 import { ConfigContext } from "../reducers/GlobalConfig.tsx";
 import "./admin_order_listing.scss";
@@ -135,15 +135,15 @@ function AdminOrderListing() {
                       <strong>Order Amount:</strong> {order.orderAmount}
                     </div>
 
-                    {/* <div>
+                    <div>
                       <strong>Products:</strong>
-                    </div> */}
+                    </div>
 
-                    {/* {order.cart.map((item, i) => (
+                    {order.cart.map((item, i) => (
                       <div key={i}>
                         • {item.product?.name} × {item.quantity}
                       </div>
-                    ))} */}
+                    ))}
                   </div>
                 )}
               </div>

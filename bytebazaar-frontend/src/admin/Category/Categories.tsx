@@ -1,14 +1,12 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { ReactNode, useContext, useEffect, useState } from "react";
-import { ConfigContext } from "../../reducers/GlobalConfig.tsx";
-import axios from "axios";
+import { ReactNode, useEffect, useState } from "react";
 import { CategoryInterface } from "../../interfaces/CategoryInterface.tsx";
 import { GetCategories } from "../../queries/GetCategories.tsx";
 import CategoryListingTemplate from "../Templates/CategoryListingTemplate.tsx";
 import "./categories.scss";
 function Categories() {
   const [categories, setCategories] = useState<ReactNode[]>([]);
-  const config = useContext(ConfigContext);
+
   useEffect(() => {
     GetCategories({}).then((data) => {
       console.log(data);

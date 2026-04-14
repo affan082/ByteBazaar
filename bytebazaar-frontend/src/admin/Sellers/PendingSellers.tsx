@@ -12,14 +12,6 @@ import {
 import config from "../../config/global-info.json";
 import "./PendingSellers.scss";
 
-// interface User {
-//   _id: string;
-//   fullname: string;
-//   email: string;
-//   username: string;
-//   createdAt: string;
-// }
-
 interface SellerProfile {
   shopName: string;
   cnic: string;

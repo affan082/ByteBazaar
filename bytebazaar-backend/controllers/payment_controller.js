@@ -65,7 +65,7 @@ exports.handlePaymentRequest = async function (req, res) {
             console.log(p)
         })
         const orderData = {
-            buyer: user?._id || null, // logged-in user or null for guest
+            buyer: user?._id || null, 
             sessionId: session.id,
             seller: sellers,
             cart: products.map((p) => ({
@@ -224,9 +224,10 @@ exports.handlePaymentCancel = async function (req, res) {
             );
     }
     try {
-        await Order.updateOne(
+        const canceledOrder = await Order.findOneAndUpdate(
             { sessionId: session_id },
-            { $set: { status: "canceled" } }
+            { $set: { status: "canceled" } },
+            { new: false }
         );
         if (canceledOrder) {
     for (const item of canceledOrder.cart) {

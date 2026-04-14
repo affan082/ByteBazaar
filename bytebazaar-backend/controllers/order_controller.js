@@ -1,14 +1,10 @@
-// const {Product} = require("../models/ProductSchema");
 const APIError = require("../utils/APIError");
 const APIResponse = require("../utils/APIResponse");
 const ErrorMessages = require("../config/ErrorMessages.json");
 const {User} = require("../models/UserSchema");
-// const Product = require("../models/ProductSchema");
 const {Order, OrderStatus} = require("../models/OrderSchema");
 const { orderConfirmationMail, orderCompletedMail } = require("../utils/mailTemplate");
 const { MailTransporter } = require("./mail_controller");
-
-
 
 exports.createOrder = async (req, res) => {
     try {
@@ -174,60 +170,60 @@ exports.deleteOrder = async (req, res) => {
 };
 
 
-exports.getCustomersForSeller = async (req, res) => {
-    try {
-        const seller = req.user?.user || req.user;
-        if (!seller) {
-            return res
-                .status(401)
-                .send(
-                    new APIError(
-                        401,
-                        "Unauthorized",
-                        "UNAUTHORIZED_ACCESS",
-                        ErrorMessages.UserAuthErrors.UNAUTHORIZED_ACCESS
-                    )
-                );
-        }
+// exports.getCustomersForSeller = async (req, res) => {
+//     try {
+//         const seller = req.user?.user || req.user;
+//         if (!seller) {
+//             return res
+//                 .status(401)
+//                 .send(
+//                     new APIError(
+//                         401,
+//                         "Unauthorized",
+//                         "UNAUTHORIZED_ACCESS",
+//                         ErrorMessages.UserAuthErrors.UNAUTHORIZED_ACCESS
+//                     )
+//                 );
+//         }
 
-        const orders = await Order.find({ seller: seller._id })
-            .populate("buyer", "fullname email phone")
-            .select("buyer");
+//         const orders = await Order.find({ seller: seller._id })
+//             .populate("buyer", "fullname email phone")
+//             .select("buyer");
 
-        if (!orders.length) {
-            return res
-                .status(404)
-                .send(new APIResponse(404, "No customers found", []));
-        }
+//         if (!orders.length) {
+//             return res
+//                 .status(404)
+//                 .send(new APIResponse(404, "No customers found", []));
+//         }
 
-        const uniqueCustomersMap = new Map();
-        orders.forEach((order) => {
-            if (order.buyer && !uniqueCustomersMap.has(order.buyer._id.toString())) {
-                uniqueCustomersMap.set(order.buyer._id.toString(), order.buyer);
-            }
-        });
+//         const uniqueCustomersMap = new Map();
+//         orders.forEach((order) => {
+//             if (order.buyer && !uniqueCustomersMap.has(order.buyer._id.toString())) {
+//                 uniqueCustomersMap.set(order.buyer._id.toString(), order.buyer);
+//             }
+//         });
 
-        const customers = Array.from(uniqueCustomersMap.values());
+//         const customers = Array.from(uniqueCustomersMap.values());
 
-        return res
-            .status(200)
-            .send(
-                new APIResponse(200, "Customers fetched successfully", customers)
-            );
-    } catch (err) {
-        console.error("Get Customers Error:", err);
-        return res
-            .status(500)
-            .send(
-                new APIError(
-                    500,
-                    "Failed to get customers",
-                    "INTERNAL_ERROR",
-                    err
-                )
-            );
-    }
-};
+//         return res
+//             .status(200)
+//             .send(
+//                 new APIResponse(200, "Customers fetched successfully", customers)
+//             );
+//     } catch (err) {
+//         console.error("Get Customers Error:", err);
+//         return res
+//             .status(500)
+//             .send(
+//                 new APIError(
+//                     500,
+//                     "Failed to get customers",
+//                     "INTERNAL_ERROR",
+//                     err
+//                 )
+//             );
+//     }
+// };
 
 exports.generateAnalytics = async (req, res) => {
   try {
@@ -313,4 +309,3 @@ exports.generateAnalytics = async (req, res) => {
     );
   }
 };
-

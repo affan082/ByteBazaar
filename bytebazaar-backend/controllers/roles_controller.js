@@ -3,9 +3,6 @@ const APIError = require("../utils/APIError");
 const APIResponse = require("../utils/APIResponse");
 const ErrorMessages = require("../config/ErrorMessages.json");
 
-/**
- * Create a new role
- */
 exports.createRole = async (req, res) => {
     try {
         const { name, permissions } = req.body;
@@ -49,9 +46,7 @@ exports.createRole = async (req, res) => {
     }
 };
 
-/**
- * Get all roles
- */
+
 exports.getRoles = async (req, res) => {
     try {
         const roles = await Role.find();
@@ -64,9 +59,7 @@ exports.getRoles = async (req, res) => {
     }
 };
 
-/**
- * Get role by ID
- */
+
 exports.getRoleById = async (req, res) => {
     try {
         const role = await Role.findById(req.params.id);
@@ -88,9 +81,6 @@ exports.getRoleById = async (req, res) => {
     }
 };
 
-/**
- * Update a role
- */
 exports.updateRole = async (req, res) => {
     try {
         const { name, permissions } = req.body;
@@ -119,9 +109,6 @@ exports.updateRole = async (req, res) => {
     }
 };
 
-/**
- * Delete a role
- */
 exports.deleteRole = async (req, res) => {
     try {
         const role = await Role.findByIdAndDelete(req.params.id);
