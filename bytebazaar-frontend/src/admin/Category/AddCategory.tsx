@@ -175,7 +175,7 @@ function AddCategory() {
               <FormControl
                 type={"submit"}
                 value={categoryId ? "Update Category" : "Create Category"}
-                className={"btn btn-primary p-3"}
+                className={"c-btn btn-primary p-3"}
               ></FormControl>
             </FormGroup>
           </Row>

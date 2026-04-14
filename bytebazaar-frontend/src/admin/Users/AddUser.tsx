@@ -50,7 +50,7 @@ function AddUser() {
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     setFormData({
       ...formData,
@@ -157,7 +157,12 @@ function AddUser() {
                 </Form.Group>
               )} */}
 
-              <Button type="submit" variant="primary" disabled={loading}>
+              <Button
+                type="submit"
+                variant="c-btn"
+                className="c-btn"
+                disabled={loading}
+              >
                 {loading ? "Creating..." : "Create User"}
               </Button>
             </Form>

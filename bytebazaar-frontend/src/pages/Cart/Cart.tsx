@@ -100,12 +100,12 @@ function Cart() {
     return isNaN(total) ? "0.00" : total.toFixed(0);
   };
 
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   cartService.getCart().then((res) => {
-  //     HandlePayment(res);
-  //   });
-  // };
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    cartService.getCart().then((res) => {
+      HandlePayment(res);
+    });
+  };
   return cartItems.length ? (
     <>
       <Container className="page cart-page " fluid>
@@ -232,9 +232,8 @@ function Cart() {
                   </h5>
                 </div>
               </Row>
-              {/* <Form onSubmit={handleSubmit}> */}
-              <div className="d-flex justify-content-center align-items-center mb-2">
-                <a href="/checkout">
+              <Form onSubmit={handleSubmit}>
+                <div className="d-flex justify-content-center align-items-center mb-2">
                   <Button
                     variant="c-btn"
                     type="submit"
@@ -242,9 +241,8 @@ function Cart() {
                   >
                     Proceed to Checkout
                   </Button>
-                </a>
-              </div>
-              {/* </Form> */}
+                </div>
+              </Form>
             </Container>
           </Col>
         </Row>

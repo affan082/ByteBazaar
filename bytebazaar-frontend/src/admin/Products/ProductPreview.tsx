@@ -74,7 +74,7 @@ function ProductPreview({ show, onHide, product }: ProductPreviewModalProps) {
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant="secondary" onClick={onHide}>
+        <Button variant="c-btn" className="c-btn" onClick={onHide}>
           Close
         </Button>
       </Modal.Footer>

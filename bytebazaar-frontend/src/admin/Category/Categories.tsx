@@ -43,7 +43,7 @@ function Categories() {
         <Row className={"page-detail page-empty"}>
           <h1 className={"page-title"}>No Categories Found</h1>
           <p>You can add a new category by clicking the button below.</p>
-          <a href={"add"} className={"btn btn-primary"}>
+          <a href={"add"} className={"c-btn btn-primary"}>
             Add New Category
           </a>
         </Row>

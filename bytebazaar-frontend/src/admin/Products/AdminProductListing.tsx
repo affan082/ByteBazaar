@@ -63,7 +63,7 @@ function AdminProductListing() {
       ) : (
         <div className="product-list-wrapper">
           <div className="product-list-header">
-            <span className="col ">SKU</span>
+            {/* <span className="col ">SKU</span> */}
             <span className="col ">Name</span>
             <span className="col ">Price</span>
             <span className="col salePrice">Sale Price</span>
@@ -75,7 +75,7 @@ function AdminProductListing() {
             {products.length > 0 ? (
               products.map((p) => (
                 <div className="product-row" key={p._id}>
-                  <span className="col sku ">{p.sku}</span>
+                  {/* <span className="col sku ">{p.sku}</span> */}
                   <span className="col name t-length">{p.name}</span>
                   <span className="col price">{String(p.price)}</span>
                   <span className="col salePrice">
