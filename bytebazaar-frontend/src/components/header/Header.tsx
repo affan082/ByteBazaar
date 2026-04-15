@@ -68,7 +68,7 @@ function Header() {
             <InputGroup className="d-flex gap-0 filter-group">
               <Form.Select
                 name="category-selector"
-                className="category-selector px-3"
+                className="category-selector effect px-3"
                 size="sm"
                 onChange={(e) =>
                   setQuery({
@@ -77,7 +77,9 @@ function Header() {
                   })
                 }
               >
-                <option value="">All Categories</option>
+                <option value="" className="effect">
+                  All Categories
+                </option>
                 {menu.map((cat) => {
                   const items = [];
                   items.push(
@@ -176,15 +178,20 @@ function Header() {
       <Row className="content-box nav-bar">
         <Col>
           <Stack>
-            <Navbar className="p-0" sticky="top">
+            <Navbar className="p-0 " sticky="top">
               <Nav>
-                <NavLink href="/">Home</NavLink>
-                <NavLink href="/shop">Shop</NavLink>
+                <NavLink href="/" className="effect">
+                  <p className="effect"> Home</p>
+                </NavLink>
+                <NavLink href="/shop">
+                  <p className="effect">Shop</p>
+                </NavLink>
                 {menu.map((cat, idx) => (
                   <NavDropdown
                     title={cat.title}
                     id={`nav-dropdown-${idx}`}
                     key={cat.slug}
+                    className="effect"
                   >
                     {cat.items.map((item) => (
                       <NavDropdown.Item
