@@ -22,12 +22,13 @@ exports.createUser = async (req, res) => {
   let currentUser = req.user?._id;
   let isCurrentUserAdmin = false;
 
-  try{
-    currentUser = await User.findById(currentUser).populate("roles");
-    isCurrentUserAdmin = currentUser.roles.some(r => r.name === ROLES_KEYS.ADMIN);
-  }
-  catch (e){
-    console.error("Error in createUser:", e);
+  try {
+    if (currentUser) {
+      currentUser = await User.findById(currentUser).populate("roles");
+      isCurrentUserAdmin = currentUser?.roles?.some(r => r.name === ROLES_KEYS.ADMIN) || false;
+    }
+  } catch (e) {
+    console.error("Error checking admin status in createUser:", e);
     currentUser = null;
     isCurrentUserAdmin = false;
   }
