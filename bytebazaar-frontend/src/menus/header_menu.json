@@ -4,13 +4,10 @@
     "slug": "audio_and_home_theater",
     "items": [
       
+     
       {
-        "title": "4K UHD Streaming Media Players",
-        "slug": "4k_uhd_streaming_media_players"
-      },
-      {
-        "title": "Fire TV Streaming Media Devices",
-        "slug": "fire_tv_streaming_media_devices"
+        "title": "TV Streaming Media Devices",
+        "slug": "tv_streaming_media_devices"
       },
       {
         "title": "Home Theater Systems",
@@ -27,8 +24,8 @@
     ]
   },
   {
-    "title": "Camera Photo Video",
-    "slug": "camera_photo_video",
+    "title": "Digital Camera",
+    "slug": "digital_camera",
     "items": [
       {
         "title": "Digital Camera",
@@ -55,11 +52,7 @@
       {
         "title": "All-in-One Computers",
         "slug": "all_in_one_computers"
-      },
-      {
-        "title": "Apple iMac Mini & Mac Pro",
-        "slug": "apple_imac_mini_mac_pro"
-      }
+      }      
     ]
   }
 ]
