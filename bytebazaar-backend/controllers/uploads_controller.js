@@ -1,15 +1,6 @@
-const multer = require("multer");
-// const path = require("path");
+const { productStorage } = require("../utils/cloudinary");
 
-exports.uploadStorage = multer.diskStorage({
-  destination: process.env.UPLOAD_PATH,
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      new Date().toISOString().replace(/:/g, "-") + "-" + file.originalname
-    );
-  },
-});
+exports.uploadStorage = productStorage;
 
 exports.handleUploads = (req, res) => {
   //   console.log(req.file); // access the uploaded file

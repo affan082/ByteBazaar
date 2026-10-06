@@ -13,6 +13,7 @@ const APIError = require("../utils/APIError");
 const APIResponse = require("../utils/APIResponse");
 const { MailTransporter } = require("./mail_controller");
 const { issueAuthToken } = require("../utils/AuthUtils");
+const { userStorage, getFileLocation } = require("../utils/cloudinary");
 const sgMail = require('@sendgrid/mail')
 const encryptRounds = Number(process.env.HASH_ENCRYPT_ROUNDS);
 
@@ -197,8 +198,8 @@ exports.updateUser = async (req, res) => {
     if (gender) updates.gender = gender;
     if (address) updates.address = address;
     if (req.files && req.files[process.env.USER_PROFILE_IMAGE_KEY]) {
-      updates.profileImageUrl =
-          req.files[process.env.USER_PROFILE_IMAGE_KEY][0].filename;
+      const pFile = req.files[process.env.USER_PROFILE_IMAGE_KEY][0];
+      updates.profileImageUrl = getFileLocation(pFile);
     }
 
     if (password && confirmPassword) {
@@ -616,11 +617,6 @@ exports.updateSellerStatus = async (req, res) => {
     return res.status(500).send(new APIError(500, "Failed to update seller status", err.message));
   }
 };
-const userStorage = diskStorage({
-  destination: (req, file, cb) => cb(null, process.env.USER_CONTENT_DIR),
-  filename: (req, file, cb) =>
-      cb(null, file.fieldname + "-" + new Date().toISOString().replace(/:/g, "-") + extname(file.originalname)),
-});
 
 const fileFilter = (req, file, cb) => {
   const allowedTypes = /jpeg|jpg|png/;

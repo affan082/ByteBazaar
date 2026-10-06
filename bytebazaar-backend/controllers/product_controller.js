@@ -8,6 +8,7 @@ const {
   updateProductFromStripe,
 } = require("./payment_controller");
 const {User, SellerProfile} = require("../models/UserSchema");
+const { getFileLocation } = require("../utils/cloudinary");
 
 
 exports.queryProducts = async (req, res) => {
@@ -141,13 +142,14 @@ exports.addProduct = async (req, res) => {
   );
 }
 
-    product.featureImage = req.files.find(
+    const featImg = req.files.find(
         (file) => file.fieldname === process.env.PRODUCT_FEATURE_IMAGE_FIELD
-    )?.filename;
+    );
+    product.featureImage = getFileLocation(featImg);
 
     product.gallery = req.files
         .filter((file) => file.fieldname === process.env.PRODUCT_GALLERY_IMAGE_FIELD)
-        .map((file) => file.filename);
+        .map(getFileLocation);
 
     product.categories =
         product.categories && product.categories !== ""
@@ -242,13 +244,23 @@ exports.updateProduct = async (req, res) => {
   try {
     const product = req.body;
     // Bind images
-    product.featureImage = req.files.find(
+    const featImg = req.files?.find(
         (file) => file.fieldname === process.env.PRODUCT_FEATURE_IMAGE_FIELD
-    )?.filename;
+    );
+    if (featImg) {
+      product.featureImage = getFileLocation(featImg);
+    } else {
+      delete product.featureImage;
+    }
 
-    product.gallery = req.files
-        .filter((file) => file.fieldname === process.env.PRODUCT_GALLERY_IMAGE_FIELD)
-        .map((file) => file.filename);
+    const galImgs = req.files?.filter(
+        (file) => file.fieldname === process.env.PRODUCT_GALLERY_IMAGE_FIELD
+    );
+    if (galImgs && galImgs.length > 0) {
+      product.gallery = galImgs.map(getFileLocation);
+    } else {
+      delete product.gallery;
+    }
 
     product.categories =
         product.categories !== "" ? product.categories.split(",") : null;

@@ -21,7 +21,11 @@ function ProductPreview({ show, onHide, product }: ProductPreviewModalProps) {
         <Row>
           <Col md={6}>
             <Image
-              src={`${config.server.uri}${product.featureImage}`}
+              src={
+                product.featureImage?.startsWith("http")
+                  ? (product.featureImage as string)
+                  : `${config.server.uri}${product.featureImage}`
+              }
               alt="null"
               fluid
               rounded
@@ -37,7 +41,11 @@ function ProductPreview({ show, onHide, product }: ProductPreviewModalProps) {
                 {product.gallery.map((img: String, idx: number) => (
                   <Image
                     key={idx}
-                    src={`${config.server.uri}${img}`}
+                    src={
+                      img?.startsWith("http")
+                        ? (img as string)
+                        : `${config.server.uri}${img}`
+                    }
                     width={80}
                     height={80}
                     thumbnail

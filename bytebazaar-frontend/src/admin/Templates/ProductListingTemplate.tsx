@@ -31,7 +31,11 @@ function ProductListingTemplate({ product }: Props) {
       <Col xs={1}>
         <img
           src={
-            product.featureImage || config.server.uri + "placholder_image.svg"
+            product.featureImage
+              ? product.featureImage.startsWith("http")
+                ? product.featureImage
+                : config.server.uri + product.featureImage
+              : config.server.uri + "placholder_image.svg"
           }
           alt=""
           className="product-thumbnail"

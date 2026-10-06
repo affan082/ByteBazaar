@@ -46,15 +46,18 @@ function SingleProductTemplate() {
           <Col md={6} sm={12} className="px-2 px-md-3">
             <Stack direction="horizontal" className="product-images gap-2">
               <Stack direction="horizontal" className="thumbnail-images gap-2">
-                {productData.gallery?.map((image, index) => (
-                  <img
-                    key={`${index}-${image}`}
-                    src={`${config.server.uri}${image}`}
-                    alt=""
-                    className="thumbnail"
-                    onClick={() => window.open(`${config.server.uri}${image}`)}
-                  />
-                ))}
+                {productData.gallery?.map((image, index) => {
+                  const imgUrl = image?.startsWith("http") ? image : `${config.server.uri}${image}`;
+                  return (
+                    <img
+                      key={`${index}-${image}`}
+                      src={imgUrl}
+                      alt=""
+                      className="thumbnail"
+                      onClick={() => window.open(imgUrl)}
+                    />
+                  );
+                })}
               </Stack>
               <div className="main-image-container">
                 <img

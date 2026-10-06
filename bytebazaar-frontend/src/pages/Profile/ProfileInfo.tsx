@@ -43,7 +43,11 @@ function ProfileInfo() {
               <div className="profile-avatar-wrapper">
                 {user.profileImageUrl ? (
                   <img
-                    src={user.profileImageUrl}
+                    src={
+                      user.profileImageUrl.startsWith("http")
+                        ? user.profileImageUrl
+                        : `${config.server.uri}${user.profileImageUrl}`
+                    }
                     alt="profile"
                     className="profile-avatar"
                   />
