@@ -49,6 +49,11 @@ app.use(cors({
 
 app.options('*', cors());
 
+const isProduction = process.env.STATUS === "production";
+if (isProduction) {
+  app.set("trust proxy", 1);
+}
+
 app.use(session({
   secret: process.env.SESSION_SECRET_KEY,
   resave: false,
@@ -58,7 +63,8 @@ app.use(session({
   }),
   cookie: {
     maxAge: 1000 * 12 * 60 * 60,
-    secure: false,
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
     httpOnly: true,
   },
 }))
