@@ -64,7 +64,7 @@ function ProfileSettings() {
     for (let key in formData) {
       if (formData[key] && formData[key].length > 0 && formData[key].item) {
         Array.from(formData[key]).forEach((file) => {
-          frmData.append(key, file);
+          frmData.append(key, file as string | Blob);
         });
       } else {
         frmData.append(key, formData[key]);

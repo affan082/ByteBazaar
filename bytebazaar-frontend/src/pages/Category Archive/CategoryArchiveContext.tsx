@@ -1,7 +1,8 @@
-import {createContext} from "react";
+import { createContext } from "react";
 
-export interface CategoryArchiveContextProps{
-    availablePriceRange:[number, number];
+export interface CategoryArchiveContextProps {
+  availablePriceRange: [number, number];
 }
 
-export const CategoryArchiveContext = createContext<CategoryArchiveContextProps>({});
+export const CategoryArchiveContext =
+  createContext<CategoryArchiveContextProps>({} as CategoryArchiveContextProps);

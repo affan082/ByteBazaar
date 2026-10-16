@@ -96,7 +96,10 @@ function QueryableCustomCarousel<T extends CarouselItemProp>({
         currentActiveTaxonomy.current.classList.toggle("active");
       }
 
-      query.categories = [category.toString()]; // Ensure it's correctly typed as an array
+      // Ensure it's correctly typed as an array
+      if (query) {
+        query.categories = [category.toString()];
+      }
 
       currentActiveTaxonomy.current = target; // Assign new active element safely
       currentActiveTaxonomy.current?.classList.toggle("active"); // Use optional chaining

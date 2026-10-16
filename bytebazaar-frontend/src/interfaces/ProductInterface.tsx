@@ -10,7 +10,7 @@ export default interface ProductInterface {
   gallery?: [string];
   price: number;
   salePrice?: number;
-  categories?: [string];
+  categories?: (string | { _id: string; name: string; slug?: string })[];
   rating?: number;
   stock?: number;
   variations?: {};

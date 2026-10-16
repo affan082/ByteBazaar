@@ -12,7 +12,10 @@ import { UserContext } from "../reducers/UserContext.tsx";
 function ProductCarouselTemplate_1(product: ProductInterface) {
   let { salePrice, price, url, rating, categories, featureImage, _id, name } =
     product;
-  const primaryCategory = categories?.find((c: any) => c.name);
+  const primaryCategory = categories?.find(
+    (c): c is { _id: string; name: string; slug?: string } =>
+      typeof c !== "string",
+  );
   const { user } = useContext(UserContext);
   const isInWishlist = user?.wishlist?.some((item) => {
     const itemProductId =

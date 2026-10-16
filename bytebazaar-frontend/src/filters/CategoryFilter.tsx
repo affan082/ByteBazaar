@@ -47,7 +47,9 @@ function CategoryFilter({
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 const updatedCategories = e.target.checked
                   ? [...(queryObject.categories || []), item._id]
-                  : queryObject.categories.filter((id) => id !== item._id);
+                  : (queryObject.categories ?? []).filter(
+                      (id) => id !== item._id,
+                    );
 
                 queryUpdater({ ...queryObject, categories: updatedCategories });
 

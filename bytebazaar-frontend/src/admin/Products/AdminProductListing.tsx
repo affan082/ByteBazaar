@@ -83,7 +83,9 @@ function AdminProductListing() {
                   </span>
                   <span className="col stock">{String(p.stock) ?? "N/A"}</span>
                   <span className="col categories t-length">
-                    {p.categories?.map((c) => c.name).join(", ") ?? "-"}
+                    {p.categories
+                      ?.map((c) => (typeof c === "string" ? c : c.name))
+                      .join(", ") ?? "-"}
                   </span>
                   <span className="col actions">
                     <Button

@@ -18,7 +18,12 @@ function Categories() {
                 key={category._id}
                 name={category.name}
                 _id={category._id}
-                parent={category.parent?.name}
+                parent={
+                  typeof category.parent === "object" &&
+                  category.parent !== null
+                    ? category.parent.name
+                    : undefined
+                }
                 description={category.description}
                 slug={category.slug}
               />

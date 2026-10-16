@@ -32,7 +32,7 @@ function CategoryListingTemplate({ _id, name, parent }: CategoryInterface) {
           </Stack>
         </Col>
         <Col className={"parent"}>
-          <p>{parent}</p>
+          <p>{typeof parent === "string" ? parent : parent?.name}</p>
         </Col>
         <Col className="d-flex justify-content-end">
           <Stack direction={"horizontal"}>

@@ -1,10 +1,10 @@
 import { Col, Container, Row, Stack } from "react-bootstrap";
 import "./home.scss";
-import { useContext } from "react";
+
 import HomeSilderTemplate from "../../templates/HomeSilderTemplate";
 import QueryableCustomCarousel from "../../components/carousel/QueryableCustomCarousel";
 import ProductCarouselTemplate_1 from "../../templates/ProductCarouselTemplate1.tsx";
-import { ConfigContext } from "../../reducers/GlobalConfig";
+
 import Section_3 from "./Sections/Section_3.tsx";
 import QueryableLoopGrid from "../../components/Queryable Loop Grid/QueryableLoopGrid.tsx";
 import LoopGridTemplate2 from "../../templates/LoopGridTemplate2.tsx";
@@ -13,8 +13,6 @@ import FeaturesSection from "./Sections/FeaturesSection.tsx";
 import { carouselResponsiveTemplate } from "../../utils/carouselslideconfig.tsx";
 
 function Home() {
-  const config = useContext(ConfigContext);
-
   return (
     <>
       <Container className="page page-home" fluid>
@@ -26,12 +24,12 @@ function Home() {
                 <Row>
                   <Col className={""} xxl={10} lg={10} sm={12}>
                     <HomeSilderTemplate
-                      _id={"fff"}
-                      name={"Product"}
-                      price={50}
-                      productId={"111"}
-                      productImage={config.server.uri + "placholder_image.svg"}
-                      paymentGateways={[]}
+                    // _id={"fff"}
+                    // name={"Product"}
+                    // price={50}
+                    // productId={"111"}
+                    // productImage={config.server.uri + "placholder_image.svg"}
+                    // paymentGateways={[]}
                     />
                   </Col>
                   <Col

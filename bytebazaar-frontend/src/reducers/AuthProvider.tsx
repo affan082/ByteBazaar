@@ -11,13 +11,60 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
+// export interface UserInterface {
+//   _id: string;
+//   fullname: string;
+//   username: string;
+//   email: string;
+//   passwordHash: string;
+//   dob?: string;
+//   gender?: string;
+//   address?: string;
+//   profileImageUrl?: string;
+//   createdAt?: string;
+//   cart: CartInterface[];
+//   wishlist: WishlistInterface[];
+//   phone: string;
+
+//   // Roles can be string ids or populated objects
+//   roles: (string | { _id: string; name: string })[];
+
+//   shopName?: string;
+//   businessType?: "individual" | "sole_proprietorship" | "company";
+//   businessCategory?: string;
+//   businessAddress?: string;
+
+//   cnic?: string;
+
+//   bankAccountTitle?: string;
+//   bankAccountNumber?: string;
+//   bankName?: string;
+//   bankBranch?: string;
+
+//   emergencyContact?: string;
+//   status?: "pending" | "verified" | "rejected";
+// }
+export interface SellerProfileInterface {
+  shopName?: string;
+  businessType?: "individual" | "sole_proprietorship" | "company";
+  businessCategory?: string;
+  businessAddress?: string;
+  cnic?: string;
+  bankAccountTitle?: string;
+  bankAccountNumber?: string;
+  bankName?: string;
+  bankBranch?: string;
+  emergencyContact?: string;
+  status?: "pending" | "verified" | "rejected";
+}
+
 export interface UserInterface {
   _id: string;
   fullname: string;
   username: string;
   email: string;
   passwordHash: string;
-  dob?: Date;
+  dob?: string; // was Date — API returns ISO string
   gender?: string;
   address?: string;
   profileImageUrl?: string;
@@ -26,25 +73,24 @@ export interface UserInterface {
   wishlist: WishlistInterface[];
   phone: string;
 
-  // Roles can be string ids or populated objects
   roles: (string | { _id: string; name: string })[];
 
+  // flat seller fields (still used by some UI)
   shopName?: string;
   businessType?: "individual" | "sole_proprietorship" | "company";
   businessCategory?: string;
   businessAddress?: string;
-
   cnic?: string;
-
   bankAccountTitle?: string;
   bankAccountNumber?: string;
   bankName?: string;
   bankBranch?: string;
-
   emergencyContact?: string;
   status?: "pending" | "verified" | "rejected";
-}
 
+  // nested seller profile (API sometimes sends this)
+  sellerProfile?: SellerProfileInterface;
+}
 const serverPath = config.server.uri;
 const apis = config.server.api;
 

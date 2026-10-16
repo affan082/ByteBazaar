@@ -92,7 +92,9 @@ function CategoryArchive() {
   }, [category, query]);
 
   return (
-    <CategoryArchiveContext.Provider value={archiveContext}>
+    <CategoryArchiveContext.Provider
+      value={archiveContext as CategoryArchiveContextProps}
+    >
       <Container className={"page archive category-archive"} fluid={true}>
         <Row className={"content-box page-section page-content"}>
           <Col className={"filter-container"}>

@@ -1,9 +1,9 @@
-import { createContext } from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 import { UserInterface } from "./AuthProvider.tsx";
 
 interface CreateUserContextType {
   user: Partial<UserInterface>;
-  setUser: (user: Partial<UserInterface>) => void;
+  setUser: Dispatch<SetStateAction<Partial<UserInterface>>>;
 }
 
 export const UserContext = createContext<Partial<CreateUserContextType>>({});
