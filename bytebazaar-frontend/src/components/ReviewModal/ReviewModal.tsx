@@ -1,7 +1,6 @@
 import { Modal, Button, Row, Col, Form } from "react-bootstrap";
 import { useState, useContext } from "react";
 import "./reviewModal.scss";
-import Rating from "../Rating/Rating";
 import axios from "axios";
 import { ConfigContext } from "../../reducers/GlobalConfig";
 

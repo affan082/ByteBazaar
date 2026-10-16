@@ -10,7 +10,7 @@ function AdminProductListing() {
   const config = useContext(ConfigContext);
   const [products, setProducts] = useState<ProductInterface[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  // const [setError] = useState<string | null>(null);
   const [showPreview, setShowPreview] = useState(false);
   const [selectedProduct, setSelectedProduct] =
     useState<ProductInterface | null>(null);
@@ -24,7 +24,7 @@ function AdminProductListing() {
         setProducts(res.data.data);
         setLoading(false);
       } catch (err: any) {
-        setError(err.message || "Failed to fetch products");
+        // setError(err.message || "Failed to fetch products");
         setLoading(false);
       }
     };

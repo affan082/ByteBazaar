@@ -32,7 +32,7 @@ function AdminOrderListing() {
   const config = useContext(ConfigContext);
   const [orders, setOrders] = useState<OrderInterface[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null);
   const [expandedOrder, setExpandedOrder] = useState<string | null>(null);
   const [statusFilter, setStatusFilter] = useState<string>("all");
 

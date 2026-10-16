@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Container, Row, Col, Card, Spinner, CardBody } from "react-bootstrap";
+import { Container, Row, Col, Card, CardBody } from "react-bootstrap";
 import {
   LineChart,
   Line,
@@ -15,7 +15,6 @@ import "./../../admin/Analytics/analytics.scss";
 
 function SellerDashboard() {
   const config = useContext(ConfigContext);
-  const [loading, setLoading] = useState(true);
 
   const [stats, setStats] = useState({
     totalSales: 0,

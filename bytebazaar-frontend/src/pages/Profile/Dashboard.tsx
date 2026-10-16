@@ -11,7 +11,6 @@ function ProfileLayout() {
 
   const isSeller = user?.roles?.some((role: any) => role.name === "seller");
   const isBuyer = user?.roles?.some((role: any) => role.name === "buyer");
-  const isAdmin = user?.roles?.some((role: any) => role.name === "admin");
 
   const sellerStatus = (user as any)?.sellerProfile?.status || "pending";
   const isVerifiedSeller = sellerStatus === "verified";
@@ -61,12 +60,6 @@ function ProfileLayout() {
                   My Orders
                 </NavLink>
               </li>
-              {/*<li>*/}
-              {/*    <NavLink to="orders/history" className="nav-link">Orders History</NavLink>*/}
-              {/*</li>*/}
-              {/*<li>*/}
-              {/*    <NavLink to="wishlist" className="nav-link">My Wishlist</NavLink>*/}
-              {/*</li>*/}
             </>
           )}
 

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Container, Form, Button, Alert, FormGroup } from "react-bootstrap";
+import { Container, Form, Button, Alert } from "react-bootstrap";
 import "./forgot-password.scss";
 import { ServerResponse } from "../../reducers/AuthProvider.tsx";
 import axios from "axios";
@@ -13,7 +13,6 @@ function ForgotPassword() {
   const config = useContext(ConfigContext);
   const [formStep, setFormStep] = useState(0);
   const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setloading] = useState(false);
 
   function handleEmailSubmit(e: any) {

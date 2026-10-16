@@ -30,7 +30,6 @@ function ProfileInfo() {
     );
   }
   const isSeller = user.roles?.some((r: any) => r.name === "seller");
-  const isBuyer = user.roles?.some((r: any) => r.name === "buyer");
 
   return (
     <div className="profile-info-page">

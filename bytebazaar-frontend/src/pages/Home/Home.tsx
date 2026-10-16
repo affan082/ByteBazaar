@@ -1,7 +1,6 @@
 import { Col, Container, Row, Stack } from "react-bootstrap";
 import "./home.scss";
 import { useContext } from "react";
-// import CategoryMenu from "../../menus/CategoryMenu";
 import HomeSilderTemplate from "../../templates/HomeSilderTemplate";
 import QueryableCustomCarousel from "../../components/carousel/QueryableCustomCarousel";
 import ProductCarouselTemplate_1 from "../../templates/ProductCarouselTemplate1.tsx";
@@ -9,14 +8,9 @@ import { ConfigContext } from "../../reducers/GlobalConfig";
 import Section_3 from "./Sections/Section_3.tsx";
 import QueryableLoopGrid from "../../components/Queryable Loop Grid/QueryableLoopGrid.tsx";
 import LoopGridTemplate2 from "../../templates/LoopGridTemplate2.tsx";
-// import Carousel from "react-bootstrap/Carousel";
-// import HomePageReviews from "../../templates/HomePageReviews.tsx";
+
 import FeaturesSection from "./Sections/FeaturesSection.tsx";
 import { carouselResponsiveTemplate } from "../../utils/carouselslideconfig.tsx";
-// import Footer from "../../components/footer/Footer.tsx";
-//import { ProductQueryInterface } from "../../interfaces/ProductQueryInterface";
-//import { GetProducts } from "../../queries/GetProducts";
-//import ProductInterface from "../../interfaces/ProductInterface";
 
 function Home() {
   const config = useContext(ConfigContext);
@@ -30,9 +24,6 @@ function Home() {
               <Container className="gap-4 align-items-start">
                 {/*Hero Section*/}
                 <Row>
-                  {/*<Col className="category-menu-cont mb-3" xl={2} lg={3} sm={12}>*/}
-                  {/*  <CategoryMenu />*/}
-                  {/*</Col>*/}
                   <Col className={""} xxl={10} lg={10} sm={12}>
                     <HomeSilderTemplate
                       _id={"fff"}

@@ -5,10 +5,10 @@ import { GetProducts } from "../../queries/GetProducts.tsx";
 import { ConfigContext } from "../../reducers/GlobalConfig";
 import { UserContext } from "../../reducers/UserContext";
 import ProductInterface from "../../interfaces/ProductInterface";
-// import ReviewModal from "../ReviewModal/ReviewModal.tsx";
+
 import Spinner from "../spinner/Spinner.tsx";
 import NotFound from "../../pages/NotFound/NotFound.tsx";
-// import axios from "axios";
+
 import "./productdetails.scss";
 import AddToCart from "../add-to-cart/AddToCart.tsx";
 import WishlistButton from "../WishlistButton/WishlistButton.tsx";
@@ -17,7 +17,7 @@ interface ProductDetailsProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
-const ProductDetails = ({ setActiveTab }: ProductDetailsProps) => {
+const ProductDetails = ({}: ProductDetailsProps) => {
   const { slug } = useParams();
   const [loading, setLoading] = useState(true);
   const config = useContext(ConfigContext);

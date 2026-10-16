@@ -1,5 +1,5 @@
 export interface ProductQueryInterface {
-  keyword?: String;
+  keyword?: string;
   price?: {
     min?: Number;
     max?: Number;
@@ -8,9 +8,9 @@ export interface ProductQueryInterface {
     min?: Number;
     max?: Number;
   };
-  categories?: String[];
-  brands?: [String];
-  inStock?: Boolean;
+  categories?: string[];
+  brands?: [string];
+  inStock?: boolean;
   limit?: number;
   skip?: number;
 }

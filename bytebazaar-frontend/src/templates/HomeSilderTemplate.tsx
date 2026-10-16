@@ -1,15 +1,7 @@
-// import React from "react";
 import { Button, Stack } from "react-bootstrap";
-// import { ProductProps } from "../interfaces/PropInterfaces";
-import ProductInterface from "../interfaces/ProductInterface";
 import "./home-slide-template.css";
 
-function HomeSilderTemplate({
-  name,
-  price,
-  productId,
-  featureImage = "",
-}: ProductInterface) {
+function HomeSilderTemplate() {
   return (
     <Stack
       style={{ backgroundImage: `url(/assets/home-slider-img-1.jpg)` }}

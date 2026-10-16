@@ -10,7 +10,7 @@ import { WishlistItem } from "../../interfaces/WishlistInterface";
 import { useState, useContext, useEffect } from "react";
 
 function Wishlist() {
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [wishlistItems, setWishlistItems] = useState<WishlistInterface[]>([]);
   const config = useContext(ConfigContext);
   const navigate = useNavigate();

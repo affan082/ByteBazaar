@@ -14,7 +14,6 @@ import {
 import { ServerResponse, UserSignIn } from "../../reducers/AuthProvider.tsx";
 import { useContext, useState } from "react";
 import { UserContext } from "../../reducers/UserContext.tsx";
-import { Eye, EyeOff } from "lucide-react";
 
 function Signin() {
   const [formValues, setFormValues] = useState<{ [key: string]: any }>({});

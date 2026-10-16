@@ -11,8 +11,6 @@ function MyOrders() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const config = useContext(ConfigContext);
-  const [error, setError] = useState<string | null>(null);
-  const [expandedOrder, setExpandedOrder] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -94,7 +92,7 @@ function MyOrders() {
                     {order.cart.map((item, index) => (
                       <div key={index} className="d-flex align-items-left mb-2">
                         <img
-                          src={`${config.server.uri}${item.product.featureImage}`}
+                          src={`${config.server.uri}${item.product?.featureImage}`}
                           alt={item.product.name}
                           width="50"
                           height="50"

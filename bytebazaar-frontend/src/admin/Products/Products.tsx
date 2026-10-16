@@ -6,7 +6,7 @@ import { UserContext } from "../../reducers/UserContext.tsx";
 
 function Products() {
   const [productList, setProductList] = useState<React.ReactNode[]>([]);
-  const [productListLimit, setProductListLimit] = useState(10);
+  const [productListLimit] = useState(10);
   const { user } = useContext(UserContext);
 
   useEffect(() => {

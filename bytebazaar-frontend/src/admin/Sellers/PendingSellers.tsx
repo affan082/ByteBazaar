@@ -32,7 +32,6 @@ interface SellerData {
 function PendingSellers() {
   const [sellers, setSellers] = useState<SellerData[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [selectedSeller, setSelectedSeller] = useState<SellerData | null>(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -50,8 +49,8 @@ function PendingSellers() {
         setSellers((res.data.data || []).reverse());
         setLoading(false);
       })
-      .catch((err) => {
-        setError("Failed to fetch sellers");
+      .catch(() => {
+        // setError("Failed to fetch sellers");
         setLoading(false);
       });
   };

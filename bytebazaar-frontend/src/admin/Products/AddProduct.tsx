@@ -21,7 +21,6 @@ import { useParams } from "react-router-dom";
 import { GetProducts } from "../../queries/GetProducts.tsx";
 import { MultiSelect, MultiSelectChangeEvent } from "primereact/multiselect";
 import "./admin-products.scss";
-import { ProductConfigContext } from "../../reducers/ProductConfig.tsx";
 
 function AddProduct() {
   // The key value pairs of form inputs
@@ -39,8 +38,6 @@ function AddProduct() {
   const [selectedCategories, setSelectedCategories] = useState<
     CategoryInterface[]
   >([]);
-
-  const productConfig = useContext(ProductConfigContext);
 
   useEffect(() => {
     if (productId) {
@@ -85,8 +82,10 @@ function AddProduct() {
     } else {
       const _formData = { ...formData };
       if (e.target.name === "name") {
-        let _slug = document.querySelector("input[name='slug']");
-        _slug.value = slugify(e.target.value);
+        let _slug = document.querySelector(
+          "input[name='slug']",
+        ) as HTMLInputElement | null;
+        if (_slug) _slug.value = slugify(e.target.value);
         _formData["slug"] = slugify(e.target.value);
       }
 
@@ -311,15 +310,7 @@ function AddProduct() {
             </FormGroup>
             <FormGroup as={Col} className={"product-category-field-group"}>
               <FormLabel>Categories</FormLabel>
-              {/*<Form.Select*/}
-              {/*  id="input_product_category"*/}
-              {/*  name="category"*/}
-              {/*  onChange={updateFormValues}*/}
-              {/*  value={formData.category}*/}
-              {/*>*/}
-              {/*  <option value={""}>Select Category</option>*/}
-              {/*  {categories}*/}
-              {/*</Form.Select>*/}
+
               <MultiSelect
                 options={categories}
                 onChange={(e: MultiSelectChangeEvent) => {

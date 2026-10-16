@@ -2,7 +2,7 @@ import { CategoryInterface } from "../interfaces/CategoryInterface.tsx";
 import { useEffect, useState } from "react";
 import { GetCategories } from "../queries/GetCategories.tsx";
 import { Form, Stack } from "react-bootstrap";
-import { ProductQueryInterface } from "../interfaces/ProductQueryInterface.tsx";
+
 import FiltersInterface from "../interfaces/FiltersInterface.tsx";
 import "./filters.scss";
 

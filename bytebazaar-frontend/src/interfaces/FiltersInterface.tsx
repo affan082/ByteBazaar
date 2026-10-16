@@ -4,15 +4,15 @@ export default interface FiltersInterface {
   title?: string;
   queryObject: ProductQueryInterface;
   queryUpdater: (query: {
-    keyword?: String;
+    keyword?: string;
     price?: { min?: Number; max?: Number };
     rating?: { min?: Number; max?: Number };
-    categories?: String[];
-    brands?: [String];
-    inStock?: Boolean;
+    categories?: string[];
+    brands?: [string];
+    inStock?: boolean;
     limit?: number;
-    priceMin: number;
-    priceMax: number;
+    priceMin?: number;
+    priceMax?: number;
   }) => void;
   range?: {
     min: number;

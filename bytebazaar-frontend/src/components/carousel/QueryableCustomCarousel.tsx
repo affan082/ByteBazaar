@@ -59,7 +59,7 @@ function QueryableCustomCarousel<T extends CarouselItemProp>({
   // If neither data nor query is received, Then show empty message
 
   const [resultData, setResultData] = useState<T[]>([]);
-  const currentActiveTaxonomy = useRef(null);
+  const currentActiveTaxonomy = useRef<HTMLElement | null>(null);
   useEffect(() => {
     if (data) {
       setResultData(data);
@@ -80,7 +80,7 @@ function QueryableCustomCarousel<T extends CarouselItemProp>({
     carouselItems.push(
       <Stack key={i} className={"carousel-item " + itemsClassName}>
         <TemplateComponent {...resultData[i]} />
-      </Stack>
+      </Stack>,
     );
   }
 
@@ -100,7 +100,7 @@ function QueryableCustomCarousel<T extends CarouselItemProp>({
 
       currentActiveTaxonomy.current = target; // Assign new active element safely
       currentActiveTaxonomy.current?.classList.toggle("active"); // Use optional chaining
-      console.log(currentActiveTaxonomy.current, query.categories);
+      // console.log(currentActiveTaxonomy.current, query.categories);
     }
   }
 
@@ -115,7 +115,7 @@ function QueryableCustomCarousel<T extends CarouselItemProp>({
                 className: "taxonomy-control",
                 id: "taxonomy-control-" + (idx + 1),
                 onClick: taxonomyClickHandler,
-              })
+              }),
             )}
           </Stack>
         ) : (

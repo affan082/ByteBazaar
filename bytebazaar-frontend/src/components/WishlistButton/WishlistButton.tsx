@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import ProductInterface from "../../interfaces/ProductInterface";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ToastTemplate from "../ToastTemplate";
 import wishlistService from "../../services/wishlistService";
 import { Bounce, toast, ToastPosition } from "react-toastify";
@@ -24,11 +24,10 @@ function WishlistButton({
   showLabel = true,
   className,
   isInWishlist: initialIsInWishlist = false,
-  onToggle,
 }: WishlistButtonProps) {
   const [loader, setLoader] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(initialIsInWishlist);
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   useEffect(() => {
     setIsInWishlist(initialIsInWishlist);

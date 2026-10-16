@@ -6,7 +6,7 @@ import { UserContext } from "../../reducers/UserContext.tsx";
 
 function Logout() {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   async function handleLogout() {
     try {

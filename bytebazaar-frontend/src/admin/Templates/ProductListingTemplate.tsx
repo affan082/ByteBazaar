@@ -20,10 +20,10 @@ function ProductListingTemplate({ product }: Props) {
       .delete(config.server.uri + "delete-product/?id=" + product._id)
       .then((response) => {
         window.location.reload();
-        // console.log(response);
+        console.log(response);
       })
       .catch((error) => {
-        // console.log(error);
+        console.log(error);
       });
   };
   return (

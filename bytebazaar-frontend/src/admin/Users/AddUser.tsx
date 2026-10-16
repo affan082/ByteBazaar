@@ -10,7 +10,6 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 import { ConfigContext } from "../../reducers/GlobalConfig.tsx";
-import config from "../../config/global-info.json";
 
 interface Role {
   _id: string;
@@ -23,13 +22,15 @@ function AddUser() {
     name: "",
     email: "",
     password: "",
+    username: "",
+    fullname: "",
     role: "administrator",
   });
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-  const [roles, setRoles] = useState<Role[]>([]);
+  const [, setRoles] = useState<Role[]>([]);
 
   useEffect(() => {
     axios
@@ -41,7 +42,7 @@ function AddUser() {
         // Default: assign buyer role
         const buyerRole = fetchedRoles.find((r: any) => r.name === "buyer");
         if (buyerRole) {
-          setFormValues((prev) => ({ ...prev, roles: [buyerRole._id] }));
+          setFormData((prev) => ({ ...prev, roles: [buyerRole._id] }));
         }
       })
       .catch((err) => {
@@ -77,6 +78,8 @@ function AddUser() {
           email: "",
           password: "",
           role: "user",
+          username: "",
+          fullname: "",
         });
       })
       .catch((err) => {

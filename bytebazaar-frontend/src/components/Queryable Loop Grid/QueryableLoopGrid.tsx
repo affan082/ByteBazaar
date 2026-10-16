@@ -29,7 +29,7 @@ interface GridProps<T extends GridItemProps> {
     laptop?: number;
   };
   TemplateComponent: React.ComponentType<T>;
-  title: string;
+  title?: string;
 }
 
 function QueryableLoopGrid<T extends GridItemProps>({
@@ -113,7 +113,7 @@ function QueryableLoopGrid<T extends GridItemProps>({
             // style={{ width: `calc((100% - ${_col * gap}px)/${_col})` }}
           >
             <TemplateComponent {..._data[i]} />
-          </div>
+          </div>,
         );
       }
       setItems(newList); // Update the items

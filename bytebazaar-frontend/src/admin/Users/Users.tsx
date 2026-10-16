@@ -145,7 +145,9 @@ function AdminUsersPage() {
                   </span>
                   <span className="col status">{user.status ?? "Active"}</span>
                   <span className="col joined">
-                    {new Date(user.createdAt).toLocaleDateString()}
+                    {user.createdAt
+                      ? new Date(user.createdAt).toLocaleDateString()
+                      : "-"}
                   </span>
                   <span className="col actions">
                     <Button

@@ -4,12 +4,8 @@ import { ConfigContext } from "./GlobalConfig";
 import axios from "axios";
 import config from "../config/global-info.json";
 import { getCookie } from "../utils/utils.tsx";
-// import { GetCurrentCart } from "./CartUtils.ts";
 import { CartInterface } from "../interfaces/CartInterface.ts";
 import { WishlistInterface } from "../interfaces/WishlistInterface.tsx";
-// import {getCookie} from "../utils/utils.tsx";
-
-// import {redirect} from "react-router-dom";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -115,7 +111,7 @@ export const UserSignIn = ({
       },
       withCredentials: true,
     })
-    .then((response) => {
+    .then(() => {
       loaderMethod ? loaderMethod(true) : "";
       responseMethod({
         status: "success",
@@ -161,7 +157,6 @@ interface UserSignUpProps {
 }
 
 export const UserSignup = async ({
-  data,
   loaderMethod = () => {},
   responseMethod = () => {},
   setUser = () => {},
@@ -169,11 +164,6 @@ export const UserSignup = async ({
 }: UserSignUpProps) => {
   try {
     loaderMethod(true);
-
-    const response = await axios.post(`${config.server.uri}signup`, data, {
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-    });
 
     responseMethod({
       status: "success",

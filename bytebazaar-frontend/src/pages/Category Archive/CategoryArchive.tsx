@@ -14,21 +14,19 @@ import {
 } from "./CategoryArchiveContext.tsx";
 import { GetProducts } from "../../queries/GetProducts.tsx";
 import ProductInterface from "../../interfaces/ProductInterface.tsx";
-import SearchFilter from "../../filters/SearchFilter.tsx";
 
 function CategoryArchive() {
   const { slug } = useParams();
   const [searchParams] = useSearchParams();
   const query = searchParams.get("search") || "";
-  const [category, setCategory] = useState<CategoryInterface>({});
+  const [category, setCategory] = useState<CategoryInterface | null>(null);
   const [productQuery, setProductQuery] = useState<ProductQueryInterface>({});
-  const [archiveContext, setArchiveContext] =
-    useState<CategoryArchiveContextProps>({});
+  const [archiveContext] = useState<CategoryArchiveContextProps | null>(null);
   const [products, setProducts] = useState<ProductInterface[]>([]);
-  const [price, setPrice] = useState<{ min: Number; max: Number }>();
+  const [, setPrice] = useState<{ min: Number; max: Number }>();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage] = useState<number>(16);
-  const [totalCount, setTotalCount] = useState<number>(0);
+  const [, setTotalCount] = useState<number>(0);
   // console.log(products);
   // Get Category Data from Database
   useEffect(() => {
@@ -96,34 +94,6 @@ function CategoryArchive() {
   return (
     <CategoryArchiveContext.Provider value={archiveContext}>
       <Container className={"page archive category-archive"} fluid={true}>
-        {/* <Row className={"breadcrumbs content-box"}>
-          <ul>
-            <li className={"breadcrumb-item"}>
-              <a href={"/"}>Home</a>
-            </li>
-            <li className={"breadcrumb-item"}>
-              <a href={"/shop"}>Shop</a>
-            </li>
-            {category?.parent ? (
-              <li className={"breadcrumb-item category-parent"}>
-                <a href={"/shop/" + category.parent.slug}>
-                  {category.parent.name}
-                </a>
-              </li>
-            ) : (
-              <></>
-            )}
-            {Object.keys(category).length ? (
-              <li className={"breadcrumb-item category"}>
-                <a href={"/category/" + (category.slug || "")}>
-                  {category.name}
-                </a>
-              </li>
-            ) : (
-              <></>
-            )}
-          </ul>
-        </Row> */}
         <Row className={"content-box page-section page-content"}>
           <Col className={"filter-container"}>
             <Accordion

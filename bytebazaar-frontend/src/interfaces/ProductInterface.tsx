@@ -1,26 +1,26 @@
 export default interface ProductInterface {
-  productId?: String;
+  productId?: string;
   url?: string;
-  sku?: String;
-  name?: String;
-  description?: String;
-  shortDescription?: String;
-  manufacturer?: String;
-  featureImage?: String;
-  gallery?: [String];
-  price: Number;
-  salePrice?: Number;
-  categories?: [String];
-  rating?: Number;
-  stock?: Number;
+  sku?: string;
+  name?: string;
+  description?: string;
+  shortDescription?: string;
+  manufacturer?: string;
+  featureImage?: string;
+  gallery?: [string];
+  price: number;
+  salePrice?: number;
+  categories?: [string];
+  rating?: number;
+  stock?: number;
   variations?: {};
-  brand?: String;
+  brand?: string;
   _id: string;
   [key: string]: any;
   paymentGateways: [
     {
-      gateway: String;
-      purchase_id: String;
+      gateway: string;
+      purchase_id: string;
     },
   ];
 }

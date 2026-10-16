@@ -13,7 +13,7 @@ function ProductCarouselTemplate_1(product: ProductInterface) {
   let { salePrice, price, url, rating, categories, featureImage, _id, name } =
     product;
   const primaryCategory = categories?.find((c: any) => c.name);
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const isInWishlist = user?.wishlist?.some((item) => {
     const itemProductId =
       typeof item.product === "string" ? item.product : item.product?._id;

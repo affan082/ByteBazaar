@@ -8,8 +8,8 @@ import { HandlePayment } from "../../reducers/PaymentUtils.tsx";
 import cartService from "../../services/cartService.ts";
 import { CartItem } from "../../interfaces/CartInterface.ts";
 function Cart() {
-  const [loading, setLoading] = useState(true);
-  const [updatingItem, setUpdatingItem] = useState<string | null>(null);
+  const [, setLoading] = useState(true);
+  const [, setUpdatingItem] = useState<string | null>(null);
   const [cartItems, setCartItems] = useState<CartInterface[]>([]);
   const config = useContext(ConfigContext);
 
@@ -134,10 +134,8 @@ function Cart() {
                   let displayTotal =
                     Number(product?.salePrice || product?.price) * quantity;
 
-                  if (!total || isNaN(parseFloat(total))) {
-                    const price = parseFloat(
-                      product?.salePrice || product?.price,
-                    );
+                  if (!total || isNaN(total)) {
+                    const price = product?.salePrice || product?.price;
                     const validPrice = isNaN(price) ? 0 : price;
                     displayTotal = validPrice * quantity;
                   }

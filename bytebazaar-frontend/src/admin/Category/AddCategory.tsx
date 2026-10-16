@@ -7,7 +7,6 @@ import {
   FormGroup,
   Row,
   Alert,
-  Anchor,
 } from "react-bootstrap";
 import { ReactNode, useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -95,16 +94,6 @@ function AddCategory() {
       }
     });
   }, []);
-
-  const makeSlug = (str = "") => {
-    return str
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\s,.;:/\\|+]+/g, "_")
-      .replace(/[^a-z0-9_]/g, "")
-      .replace(/_+/g, "_")
-      .replace(/^_+|_+$/g, "");
-  };
 
   return (
     <Container className={"page add-category-page"}>

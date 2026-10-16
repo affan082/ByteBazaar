@@ -1,9 +1,9 @@
 import { Button } from "react-bootstrap";
 import { Bounce, toast, ToastPosition } from "react-toastify";
 import ProductInterface from "../../interfaces/ProductInterface.tsx";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import "./add-to-cart.scss";
-import { ConfigContext } from "../../reducers/GlobalConfig.tsx";
+
 import ToastTemplate from "../ToastTemplate.tsx";
 import cartService from "../../services/cartService.ts";
 
@@ -23,9 +23,7 @@ function AddToCart({
   quantity = 1,
   disabled = false,
 }: AddToCartProps) {
-  const config = useContext(ConfigContext);
   const [loader, setLoader] = useState(false);
-  const [isInCart, setIsInCart] = useState(false);
 
   const toastOptions = {
     position: "bottom-right" as ToastPosition,
