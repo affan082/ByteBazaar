@@ -3,7 +3,7 @@ import config from "../config/global-info.json";
 
 const API_BASE = config.server.uri;
 const apiClient = axios.create({
-  baseURL: API_BASE,
+  baseURL: import.meta.env.VITE_API_URL || API_BASE,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json'
