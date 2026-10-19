@@ -1,9 +1,11 @@
 import config from "../config/global-info.json";
 import axios from "axios";
 
+const SERVER_URI = import.meta.env.VITE_SERVER_URI || config.server.uri;
+
 export async function GetProducts(query: object) {
   try {
-    const response = await axios.post(config.server.uri + "products/", query, {
+    const response = await axios.post(SERVER_URI + "products/", query, {
       withCredentials: true,
     });
 
