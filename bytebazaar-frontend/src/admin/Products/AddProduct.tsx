@@ -140,9 +140,6 @@ function AddProduct() {
         config.server.uri + (productId ? "update-product" : "add-product"),
         frmData,
         {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
           withCredentials: true,
         },
       )

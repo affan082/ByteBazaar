@@ -10,6 +10,8 @@ const {
 const {User, SellerProfile} = require("../models/UserSchema");
 const { getFileLocation } = require("../utils/cloudinary");
 
+const FEATURE_FIELD = process.env.PRODUCT_FEATURE_IMAGE_FIELD || "featureImage";
+const GALLERY_FIELD = process.env.PRODUCT_GALLERY_IMAGE_FIELD || "gallery";
 
 exports.queryProducts = async (req, res) => {
   try {
@@ -139,12 +141,12 @@ exports.addProduct = async (req, res) => {
 }
 
     const featImg = req.files.find(
-        (file) => file.fieldname === process.env.PRODUCT_FEATURE_IMAGE_FIELD
+        (file) => file.fieldname === FEATURE_FIELD
     );
     product.featureImage = getFileLocation(featImg);
 
     product.gallery = req.files
-        .filter((file) => file.fieldname === process.env.PRODUCT_GALLERY_IMAGE_FIELD)
+        .filter((file) => file.fieldname === GALLERY_FIELD)
         .map(getFileLocation);
 
     product.categories =
@@ -241,7 +243,7 @@ exports.updateProduct = async (req, res) => {
     const product = req.body;
     // Bind images
     const featImg = req.files?.find(
-        (file) => file.fieldname === process.env.PRODUCT_FEATURE_IMAGE_FIELD
+        (file) => file.fieldname === FEATURE_FIELD
     );
     if (featImg) {
       product.featureImage = getFileLocation(featImg);
@@ -250,7 +252,7 @@ exports.updateProduct = async (req, res) => {
     }
 
     const galImgs = req.files?.filter(
-        (file) => file.fieldname === process.env.PRODUCT_GALLERY_IMAGE_FIELD
+        (file) => file.fieldname === GALLERY_FIELD
     );
     if (galImgs && galImgs.length > 0) {
       product.gallery = galImgs.map(getFileLocation);

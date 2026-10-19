@@ -69,7 +69,13 @@ app.use(session({
   },
 }))
 app.use(router);
-
+app.use((err, req, res, next) => {
+  console.error("Server error:", err.message, err.stack);
+  res.status(err.status || 500).json({
+    message: err.message || "Server error",
+    errorCode: err.code || "SERVER_ERROR",
+  });
+});
 // Cors
 
 
