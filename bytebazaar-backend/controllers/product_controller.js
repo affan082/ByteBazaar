@@ -84,15 +84,11 @@ exports.queryProducts = async (req, res) => {
         .skip(skip)
         .sort({ updatedAt: sort });
 
-    if (result.length > 0) {
-      return res
-          .status(200)
-          .send(new APIResponse(200, "Product(s) found", result));
-    }
-
     return res
-        .status(404)
-        .send(new APIResponse(404, "Product(s) Not found", result));
+  .status(200)
+  .send(new APIResponse(200, result.length ? "Product(s) found" : "No products found", result));
+
+    
   } catch (e) {
     res.status(500).send(
         new APIError(
