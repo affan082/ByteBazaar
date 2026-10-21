@@ -15,7 +15,7 @@
       "cart": "/cart",
       "wishlist": "/wishlist",
       "admin_path": "/admin",
-      "add_product": "/product/add",
+      "add_product": "dashboard/product/add",
       "product": "/product/",
       "root": "/",
       "shop": "/shop",
