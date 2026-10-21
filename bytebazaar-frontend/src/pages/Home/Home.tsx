@@ -177,7 +177,7 @@ function Home() {
                       />
                     </Stack>
                   </Row>
-                  <Row className={"page-section-inner"}>
+                  {/* <Row className={"page-section-inner"}>
                     <Stack className="carousel-with-categories p-0">
                       <QueryableCustomCarousel
                         query={{ limit: 12, skip: 15 }}
@@ -188,7 +188,7 @@ function Home() {
                         responsive={carouselResponsiveTemplate}
                       />
                     </Stack>
-                  </Row>
+                  </Row> */}
                   <Row className={"page-section-inner"}>
                     <Col className={"p-0"}>
                       <img
